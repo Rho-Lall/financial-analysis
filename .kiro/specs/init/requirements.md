@@ -45,14 +45,16 @@ This document specifies requirements for a proof-of-concept financial analytics 
 1. WHEN raw SEC data is loaded into DuckDB THEN the Raw Vault SHALL create Hub_Company with ticker symbol as business key
 2. WHEN raw SEC data is loaded into DuckDB THEN the Raw Vault SHALL create Hub_Financial_Period with fiscal year and quarter as composite business key
 3. WHEN raw SEC data is loaded into DuckDB THEN the Raw Vault SHALL create Hub_Account with SEC account identifier as business key
-4. WHEN Hubs are populated THEN the Raw Vault SHALL create Link_Company_Period connecting companies to their reporting periods
-5. WHEN Hubs are populated THEN the Raw Vault SHALL create Link_Period_Account connecting periods to financial line items
-6. WHEN Links are created THEN the Raw Vault SHALL create Sat_Company_Details storing company name, sector, and industry
-7. WHEN Links are created THEN the Raw Vault SHALL create Sat_Financial_Statement storing line item values and statement type
-8. WHEN Links are created THEN the Raw Vault SHALL create Sat_Period_Attributes storing filing date and fiscal year end
-9. WHEN any Raw Vault model is created THEN the Raw Vault SHALL include load_datetime, record_source, and hash_key columns
-10. WHEN any Satellite is created THEN the Raw Vault SHALL include hash_diff column for change detection
-11. WHEN Raw Vault models are materialized THEN the Raw Vault SHALL store output as tables in the DuckDB database
+4. WHEN Hubs are populated THEN the Raw Vault SHALL create Link_Company_Period_Filing_Header connecting companies to their reporting periods
+5. WHEN Hubs are populated THEN the Raw Vault SHALL create Link_Period_Account_Filing_Detail connecting filing headers to financial line items
+6. WHEN Links are created THEN the Raw Vault SHALL create Sat_Company storing company name, sector, and industry
+7. WHEN Links are created THEN the Raw Vault SHALL create Sat_Account storing XBRL label and unit type
+8. WHEN Links are created THEN the Raw Vault SHALL create Sat_Filing_Header storing filing date, form type, and accession number
+9. WHEN Links are created THEN the Raw Vault SHALL create Sat_Filing_Detail storing line item values and statement type
+10. WHEN Links are created THEN the Raw Vault SHALL create Sat_Financial_Period storing fiscal year end
+11. WHEN any Raw Vault model is created THEN the Raw Vault SHALL include load_datetime, record_source, and hash_key columns
+12. WHEN any Satellite is created THEN the Raw Vault SHALL include hash_diff column for change detection
+13. WHEN Raw Vault models are materialized THEN the Raw Vault SHALL store output as tables in the DuckDB database
 
 ---
 
@@ -62,10 +64,10 @@ This document specifies requirements for a proof-of-concept financial analytics 
 
 #### Acceptance Criteria
 
-1. WHEN Raw Vault is populated THEN the Business Vault SHALL create bv_company_current with latest company attributes (SCD Type 1)
-2. WHEN Raw Vault is populated THEN the Business Vault SHALL create bv_period_calendar mapping fiscal periods to calendar dates
-3. WHEN Raw Vault is populated THEN the Business Vault SHALL create bv_account_standardized mapping XBRL tags to display names
-4. WHEN Raw Vault is populated THEN the Business Vault SHALL create bv_financial_values with NULL handling and unit standardization
+1. WHEN Raw Vault is populated THEN the Business Vault SHALL create bv_company with latest company attributes (SCD Type 1)
+2. WHEN Raw Vault is populated THEN the Business Vault SHALL create bv_financial_period mapping fiscal periods to calendar dates
+3. WHEN Raw Vault is populated THEN the Business Vault SHALL create bv_account mapping XBRL tags to display names
+4. WHEN Raw Vault is populated THEN the Business Vault SHALL create bv_ledger with NULL handling and unit standardization
 
 ---
 

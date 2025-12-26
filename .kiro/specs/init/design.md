@@ -2,13 +2,13 @@
 
 ## Overview
 
-This POC implements a financial analytics pipeline that extracts SEC filing data, transforms it through Data Vault 2.0 and Star Schema layers using dbt Fusion, and presents it via a static React dashboard. The architecture prioritizes demonstrability, cost efficiency, and extensibility for future enhancements.
+This POC implements a financial analytics pipeline that extracts SEC filing data, transforms it through a four-layer Data Vault architecture using dbt Fusion, and presents it via a static React dashboard. The architecture prioritizes demonstrability, cost efficiency, and extensibility for future enhancements.
 
-The system consists of four main components:
-1. **Data Extraction** - Python script fetching SEC EDGAR data
-2. **Data Vault Layer** - dbt models implementing DV2.0 methodology
-3. **Mart Layer** - dbt models implementing Star Schema for analytics
-4. **Dashboard** - React + D3.js static site with dbt docs integration
+The transformation layers are:
+1. **Raw Vault** - Source-aligned Hubs, Links, Satellites (no business logic)
+2. **Business Vault** - Business rules, derived calculations, standardized metrics
+3. **Information Marts** - Star schema for analytics consumption
+4. **Export Layer** - JSON generation for dashboard
 
 ## Architecture
 
@@ -27,10 +27,11 @@ flowchart LR
     
     subgraph Transform
         DuckDB --> dbt[dbt Fusion]
-        dbt --> Vault[Data Vault Tables]
-        Vault --> Marts[Mart Tables]
-        Marts --> Export[export_json.py]
-        Export --> PublicData[(dashboard/public/data/)]
+        dbt --> RawVault[Raw Vault]
+        RawVault --> BizVault[Business Vault]
+        BizVault --> InfoMart[Information Marts]
+        InfoMart --> ExportLayer[Export Layer]
+        ExportLayer --> PublicData[(dashboard/public/data/)]
     end
     
     subgraph Present
@@ -52,13 +53,14 @@ flowchart LR
 4. Staging files deleted after successful load
 
 **Transform:**
-5. dbt Fusion builds Data Vault models from raw tables
-6. dbt Fusion builds Mart layer from Data Vault
-7. Export script queries marts, generates JSON to `dashboard/public/data/`
+5. dbt builds **Raw Vault** (Hubs, Links, Satellites) - source-aligned, no business logic
+6. dbt builds **Business Vault** - applies business rules, standardizes metrics
+7. dbt builds **Information Marts** - Star schema dimensions and facts
+8. dbt builds **Export Layer** - generates JSON files to `dashboard/public/data/`
 
 **Present:**
-8. Dashboard loads JSON, renders D3.js visualizations
-9. GitHub Pages serves dashboard + dbt docs
+9. Dashboard loads JSON, renders D3.js visualizations
+10. GitHub Pages serves dashboard + dbt docs
 
 ### Storage Strategy
 
@@ -68,8 +70,168 @@ flowchart LR
 - Staging files are deleted after successful DuckDB load
 
 **Persistent storage:**
-- DuckDB database file (`.duckdb`) containing raw, Data Vault, and Mart tables
+- DuckDB database file (`.duckdb`) containing all layers
 - JSON files in React public folder, deployed with the app
+
+## dbt Project Structure
+
+The dbt project is organized into clear layers matching the Data Vault architecture:
+
+```
+dbt_project/
+├── models/
+│   ├── staging/           # Raw source definitions
+│   │   └── stg_sec_*.sql
+│   ├── raw_vault/         # Data Vault 2.0 - source-aligned
+│   │   ├── hubs/
+│   │   │   ├── hub_company.sql
+│   │   │   ├── hub_financial_period.sql
+│   │   │   └── hub_account.sql
+│   │   ├── links/
+│   │   │   ├── link_company_period_filing_header.sql
+│   │   │   └── link_period_account_filing_detail.sql
+│   │   └── satellites/
+│   │       ├── sat_company.sql
+│   │       ├── sat_account.sql
+│   │       ├── sat_filing_header.sql
+│   │       ├── sat_filing_detail.sql
+│   │       └── sat_financial_period.sql
+│   ├── business_vault/    # Business rules applied
+│   │   ├── bv_company.sql
+│   │   ├── bv_financial_period.sql
+│   │   ├── bv_account.sql
+│   │   └── bv_ledger.sql
+│   ├── marts/             # Star schema for analytics
+│   │   ├── dimensions/
+│   │   │   ├── dim_company.sql
+│   │   │   ├── dim_period.sql
+│   │   │   └── dim_account.sql
+│   │   └── facts/
+│   │       ├── fact_financial_statement.sql
+│   │       └── fact_financial_metrics.sql
+│   └── exports/           # JSON-ready output
+│       ├── export_income_statement.sql
+│       ├── export_balance_sheet.sql
+│       ├── export_cash_flow.sql
+│       └── export_financial_metrics.sql
+├── seeds/                 # Static reference data
+│   └── account_mappings.csv
+├── macros/                # Reusable SQL macros
+│   ├── hash_key.sql
+│   └── hash_diff.sql
+├── tests/                 # Custom data tests
+├── dbt_project.yml
+└── profiles.yml
+```
+
+### Transformation Layer Diagram
+
+```mermaid
+flowchart TB
+    subgraph Sources
+        RAW[(DuckDB Raw Tables)]
+    end
+    
+    subgraph Staging
+        STG[stg_sec_*]
+    end
+    
+    subgraph Raw Vault
+        direction TB
+        subgraph Hubs
+            H1[hub_company]
+            H2[hub_financial_period]
+            H3[hub_account]
+        end
+        subgraph Links
+            L1[link_company_period_filing_header]
+            L2[link_period_account_filing_detail]
+        end
+        subgraph Satellites
+            S1[sat_company]
+            S2[sat_account]
+            S3[sat_filing_header]
+            S4[sat_filing_detail]
+            S5[sat_financial_period]
+        end
+    end
+    
+    subgraph Business Vault
+        BV1[bv_company]
+        BV2[bv_financial_period]
+        BV3[bv_account]
+        BV4[bv_ledger]
+    end
+    
+    subgraph Information Marts
+        direction TB
+        subgraph Dimensions
+            D1[dim_company]
+            D2[dim_period]
+            D3[dim_account]
+        end
+        subgraph Facts
+            F1[fact_financial_statement]
+            F2[fact_financial_metrics]
+        end
+    end
+    
+    subgraph Export Layer
+        E1[export_income_statement]
+        E2[export_balance_sheet]
+        E3[export_cash_flow]
+        E4[export_financial_metrics]
+    end
+    
+    RAW --> STG
+    STG --> Hubs
+    Hubs --> Links
+    
+    H1 --> L1
+    H2 --> L1
+    L1 --> L2
+    H3 --> L2
+    
+    H1 --> S1
+    H3 --> S2
+    L1 --> S3
+    L2 --> S4
+    H2 --> S5
+    
+    S1 --> BV1
+    S5 --> BV2
+    S2 --> BV3
+    S3 --> BV4
+    S4 --> BV4
+    
+    BV1 --> D1
+    BV2 --> D2
+    BV3 --> D3
+    BV4 --> F1
+    
+    D1 --> F1
+    D2 --> F1
+    D3 --> F1
+    F1 --> F2
+    
+    D2 --> E1
+    D2 --> E2
+    D2 --> E3
+    F1 --> E1
+    F1 --> E2
+    F1 --> E3
+    F2 --> E4
+```
+
+### Layer Dependencies
+
+| Layer | Depends On | Outputs To |
+|-------|------------|------------|
+| Staging | DuckDB raw tables | Raw Vault |
+| Raw Vault | Staging | Business Vault |
+| Business Vault | Raw Vault | Information Marts |
+| Information Marts | Business Vault | Export Layer |
+| Export Layer | Information Marts | JSON files |
 
 ## Components and Interfaces
 
@@ -134,13 +296,12 @@ class LoadResult:
     errors: list[str]
 ```
 
-**Raw Tables Created:**
-- `raw_income_statement` - Income statement line items by period
-- `raw_balance_sheet` - Balance sheet line items by period  
-- `raw_cash_flow` - Cash flow line items by period
-- `raw_company_info` - Company metadata (ticker, name, CIK)
+**Raw Tables:**
+Raw tables mirror the SEC EDGAR API response structure exactly. The actual schema will be determined by the API response during extraction - we load the JSON as-is into DuckDB without transformation. This preserves the source data fidelity and allows dbt to handle all transformations.
 
-### 3. Data Vault Layer (dbt Models)
+### 3. Raw Vault Layer (dbt Models)
+
+The Raw Vault is source-aligned with no business logic applied.
 
 **Hubs:**
 
@@ -154,18 +315,33 @@ class LoadResult:
 
 | Model | Related Hubs | Columns |
 |-------|-------------|---------|
-| link_company_period | hub_company, hub_financial_period | hash_key, company_hash_key, period_hash_key, load_datetime, record_source |
-| link_period_account | hub_financial_period, hub_account | hash_key, period_hash_key, account_hash_key, load_datetime, record_source |
+| link_company_period_filing_header | hub_company, hub_financial_period | hash_key, company_hash_key, period_hash_key, load_datetime, record_source |
+| link_period_account_filing_detail | link_company_period_filing_header, hub_account | hash_key, filing_header_hash_key, account_hash_key, load_datetime, record_source |
 
 **Satellites:**
 
 | Model | Parent | Columns |
 |-------|--------|---------|
-| sat_company_details | hub_company | hash_key, company_name, sector, industry, hash_diff, load_datetime, record_source |
-| sat_financial_statement | link_period_account | hash_key, value, statement_type, hash_diff, load_datetime, record_source |
-| sat_period_attributes | hub_financial_period | hash_key, filing_date, fiscal_year_end, hash_diff, load_datetime, record_source |
+| sat_company | hub_company | hash_key, company_name, sector, industry, hash_diff, load_datetime, record_source |
+| sat_account | hub_account | hash_key, xbrl_label, unit_type, hash_diff, load_datetime, record_source |
+| sat_filing_header | link_company_period_filing_header | hash_key, filing_date, form_type, accession_number, hash_diff, load_datetime, record_source |
+| sat_filing_detail | link_period_account_filing_detail | hash_key, value, statement_type, hash_diff, load_datetime, record_source |
+| sat_financial_period | hub_financial_period | hash_key, fiscal_year_end, hash_diff, load_datetime, record_source |
 
-### 4. Mart Layer (dbt Models)
+### 4. Business Vault Layer (dbt Models)
+
+The Business Vault applies business rules and standardizes data for consumption.
+
+| Model | Purpose | Key Transformations |
+|-------|---------|---------------------|
+| bv_company | Current company state | Latest satellite values, SCD Type 1 |
+| bv_financial_period | Period with calendar mapping | Fiscal-to-calendar date conversion |
+| bv_account | Standardized account names | XBRL tag → display name mapping |
+| bv_ledger | Cleaned financial values | NULL handling, unit standardization |
+
+### 5. Information Marts Layer (dbt Models)
+
+Star schema optimized for analytics queries.
 
 **Dimensions:**
 
@@ -182,9 +358,18 @@ class LoadResult:
 | fact_financial_statement | company + period + account | value |
 | fact_financial_metrics | company + period | revenue, revenue_growth_yoy, revenue_growth_qoq, gross_margin, operating_margin, net_margin, debt_to_equity, roa, fcf, fcf_to_assets |
 
-### 5. JSON Export Component
+### 6. Export Layer (dbt Models)
 
-**Module:** `extraction/export_json.py`
+Generates JSON-ready datasets from Information Marts.
+
+| Model | Output File | Content |
+|-------|-------------|---------|
+| export_income_statement | income_statement.json | Quarterly income statement data |
+| export_balance_sheet | balance_sheet.json | Quarterly balance sheet data |
+| export_cash_flow | cash_flow.json | Yearly cash flow data |
+| export_financial_metrics | financial_metrics.json | Calculated ratios and metrics |
+
+**JSON Export Script:** `extraction/export_json.py`
 
 ```python
 class JSONExporter:
@@ -201,30 +386,9 @@ class ExportResult:
     total_size_bytes: int
     export_timestamp: datetime
 ```
-
-**JSON Schema (example for income_statement.json):**
-```json
-{
-  "metadata": {
-    "ticker": "AAPL",
-    "export_timestamp": "2025-12-23T10:00:00Z",
-    "periods_included": 40
-  },
-  "data": [
-    {
-      "fiscal_year": 2024,
-      "fiscal_quarter": 4,
-      "period_label": "Q4 2024",
-      "revenue": 123456789,
-      "cost_of_revenue": 67890123,
-      "operating_expenses": 12345678,
-      "net_income": 43210987
-    }
-  ]
-}
 ```
 
-### 6. Dashboard Component
+### 7. Dashboard Component
 
 **Structure:**
 ```
@@ -464,7 +628,7 @@ models:
           - unique
           - not_null
 
-  - name: sat_financial_statement
+  - name: sat_filing_detail
     columns:
       - name: hash_key
         tests:
