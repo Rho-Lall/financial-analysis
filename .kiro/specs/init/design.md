@@ -390,6 +390,49 @@ class ExportResult:
 
 ### 7. Dashboard Component
 
+**Architecture:** Client-Side Rendered (CSR) React Application
+
+The dashboard is a Single Page Application (SPA) that uses client-side rendering:
+- **Development:** Vite dev server provides hot module replacement at `http://localhost:5173`
+- **Production:** Vite builds static HTML/CSS/JS files deployed to GitHub Pages
+- **Rendering:** All UI rendering and data processing happens in the browser
+- **Data Loading:** JSON files are fetched and parsed client-side
+
+**Client-Side Rendering Data Constraints:**
+
+Understanding CSR data limits is critical for dashboard performance:
+
+| Data Size | Performance Impact | User Experience |
+|-----------|-------------------|-----------------|
+| 1-5 MB | Optimal | Fast load, smooth interactions |
+| 10-20 MB | Acceptable | Noticeable load time, but usable |
+| 50+ MB | Poor | Slow load, browser struggles |
+| 100+ MB | Breaking Point | Memory issues, potential crashes |
+
+**Our Design Constraints:**
+- Each JSON file limited to **< 1MB** (Requirement 5.2)
+- Total data payload: **~4MB** (4 files × 1MB)
+- Well within comfortable CSR range
+
+**Data Capacity Analysis:**
+
+For financial data with 10-15 columns:
+- **Typical row size:** 400-500 bytes (JSON formatted)
+- **5MB capacity:** ~10,000-12,500 rows
+- **Our POC usage:** 40 periods × 15 columns = ~20KB per file
+- **Headroom:** Using < 2% of available capacity
+
+**Scalability Examples:**
+- 10,000 rows = 250 years of quarterly data for one company
+- 10,000 rows = 10 years of data for 250 companies  
+- 10,000 rows = 40 quarters × 250 different financial metrics
+
+**If Future Expansion Needed:**
+- Pagination (load data on demand)
+- Virtualization (render only visible rows)
+- Server-side API (fetch filtered subsets)
+- Data aggregation (pre-summarize in dbt)
+
 **Structure:**
 ```
 dashboard/

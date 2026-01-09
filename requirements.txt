@@ -1,0 +1,14 @@
+# SEC Data Extraction
+requests>=2.31.0
+pandas>=2.1.0
+python-dateutil>=2.8.2
+
+# Database
+duckdb>=0.9.0
+
+# Testing
+pytest>=7.4.0
+hypothesis>=6.92.0
+
+# dbt
+dbt-duckdb>=1.7.0
