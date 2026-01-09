@@ -1,60 +1,135 @@
-import './App.css'
+import { useState } from 'react';
+import './App.css';
+import Header from './components/Header';
+import Navigation from './components/Navigation';
+import Footer from './components/Footer';
+import ScoreCard from './components/ScoreCard';
+import { useFinancialData } from './hooks/useFinancialData';
 
 function App() {
+  const [currentPage, setCurrentPage] = useState<'income' | 'balance' | 'cashflow'>('income');
+  const { incomeStatement, balanceSheet, cashFlow, loading, error } = useFinancialData();
+
+  if (loading) {
+    return (
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh' }}>
+        <p style={{ fontSize: '1.2rem', color: '#666' }}>Loading financial data...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh', flexDirection: 'column' }}>
+        <p style={{ fontSize: '1.2rem', color: '#ef4444', marginBottom: '1rem' }}>Error loading data</p>
+        <p style={{ fontSize: '0.9rem', color: '#666' }}>{error.message}</p>
+      </div>
+    );
+  }
+
   return (
-    <div style={{
-      maxWidth: '800px',
-      margin: '0 auto',
-      padding: '2rem',
-      textAlign: 'center'
-    }}>
-      <header>
-        <h1>Financial Intelligence Dashboard</h1>
-        <p style={{ fontSize: '1.2rem', color: '#888' }}>
-          Fundamental & Technical Analysis Platform
-        </p>
-      </header>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <Header
+        companyName={incomeStatement?.metadata.company}
+        ticker={incomeStatement?.metadata.ticker}
+      />
+      <Navigation currentPage={currentPage} onNavigate={(page) => setCurrentPage(page as any)} />
 
-      <main style={{ marginTop: '3rem' }}>
-        <div style={{
-          padding: '2rem',
-          background: '#f5f5f5',
-          borderRadius: '8px',
-          marginBottom: '2rem'
-        }}>
-          <h2>🚧 Under Construction</h2>
-          <p>
-            This dashboard is being built to provide comprehensive financial analysis
-            combining public and private financial data with technical price analysis.
-          </p>
-        </div>
+      <main style={{ flex: 1, maxWidth: '1200px', width: '100%', margin: '0 auto', padding: '2rem' }}>
+        {currentPage === 'income' && (
+          <div>
+            <h2 style={{ marginBottom: '2rem' }}>Income Statement</h2>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem' }}>
+              <ScoreCard
+                title="Revenue (Latest)"
+                value={207000000000}
+                format="currency"
+                trend={0.078}
+              />
+              <ScoreCard
+                title="Net Profit (Latest)"
+                value={24840000000}
+                format="currency"
+                trend={0.078}
+              />
+              <ScoreCard
+                title="Net Margin"
+                value={0.12}
+                format="percentage"
+              />
+            </div>
+            <div style={{ marginTop: '2rem', padding: '2rem', background: '#f8f9fa', borderRadius: '8px', textAlign: 'center' }}>
+              <p style={{ color: '#666' }}>Charts coming soon...</p>
+              <p style={{ fontSize: '0.9rem', color: '#999', marginTop: '0.5rem' }}>
+                Data loaded: {incomeStatement?.data.length} records
+              </p>
+            </div>
+          </div>
+        )}
 
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-          gap: '1rem',
-          marginTop: '2rem'
-        }}>
-          <div style={{ padding: '1rem', background: '#fff', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
-            <h3>Income Statement</h3>
-            <p style={{ fontSize: '0.9rem', color: '#666' }}>Coming Soon</p>
+        {currentPage === 'balance' && (
+          <div>
+            <h2 style={{ marginBottom: '2rem' }}>Balance Sheet</h2>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem' }}>
+              <ScoreCard
+                title="Total Assets"
+                value={207000000000}
+                format="currency"
+              />
+              <ScoreCard
+                title="Total Equity"
+                value={150975000000}
+                format="currency"
+              />
+              <ScoreCard
+                title="Debt-to-Equity Ratio"
+                value={0.37}
+                format="ratio"
+              />
+            </div>
+            <div style={{ marginTop: '2rem', padding: '2rem', background: '#f8f9fa', borderRadius: '8px', textAlign: 'center' }}>
+              <p style={{ color: '#666' }}>Charts coming soon...</p>
+              <p style={{ fontSize: '0.9rem', color: '#999', marginTop: '0.5rem' }}>
+                Data loaded: {balanceSheet?.data.length} records
+              </p>
+            </div>
           </div>
-          <div style={{ padding: '1rem', background: '#fff', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
-            <h3>Balance Sheet</h3>
-            <p style={{ fontSize: '0.9rem', color: '#666' }}>Coming Soon</p>
+        )}
+
+        {currentPage === 'cashflow' && (
+          <div>
+            <h2 style={{ marginBottom: '2rem' }}>Cash Flow</h2>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem' }}>
+              <ScoreCard
+                title="Operating Cash Flow"
+                value={37260000000}
+                format="currency"
+                trend={0.078}
+              />
+              <ScoreCard
+                title="Capital Expenditures"
+                value={-20700000000}
+                format="currency"
+              />
+              <ScoreCard
+                title="Free Cash Flow"
+                value={16560000000}
+                format="currency"
+              />
+            </div>
+            <div style={{ marginTop: '2rem', padding: '2rem', background: '#f8f9fa', borderRadius: '8px', textAlign: 'center' }}>
+              <p style={{ color: '#666' }}>Charts coming soon...</p>
+              <p style={{ fontSize: '0.9rem', color: '#999', marginTop: '0.5rem' }}>
+                Data loaded: {cashFlow?.data.length} records
+              </p>
+            </div>
           </div>
-          <div style={{ padding: '1rem', background: '#fff', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
-            <h3>Cash Flow</h3>
-            <p style={{ fontSize: '0.9rem', color: '#666' }}>Coming Soon</p>
-          </div>
-        </div>
+        )}
       </main>
 
-      <footer style={{ marginTop: '3rem', fontSize: '0.9rem', color: '#888' }}>
-        <p>Powered by dbt Fusion + React + D3.js</p>
-      </footer>
+      <Footer />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

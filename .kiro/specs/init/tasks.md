@@ -28,7 +28,7 @@
 
 ---
 
-- [ ] 3. Initialize dbt project with Snowflake adapter
+- [x] 3. Initialize dbt project with Snowflake adapter
   - Run `dbt init` and configure for Snowflake
   - Create `profiles.yml` pointing to Snowflake Database
   - _Requirements: 2.1_
@@ -39,13 +39,13 @@
 
 # Present (Dashboard First)
 
-- [ ] 4. Set up GitHub Pages deployment pipeline
-  - [ ] 4.1 Configure GitHub Actions workflow for static site deployment
+- [x] 4. Set up GitHub Pages deployment pipeline
+  - [x] 4.1 Configure GitHub Actions workflow for static site deployment
     - Create `.github/workflows/deploy.yml` for GitHub Pages
     - _Requirements: 10.4_
     - _Estimated time: 20 minutes_
     - _Model: Sonnet (YAML configuration)_
-  - [ ] 4.2 Deploy placeholder page to verify pipeline works
+  - [x] 4.2 Deploy placeholder page to verify pipeline works
     - Create simple index.html placeholder
     - Verify site is accessible at GitHub Pages URL
     - _Requirements: 10.4_
@@ -54,13 +54,13 @@
 
 ---
 
-- [ ] 5. Define JSON data contracts with dummy data
-  - [ ] 5.1 Create TypeScript interfaces for financial data
+- [x] 5. Define JSON data contracts with dummy data
+  - [x] 5.1 Create TypeScript interfaces for financial data
     - Define IncomeStatementData, BalanceSheetData, CashFlowData, FinancialMetrics types
     - _Requirements: 6.1, 7.1, 8.1_
     - _Estimated time: 15 minutes_
     - _Model: Sonnet (type definitions)_
-  - [ ] 5.2 Generate dummy JSON files matching expected schema
+  - [x] 5.2 Generate dummy JSON files matching expected schema
     - Create income_statement.json, balance_sheet.json, cash_flow.json, financial_metrics.json with realistic sample data
     - Include metadata object with export_timestamp and ticker
     - _Requirements: 5.1, 5.3_
