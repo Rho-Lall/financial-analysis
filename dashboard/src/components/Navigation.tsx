@@ -13,8 +13,6 @@ export default function Navigation({ currentPage = 'income', onNavigate }: Navig
   };
 
   const containerStyle: CSSProperties = {
-    maxWidth: '1200px',
-    margin: '0 auto',
     display: 'flex',
     gap: '0',
   };
@@ -41,7 +39,7 @@ export default function Navigation({ currentPage = 'income', onNavigate }: Navig
 
   return (
     <nav style={navStyle}>
-      <div style={containerStyle}>
+      <div className="responsive-container" style={containerStyle}>
         <button
           style={getNavItemStyle(currentPage === 'income')}
           onClick={() => handleClick('income')}
@@ -90,6 +88,21 @@ export default function Navigation({ currentPage = 'income', onNavigate }: Navig
         >
           Cash Flow
         </button>
+        <a
+          href="#dbt-docs"
+          style={{
+            ...getNavItemStyle(false),
+            marginLeft: 'auto',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background = 'rgba(102, 126, 234, 0.05)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = 'transparent';
+          }}
+        >
+          Docs
+        </a>
       </div>
     </nav>
   );

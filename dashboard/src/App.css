@@ -1,8 +1,33 @@
 #root {
-  max-width: 1280px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.responsive-container {
+  width: 100%;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  padding: 0 2rem;
+}
+
+.page-container {
+  width: 100%;
+  margin: 2rem auto;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .responsive-container {
+    width: 75%;
+    padding: 0 2rem;
+  }
+
+  .page-container {
+    width: 75%;
+  }
 }
 
 .logo {

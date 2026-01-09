@@ -28,14 +28,15 @@ function App() {
   }
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-      <Header
-        companyName={incomeStatement?.metadata.company}
-        ticker={incomeStatement?.metadata.ticker}
-      />
-      <Navigation currentPage={currentPage} onNavigate={(page) => setCurrentPage(page as any)} />
+    <div style={{ minHeight: '100vh', background: '#e5e5e5', padding: '0' }}>
+      <div className="page-container">
+        <Header
+          companyName={incomeStatement?.metadata.company}
+          ticker={incomeStatement?.metadata.ticker}
+        />
+        <Navigation currentPage={currentPage} onNavigate={(page) => setCurrentPage(page as any)} />
 
-      <main style={{ flex: 1, maxWidth: '1200px', width: '100%', margin: '0 auto', padding: '2rem' }}>
+        <main className="responsive-container" style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
         {currentPage === 'income' && (
           <div>
             <h2 style={{ marginBottom: '2rem' }}>Income Statement</h2>
@@ -125,9 +126,10 @@ function App() {
             </div>
           </div>
         )}
-      </main>
+        </main>
 
-      <Footer />
+        <Footer />
+      </div>
     </div>
   );
 }

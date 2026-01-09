@@ -9,11 +9,6 @@ export default function Footer() {
     textAlign: 'center',
   };
 
-  const containerStyle: CSSProperties = {
-    maxWidth: '1200px',
-    margin: '0 auto',
-  };
-
   const textStyle: CSSProperties = {
     margin: '0.5rem 0',
     color: '#666',
@@ -30,7 +25,7 @@ export default function Footer() {
 
   return (
     <footer style={footerStyle}>
-      <div style={containerStyle}>
+      <div className="responsive-container">
         <p style={textStyle}>
           Powered by{' '}
           <a
