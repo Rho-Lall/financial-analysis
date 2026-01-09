@@ -16,6 +16,7 @@ dbt_project/logs/
 
 # Data
 data/
+!dashboard/public/data/
 *.duckdb
 *.duckdb.wal
 

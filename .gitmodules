@@ -1,0 +1,3 @@
+[submodule "submodules/financials"]
+	path = submodules/financials
+	url = git@github.com:Rho-Lall/financials.git
