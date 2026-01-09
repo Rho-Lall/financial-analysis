@@ -31,10 +31,11 @@ export function useFinancialData(): UseFinancialDataReturn {
         setError(null);
 
         // Fetch all three financial statements in parallel
+        // Use relative paths that work with Vite's base configuration
         const [incomeRes, balanceRes, cashFlowRes] = await Promise.all([
-          fetch('/data/income_statement.json'),
-          fetch('/data/balance_sheet.json'),
-          fetch('/data/cash_flow.json'),
+          fetch(`${import.meta.env.BASE_URL}data/income_statement.json`),
+          fetch(`${import.meta.env.BASE_URL}data/balance_sheet.json`),
+          fetch(`${import.meta.env.BASE_URL}data/cash_flow.json`),
         ]);
 
         // Check if all requests were successful
