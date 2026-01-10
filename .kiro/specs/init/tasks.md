@@ -69,15 +69,15 @@
 
 ---
 
-- [ ] 6. Implement Dashboard - Core Components
-  - [ ] 6.1 Create shared components (Header, Footer, Navigation, ScoreCard)
+- [x] 6. Implement Dashboard - Core Components
+  - [x] 6.1 Create shared components (Header, Footer, Navigation, ScoreCard)
     - Implement header with company name, ticker, and navigation links
     - Include navigation link to dbt docs site (placeholder URL for now)
     - Implement scorecard tile component for KPIs
     - _Requirements: 9.1, 9.2, 9.3_
     - _Estimated time: 30 minutes_
     - _Model: Opus (UI component design)_
-  - [ ] 6.2 Create useFinancialData hook for JSON loading
+  - [x] 6.2 Create useFinancialData hook for JSON loading
     - Fetch and parse JSON files from public/data/
     - Handle loading and error states
     - _Requirements: 6.1, 7.1, 8.1_

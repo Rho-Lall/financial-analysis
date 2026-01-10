@@ -19,6 +19,37 @@
   overflow: hidden;
 }
 
+/* Mobile-first responsive design */
+@media (max-width: 768px) {
+  .responsive-container {
+    padding: 0 1rem;
+  }
+
+  .page-container {
+    margin: 0;
+    border-radius: 0;
+  }
+
+  /* Make charts scroll horizontally on mobile */
+  .chart-container {
+    overflow-x: auto;
+  }
+
+  /* Stack scorecards vertically on mobile */
+  .scorecard-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Adjust font sizes for mobile */
+  h2 {
+    font-size: 1.5rem !important;
+  }
+
+  h3 {
+    font-size: 1.2rem !important;
+  }
+}
+
 @media (min-width: 1024px) {
   .responsive-container {
     width: 75%;

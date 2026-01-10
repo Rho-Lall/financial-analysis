@@ -41,12 +41,12 @@ export default function ScoreCard({
   const getSizeStyles = () => {
     switch (size) {
       case 'small':
-        return { value: '2rem', title: '0.85rem' };
+        return { value: '1.75rem', title: '0.7rem' };
       case 'large':
-        return { value: '3.5rem', title: '1rem' };
+        return { value: '2.5rem', title: '0.8rem' };
       case 'medium':
       default:
-        return { value: '2.75rem', title: '0.9rem' };
+        return { value: '2rem', title: '0.75rem' };
     }
   };
 
@@ -54,8 +54,8 @@ export default function ScoreCard({
 
   const cardStyle: CSSProperties = {
     background: 'white',
-    borderRadius: '8px',
-    padding: '1.5rem',
+    borderRadius: '6px',
+    padding: '0.5rem 0.75rem',
     boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
     border: '1px solid #e0e0e0',
     transition: 'all 0.2s',
@@ -65,7 +65,7 @@ export default function ScoreCard({
     fontSize: sizeStyles.title,
     fontWeight: 600,
     color: '#666',
-    margin: '0 0 1rem 0',
+    margin: 0,
     textTransform: 'uppercase',
     letterSpacing: '0.5px',
   };
@@ -74,12 +74,12 @@ export default function ScoreCard({
     fontSize: sizeStyles.value,
     fontWeight: 700,
     color: '#333',
-    margin: '0 0 0.5rem 0',
-    lineHeight: 1.2,
+    margin: '0 0 0.15rem 0',
+    lineHeight: 1.1,
   };
 
   const trendStyle: CSSProperties = {
-    fontSize: '0.85rem',
+    fontSize: '0.7rem',
     color: trend && trend > 0 ? '#22c55e' : trend && trend < 0 ? '#ef4444' : '#666',
     margin: 0,
     display: 'flex',
@@ -106,17 +106,21 @@ export default function ScoreCard({
         e.currentTarget.style.transform = 'translateY(0)';
       }}
     >
-      <h3 style={titleStyle}>{title}</h3>
       <p style={valueStyle}>{formatValue(value, format)}</p>
-      {trend !== undefined && (
-        <p style={trendStyle}>
-          <span style={{ fontSize: '1rem' }}>{getTrendIcon()}</span>
-          <span>
-            {formatValue(Math.abs(trend), format === 'currency' ? 'currency' : 'percentage')}{' '}
-            {trendLabel}
-          </span>
-        </p>
-      )}
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        {trend !== undefined ? (
+          <p style={trendStyle}>
+            <span style={{ fontSize: '0.85rem' }}>{getTrendIcon()}</span>
+            <span>
+              {formatValue(Math.abs(trend), format === 'currency' ? 'currency' : 'percentage')}{' '}
+              {trendLabel}
+            </span>
+          </p>
+        ) : (
+          <span />
+        )}
+        <h3 style={titleStyle}>{title.replace(/^latest\s*/i, '')}</h3>
+      </div>
     </div>
   );
 }
