@@ -2,12 +2,22 @@ import { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
 import type { FinancialDataPoint } from '../types/financial';
 
+interface LineOverlayData {
+  period: string;
+  value: number;
+}
+
 interface StackedBarChartProps {
   data: FinancialDataPoint[];
   width?: number;
   height?: number;
   colors?: string[];
   onPeriodHover?: (period: string | null) => void;
+  lineOverlay?: {
+    data: LineOverlayData[];
+    color?: string;
+    label?: string;
+  };
 }
 
 export default function StackedBarChart({
@@ -15,7 +25,8 @@ export default function StackedBarChart({
   width = 800,
   height = 400,
   colors = ['#667eea', '#764ba2', '#f093fb', '#4facfe', '#43e97b', '#fa709a'],
-  onPeriodHover
+  onPeriodHover,
+  lineOverlay
 }: StackedBarChartProps) {
   const svgRef = useRef<SVGSVGElement>(null);
   const tooltipRef = useRef<HTMLDivElement>(null);
@@ -26,7 +37,7 @@ export default function StackedBarChart({
     // Clear previous chart
     d3.select(svgRef.current).selectAll('*').remove();
 
-    const margin = { top: 5, right: 5, bottom: 50, left: 50 };
+    const margin = { top: 5, right: lineOverlay ? 50 : 5, bottom: 50, left: 50 };
     const chartWidth = width - margin.left - margin.right;
     const chartHeight = height - margin.top - margin.bottom;
 
@@ -89,19 +100,18 @@ export default function StackedBarChart({
       .style('text-anchor', 'end')
       .style('font-size', '10px');
 
-    // Add Y axis
+    // Add Y axis (left)
     g.append('g')
       .call(d3.axisLeft(y)
         .ticks(8)
         .tickFormat(d => {
           const val = d as number;
-          if (val >= 1e9) return `$${(val / 1e9).toFixed(1)}B`;
-          if (val >= 1e6) return `$${(val / 1e6).toFixed(1)}M`;
-          if (val >= 1e3) return `$${(val / 1e3).toFixed(1)}K`;
-          return `$${val}`;
+          if (val >= 1e9) return `${(val / 1e9).toFixed(1)}B`;
+          if (val >= 1e6) return `${(val / 1e6).toFixed(1)}M`;
+          if (val >= 1e3) return `${(val / 1e3).toFixed(1)}K`;
+          return `${val}`;
         }))
       .style('font-size', '11px');
-
 
     // Create tooltip
     const tooltip = d3.select(tooltipRef.current);
@@ -137,14 +147,13 @@ export default function StackedBarChart({
             <div style="font-weight: 600; margin-bottom: 4px;">${account.key}</div>
             <div>${d.data.period}</div>
             <div style="margin-top: 4px; font-weight: 500;">
-              ${value >= 1e9 ? `$${(value / 1e9).toFixed(2)}B` :
-                value >= 1e6 ? `$${(value / 1e6).toFixed(2)}M` :
-                value >= 1e3 ? `$${(value / 1e3).toFixed(2)}K` :
-                `$${value.toFixed(2)}`}
+              ${value >= 1e9 ? `${(value / 1e9).toFixed(2)}B` :
+                value >= 1e6 ? `${(value / 1e6).toFixed(2)}M` :
+                value >= 1e3 ? `${(value / 1e3).toFixed(2)}K` :
+                `${value.toFixed(2)}`}
             </div>
           `);
 
-        // Trigger period hover callback
         if (onPeriodHover) {
           onPeriodHover(d.data.period);
         }
@@ -156,11 +165,80 @@ export default function StackedBarChart({
 
         tooltip.style('opacity', 0);
 
-        // Clear period hover callback
         if (onPeriodHover) {
           onPeriodHover(null);
         }
       });
+
+    // Add line overlay if provided
+    if (lineOverlay && lineOverlay.data.length > 0) {
+      const lineColor = lineOverlay.color || '#764ba2';
+      
+      // Filter line data to only include periods that exist in bar chart
+      const filteredLineData = lineOverlay.data.filter(d => periods.includes(d.period));
+      
+      // Create secondary Y scale for line
+      const y2 = d3.scaleLinear()
+        .domain([0, d3.max(filteredLineData, d => d.value) || 1])
+        .nice()
+        .range([chartHeight, 0]);
+
+      // Add right Y axis
+      g.append('g')
+        .attr('transform', `translate(${chartWidth}, 0)`)
+        .call(d3.axisRight(y2).ticks(5).tickFormat(d => (d as number).toFixed(2)))
+        .style('font-size', '11px')
+        .selectAll('text')
+        .style('fill', lineColor);
+
+      // Create line generator
+      const line = d3.line<LineOverlayData>()
+        .x(d => (x(d.period) || 0) + x.bandwidth() / 2)
+        .y(d => y2(d.value));
+
+      // Add line path
+      g.append('path')
+        .datum(filteredLineData)
+        .attr('fill', 'none')
+        .attr('stroke', lineColor)
+        .attr('stroke-width', 2.5)
+        .attr('d', line);
+
+      // Add dots on line
+      g.selectAll('.line-dot')
+        .data(filteredLineData)
+        .join('circle')
+        .attr('class', 'line-dot')
+        .attr('cx', d => (x(d.period) || 0) + x.bandwidth() / 2)
+        .attr('cy', d => y2(d.value))
+        .attr('r', 4)
+        .attr('fill', lineColor)
+        .attr('stroke', 'white')
+        .attr('stroke-width', 2);
+
+      // Add line label to legend
+      if (lineOverlay.label) {
+        const legendOffset = accounts.length * 20 + 10;
+        const lineLegend = g.append('g')
+          .attr('transform', `translate(5, ${legendOffset})`);
+
+        lineLegend.append('line')
+          .attr('x1', 0)
+          .attr('y1', 6)
+          .attr('x2', 12)
+          .attr('y2', 6)
+          .attr('stroke', lineColor)
+          .attr('stroke-width', 2.5);
+
+        lineLegend.append('text')
+          .attr('x', 18)
+          .attr('y', 10)
+          .style('font-size', '10px')
+          .style('fill', '#333')
+          .style('font-weight', '500')
+          .text(lineOverlay.label);
+      }
+    }
 
     // Add legend in upper left, offset from axis
     const legend = g.append('g')
@@ -184,7 +262,7 @@ export default function StackedBarChart({
         .text(account.length > 20 ? account.substring(0, 20) + '...' : account);
     });
 
-  }, [data, width, height, colors, onPeriodHover]);
+  }, [data, width, height, colors, onPeriodHover, lineOverlay]);
 
   return (
     <div style={{ position: 'relative', display: 'inline-block' }}>
