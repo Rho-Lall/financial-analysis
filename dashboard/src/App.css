@@ -40,6 +40,16 @@
     grid-template-columns: 1fr !important;
   }
 
+  /* Stack chart and detail panel vertically on mobile */
+  .chart-detail-row {
+    flex-direction: column !important;
+  }
+
+  .chart-detail-row > div {
+    flex: none !important;
+    width: 100% !important;
+  }
+
   /* Adjust font sizes for mobile */
   h2 {
     font-size: 1.5rem !important;
@@ -47,6 +57,45 @@
 
   h3 {
     font-size: 1.2rem !important;
+  }
+
+  /* Navigation adjustments */
+  nav {
+    flex-wrap: wrap;
+    gap: 0.5rem !important;
+  }
+
+  nav button {
+    flex: 1;
+    min-width: 100px;
+    font-size: 0.85rem !important;
+    padding: 0.5rem !important;
+  }
+
+  /* Footer adjustments */
+  footer {
+    padding: 1rem !important;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 769px) and (max-width: 1023px) {
+  .responsive-container {
+    padding: 0 1.5rem;
+  }
+
+  .page-container {
+    width: 95%;
+  }
+
+  /* Stack chart and detail panel vertically on tablet */
+  .chart-detail-row {
+    flex-direction: column !important;
+  }
+
+  .chart-detail-row > div {
+    flex: none !important;
+    width: 100% !important;
   }
 }
 

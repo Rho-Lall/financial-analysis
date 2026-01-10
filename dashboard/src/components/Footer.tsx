@@ -56,7 +56,7 @@ export default function Footer() {
           </a>
         </p>
         <p style={{ ...textStyle, fontSize: '0.8rem', color: '#999' }}>
-          © {currentYear} Financial Intelligence Dashboard
+          © 2026 Rho Lall
         </p>
       </div>
     </footer>

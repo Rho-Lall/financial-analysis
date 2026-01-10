@@ -66,7 +66,7 @@ function App() {
             </div>
 
             {/* Stacked Bar Chart with Quarterly Detail */}
-            <div style={{ marginBottom: '2rem', display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
+            <div className="chart-detail-row" style={{ marginBottom: '2rem', display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
               {(() => {
                 // Filter and aggregate operating expenses
                 const filtered = incomeStatement.data.filter(d => d.fiscal_quarter !== 4);
@@ -201,7 +201,7 @@ function App() {
             </div>
 
             {/* Stacked Bar Chart with Quarterly Detail */}
-            <div style={{ marginBottom: '2rem', display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
+            <div className="chart-detail-row" style={{ marginBottom: '2rem', display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
               {(() => {
                 // Aggregate balance sheet data into Equity and Liabilities for bar chart
                 const periodMap = new Map();
@@ -302,20 +302,12 @@ function App() {
 
         {currentPage === 'cashflow' && cashFlow && (
           <div>
-            <h2 style={{ marginBottom: '2rem' }}>Cash Flow</h2>
-
             {/* Scorecards */}
-            <div className="scorecard-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem', marginBottom: '2rem' }}>
+            <div className="scorecard-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.5rem', marginBottom: '2rem' }}>
               <ScoreCard
-                title="Operating Cash Flow"
-                value={37260000000}
-                format="currency"
-                trend={0.078}
-              />
-              <ScoreCard
-                title="Capital Expenditures"
-                value={-20700000000}
-                format="currency"
+                title="FCF to Assets Ratio"
+                value={0.08}
+                format="ratio"
               />
               <ScoreCard
                 title="Free Cash Flow"
@@ -324,10 +316,72 @@ function App() {
               />
             </div>
 
-            {/* Stacked Bar Chart */}
-            <div style={{ marginBottom: '2rem', padding: '1.5rem', background: 'white', borderRadius: '8px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
-              <h3 style={{ marginTop: 0, marginBottom: '1rem' }}>Cash Flow Components Over Time</h3>
-              <StackedBarChart data={cashFlow.data} width={900} height={400} />
+            {/* Stacked Bar Chart with Quarterly Detail */}
+            <div className="chart-detail-row" style={{ marginBottom: '2rem', display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
+              {(() => {
+                // Build chart data with explicit ordering for stacking
+                // Order: bottom to top in the stack
+                const periods = Array.from(new Set(cashFlow.data.map(d => `${d.fiscal_year} Q${d.fiscal_quarter}`))).sort();
+                
+                const chartData: typeof cashFlow.data = [];
+                
+                // Add in order: first added = bottom of stack
+                periods.forEach(period => {
+                  const [year, quarterStr] = period.split(' ');
+                  const fiscalYear = parseInt(year);
+                  const fiscalQuarter = parseInt(quarterStr.substring(1));
+                  
+                  // 1. Purchases (bottom - light yellow)
+                  const purchases = cashFlow.data.find(d => 
+                    d.fiscal_year === fiscalYear && 
+                    d.fiscal_quarter === fiscalQuarter && 
+                    d.gl_account === 'Purchases of property and equipment'
+                  );
+                  if (purchases) {
+                    chartData.push({ ...purchases, amount: Math.abs(purchases.amount) });
+                  }
+                  
+                  // 2. Proceeds (middle - dark yellow)
+                  const proceeds = cashFlow.data.find(d => 
+                    d.fiscal_year === fiscalYear && 
+                    d.fiscal_quarter === fiscalQuarter && 
+                    d.gl_account === 'Proceeds from asset sales and incentives'
+                  );
+                  if (proceeds) {
+                    chartData.push(proceeds);
+                  }
+                  
+                  // 3. Operating (top - purple)
+                  const operating = cashFlow.data.find(d => 
+                    d.fiscal_year === fiscalYear && 
+                    d.fiscal_quarter === fiscalQuarter && 
+                    d.gl_account === 'Net cash provided by operating activities'
+                  );
+                  if (operating) {
+                    chartData.push(operating);
+                  }
+                });
+
+                return (
+                  <>
+                    <div style={{ flex: '2', background: 'white', borderRadius: '8px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)', padding: '1.5rem', height: '400px', boxSizing: 'border-box' }}>
+                      <StackedBarChart 
+                        data={chartData} 
+                        width={600} 
+                        height={340}
+                        colors={['#f4c430', '#d4a017', '#5a4a8a']}
+                        onPeriodHover={setSelectedPeriod}
+                      />
+                    </div>
+                    <div style={{ flex: '1' }}>
+                      <QuarterlyDetail
+                        data={cashFlow.data}
+                        selectedPeriod={selectedPeriod}
+                      />
+                    </div>
+                  </>
+                );
+              })()}
             </div>
 
             {/* Data Table */}
