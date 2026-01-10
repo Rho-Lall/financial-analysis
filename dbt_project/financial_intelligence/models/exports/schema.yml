@@ -1,0 +1,262 @@
+version: 2
+
+models:
+  - name: export_income_statement
+    description: |
+      Export model for Income Statement data.
+
+      This model transforms fact_financial_statement data into the JSON contract format
+      expected by the dashboard. It includes all income statement line items with their
+      associated period and account information.
+
+      Output is consumed by the dashboard's income statement page, including:
+      - Revenue breakdown visualization
+      - Sankey diagram for income flow
+      - Historical trend charts
+
+    columns:
+      - name: gl_number
+        description: General ledger account number (used for sorting and grouping)
+        tests:
+          - not_null
+
+      - name: gl_account
+        description: Display name of the account (e.g., 'Revenue', 'Cost of revenue')
+        tests:
+          - not_null
+
+      - name: period_end_date
+        description: End date of the fiscal period (YYYY-MM-DD format)
+        tests:
+          - not_null
+
+      - name: fiscal_year
+        description: Fiscal year (integer)
+        tests:
+          - not_null
+
+      - name: fiscal_quarter
+        description: Fiscal quarter (1-4)
+        tests:
+          - not_null
+          - accepted_values:
+              config:
+                severity: error
+              arguments:
+                values: [1, 2, 3, 4]
+
+      - name: amount
+        description: Dollar amount for the account in this period
+
+  - name: export_balance_sheet
+    description: |
+      Export model for Balance Sheet data.
+
+      This model transforms fact_financial_statement data into the JSON contract format
+      for balance sheet items. It includes assets, liabilities, and equity line items.
+
+      Output is consumed by the dashboard's balance sheet page, including:
+      - Asset/Liability composition charts
+      - Debt-to-equity ratio overlay
+      - Historical balance trends
+
+    columns:
+      - name: gl_number
+        description: General ledger account number
+        tests:
+          - not_null
+
+      - name: gl_account
+        description: Display name of the account
+        tests:
+          - not_null
+
+      - name: period_end_date
+        description: End date of the fiscal period (YYYY-MM-DD format)
+        tests:
+          - not_null
+
+      - name: fiscal_year
+        description: Fiscal year (integer)
+        tests:
+          - not_null
+
+      - name: fiscal_quarter
+        description: Fiscal quarter (1-4)
+        tests:
+          - not_null
+          - accepted_values:
+              config:
+                severity: error
+              arguments:
+                values: [1, 2, 3, 4]
+
+      - name: amount
+        description: Dollar amount for the account at period end
+
+  - name: export_cash_flow
+    description: |
+      Export model for Cash Flow Statement data.
+
+      This model transforms fact_financial_statement data into the JSON contract format
+      for cash flow items. Includes operating, investing, and financing activities.
+
+      Note: Cash flow includes both period_start_date and period_end_date since these
+      represent flow over a period rather than point-in-time balances.
+
+    columns:
+      - name: gl_number
+        description: General ledger account number
+        tests:
+          - not_null
+
+      - name: gl_account
+        description: Display name of the account
+        tests:
+          - not_null
+
+      - name: period_end_date
+        description: End date of the fiscal period (YYYY-MM-DD format)
+        tests:
+          - not_null
+
+      - name: period_start_date
+        description: Start date of the fiscal period (YYYY-MM-DD format)
+        tests:
+          - not_null
+
+      - name: fiscal_year
+        description: Fiscal year (integer)
+        tests:
+          - not_null
+
+      - name: fiscal_quarter
+        description: Fiscal quarter (1-4)
+        tests:
+          - not_null
+          - accepted_values:
+              config:
+                severity: error
+              arguments:
+                values: [1, 2, 3, 4]
+
+      - name: amount
+        description: Dollar amount of cash flow for the period
+
+  - name: export_financial_metrics
+    description: |
+      Export model for calculated Financial Metrics.
+
+      This model provides calculated financial ratios, growth rates, and key performance
+      indicators derived from fact_financial_metrics.
+
+      Metrics include:
+      - Revenue growth (YoY, QoQ)
+      - Profit margins (gross, operating, net)
+      - Leverage ratios (debt-to-equity, etc.)
+      - Free cash flow metrics
+
+    columns:
+      - name: metric_name
+        description: Name of the financial metric (e.g., 'Revenue Growth YoY', 'Gross Margin')
+        tests:
+          - not_null
+
+      - name: period_end_date
+        description: End date of the fiscal period (YYYY-MM-DD format)
+        tests:
+          - not_null
+
+      - name: fiscal_year
+        description: Fiscal year (integer)
+        tests:
+          - not_null
+
+      - name: fiscal_quarter
+        description: Fiscal quarter (1-4)
+        tests:
+          - not_null
+          - accepted_values:
+              config:
+                severity: error
+              arguments:
+                values: [1, 2, 3, 4]
+
+      - name: value
+        description: Calculated value of the metric
+        tests:
+          - not_null
+
+      - name: unit
+        description: Unit of measure (e.g., 'percentage', 'ratio', 'currency')
+
+  - name: export_chart_of_accounts
+    description: |
+      Export model for Chart of Accounts master data.
+
+      This model provides account metadata including hierarchy, categorization, and
+      presentation information. This data enables the dashboard to properly categorize
+      accounts, build hierarchical visualizations (like Sankey diagrams), and understand
+      account relationships.
+
+      The parent_gl_number field enables hierarchical rollups:
+      - Accounts with parent_gl_number = null are top-level
+      - Accounts with a parent roll up into that parent account
+
+      The is_total_line field indicates calculated totals/subtotals that shouldn't be
+      double-counted in aggregations.
+
+    columns:
+      - name: gl_number
+        description: General ledger account number (unique identifier)
+        tests:
+          - not_null
+          - unique
+
+      - name: gl_account
+        description: Display name of the account
+        tests:
+          - not_null
+
+      - name: account_type
+        description: High-level account type (Asset, Liability, Equity, Revenue, Expense, Cash Flow)
+        tests:
+          - not_null
+          - accepted_values:
+              config:
+                severity: error
+              arguments:
+                values: ['Asset', 'Liability', 'Equity', 'Revenue', 'Expense', 'Cash Flow']
+
+      - name: account_category
+        description: More specific grouping (e.g., 'Current Assets', 'Operating Expenses')
+        tests:
+          - not_null
+
+      - name: statement_type
+        description: Which financial statement this account belongs to
+        tests:
+          - not_null
+          - accepted_values:
+              config:
+                severity: error
+              arguments:
+                values: ['income_statement', 'balance_sheet', 'cash_flow']
+
+      - name: parent_gl_number
+        description: Parent account GL number for hierarchical rollups (null for top-level accounts)
+
+      - name: is_total_line
+        description: Boolean indicating if this is a calculated total/subtotal line
+        tests:
+          - not_null
+          - accepted_values:
+              config:
+                severity: error
+              arguments:
+                values: [true, false]
+
+      - name: display_order
+        description: Sort order for presentation (within statement_type)
+        tests:
+          - not_null

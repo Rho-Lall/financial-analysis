@@ -87,3 +87,24 @@ export interface FinancialMetrics {
   };
   data: FinancialMetric[];
 }
+
+/**
+ * Chart of Accounts - Account master data with hierarchy
+ */
+export interface ChartOfAccountsEntry {
+  gl_number: number;
+  gl_account: string;
+  account_type: 'Asset' | 'Liability' | 'Equity' | 'Revenue' | 'Expense' | 'Cash Flow';
+  account_category: string;
+  statement_type: 'income_statement' | 'balance_sheet' | 'cash_flow';
+  parent_gl_number: number | null;
+  is_total_line: boolean;
+  display_order: number;
+}
+
+export interface ChartOfAccounts {
+  metadata: Omit<FinancialMetadata, 'statement_type'> & {
+    statement_type: 'chart_of_accounts'
+  };
+  data: ChartOfAccountsEntry[];
+}
