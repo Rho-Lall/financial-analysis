@@ -6,7 +6,6 @@ import Footer from './components/Footer';
 import ScoreCard from './components/ScoreCard';
 import StackedBarChart from './components/StackedBarChart';
 import SankeyDiagram from './components/SankeyDiagram';
-import DataTable from './components/DataTable';
 import QuarterlyDetail from './components/QuarterlyDetail';
 import { useFinancialData } from './hooks/useFinancialData';
 

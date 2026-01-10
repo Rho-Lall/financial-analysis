@@ -21,8 +21,6 @@ export default function Footer() {
     fontWeight: 500,
   };
 
-  const currentYear = new Date().getFullYear();
-
   return (
     <footer style={footerStyle}>
       <div className="responsive-container">
