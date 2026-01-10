@@ -86,23 +86,23 @@
 
 ---
 
-- [ ] 7. Implement Dashboard - Chart Components
-  - [ ] 7.1 Create StackedBarChart component with D3.js
+- [x] 7. Implement Dashboard - Chart Components
+  - [x] 7.1 Create StackedBarChart component with D3.js
     - Implement reusable stacked bar chart with tooltips
     - _Requirements: 6.1, 7.1, 8.1_
     - _Estimated time: 45 minutes_
     - _Model: Opus (complex D3.js visualization)_
-  - [ ] 7.2 Create SankeyDiagram component for income statement
+  - [x] 7.2 Create SankeyDiagram component for income statement
     - Implement Sankey diagram showing revenue breakdown
     - _Requirements: 6.2_
     - _Estimated time: 60 minutes_
     - _Model: Opus (complex D3.js Sankey)_
-  - [ ] 7.3 Create LineOverlay component for ratio overlay
+  - [x] 7.3 Create LineOverlay component for ratio overlay
     - Implement line chart overlay for debt-to-equity ratio
     - _Requirements: 7.2_
     - _Estimated time: 30 minutes_
     - _Model: Opus (D3.js overlay logic)_
-  - [ ] 7.4 Create DataTable component for financial statements
+  - [x] 7.4 Create DataTable component for financial statements
     - Implement table displaying most recent period values
     - _Requirements: 6.3, 7.3_
     - _Estimated time: 20 minutes_
@@ -111,22 +111,22 @@
 ---
 
 - [ ] 8. Implement Dashboard - Page Views
-  - [ ] 8.1 Create Income Statement page
+  - [x] 8.1 Create Income Statement page
     - Compose stacked bar chart, Sankey diagram, and data table
     - _Requirements: 6.1, 6.2, 6.3, 6.4, 6.5_
     - _Estimated time: 25 minutes_
     - _Model: Sonnet (component composition)_
-  - [ ] 8.2 Create Balance Sheet page
+  - [x] 8.2 Create Balance Sheet page
     - Compose stacked bar chart with line overlay, data table, and scorecards
     - _Requirements: 7.1, 7.2, 7.3, 7.4, 7.5_
     - _Estimated time: 25 minutes_
     - _Model: Sonnet (component composition)_
-  - [ ] 8.3 Create Cash Flow page
+  - [x] 8.3 Create Cash Flow page
     - Compose stacked bar chart and FCF scorecard
     - _Requirements: 8.1, 8.2, 8.3, 8.4_
     - _Estimated time: 20 minutes_
     - _Model: Sonnet (component composition)_
-  - [ ] 8.4 Implement responsive mobile layout
+  - [x] 8.4 Implement responsive mobile layout
     - Add CSS media queries for screens < 768px
     - _Requirements: 9.4_
     - _Estimated time: 30 minutes_
@@ -134,7 +134,7 @@
 
 ---
 
-- [ ] 9. Deploy production dashboard to GitHub Pages
+- [x] 9. Deploy production dashboard to GitHub Pages
   - Deploy full dashboard with dummy data
   - Verify all pages render correctly on live site
   - _Requirements: 10.4_
@@ -143,7 +143,7 @@
 
 ---
 
-- [ ] 10. Checkpoint - Verify production dashboard with dummy data
+- [x] 10. Checkpoint - Verify production dashboard with dummy data
   - Ensure all tests pass, ask the user if questions arise.
   - _Estimated time: 10 minutes_
   - _Model: Either (manual verification)_
