@@ -1,289 +1,150 @@
 """
 Property Tests for JSON Exports
 
-These tests validate that JSON exports meet the requirements:
+Validates:
 - Property 6: JSON Export Size Constraint (Requirement 5.2)
 - Property 7: JSON Metadata Presence (Requirement 5.3)
-
-Tests use property-based testing to ensure exports are always valid.
 """
 
 import json
-import pytest
-from pathlib import Path
 from datetime import datetime
+from pathlib import Path
+
+import pytest
+
+# Shared test constants
+DATA_DIR = Path(__file__).parent.parent.parent / "dashboard" / "public" / "data"
+MAX_FILE_SIZE_MB = 10.0
+MAX_RECORD_SIZE_KB = 5.0
+
+VALID_STATEMENT_TYPES = {
+    "income_statement",
+    "balance_sheet",
+    "cash_flow",
+    "financial_metrics",
+    "chart_of_accounts",
+}
+
+FINANCIAL_STATEMENT_FILES = {"income_statement.json", "balance_sheet.json", "cash_flow.json"}
+REQUIRED_METADATA_FIELDS = ["company", "ticker", "statement_type", "export_timestamp"]
+REQUIRED_STATEMENT_FIELDS = {"gl_number", "gl_account", "period_end_date", "fiscal_year", "fiscal_quarter", "amount"}
+
+
+@pytest.fixture
+def json_files() -> list[Path]:
+    """Get all JSON export files."""
+    return list(DATA_DIR.glob("*.json"))
+
+
+@pytest.fixture
+def loaded_json_files(json_files: list[Path]) -> list[tuple[Path, dict]]:
+    """Load all JSON files with their content."""
+    return [(path, json.loads(path.read_text())) for path in json_files]
 
 
 class TestJSONExportSizeConstraint:
-    """
-    Property 6: JSON Export Size Constraint
+    """Property 6: JSON files must be under 10MB (Requirement 5.2)."""
 
-    Validates Requirement 5.2: Each JSON export file must be under 10MB
-    to ensure fast loading in the browser.
-    """
+    def test_file_size_under_limit(self, json_files: list[Path]) -> None:
+        """Each JSON file must be under 10MB."""
+        failures = [
+            f"{p.name}: {p.stat().st_size / (1024 * 1024):.2f}MB"
+            for p in json_files
+            if p.stat().st_size / (1024 * 1024) > MAX_FILE_SIZE_MB
+        ]
+        assert not failures, f"Files exceed {MAX_FILE_SIZE_MB}MB:\n" + "\n".join(failures)
 
-    MAX_FILE_SIZE_MB = 10.0
-
-    @pytest.fixture
-    def json_files(self):
-        """Get all JSON export files."""
-        data_dir = Path(__file__).parent.parent.parent / "dashboard" / "public" / "data"
-        return list(data_dir.glob("*.json"))
-
-    def test_json_file_size_under_limit(self, json_files):
-        """Test that each JSON file is under the 10MB size limit."""
-        failures = []
-
-        for json_file in json_files:
-            file_size_bytes = json_file.stat().st_size
-            file_size_mb = file_size_bytes / (1024 * 1024)
-
-            if file_size_mb > self.MAX_FILE_SIZE_MB:
-                failures.append({
-                    'file': json_file.name,
-                    'size_mb': file_size_mb,
-                    'limit_mb': self.MAX_FILE_SIZE_MB
-                })
-
-        assert len(failures) == 0, (
-            f"JSON files exceed size limit:\n" +
-            "\n".join([f"  {f['file']}: {f['size_mb']:.2f}MB > {f['limit_mb']}MB"
-                       for f in failures])
-        )
-
-    def test_empty_data_arrays_are_small(self, json_files):
-        """Test that even files with empty data arrays are reasonably sized."""
-        for json_file in json_files:
-            with open(json_file) as f:
-                data = json.load(f)
-
-            # Create a version with empty data array
-            empty_version = {
-                "metadata": data.get("metadata", {}),
-                "data": []
-            }
-
-            # Empty version should be very small (< 1KB)
-            empty_size = len(json.dumps(empty_version).encode('utf-8'))
-            assert empty_size < 1024, (
-                f"{json_file.name} metadata structure is too large: {empty_size} bytes"
-            )
-
-    def test_individual_records_are_reasonable(self, json_files):
-        """Test that individual data records aren't excessively large."""
-        MAX_RECORD_SIZE_KB = 5  # 5KB per record is generous
-
-        for json_file in json_files:
-            with open(json_file) as f:
-                data = json.load(f)
-
-            data_array = data.get("data", [])
-            if not data_array:
-                continue
-
-            for idx, record in enumerate(data_array):
-                record_size = len(json.dumps(record).encode('utf-8'))
-                record_size_kb = record_size / 1024
-
-                assert record_size_kb < MAX_RECORD_SIZE_KB, (
-                    f"{json_file.name} record {idx} is too large: "
-                    f"{record_size_kb:.2f}KB > {MAX_RECORD_SIZE_KB}KB"
+    def test_individual_records_reasonable_size(self, loaded_json_files: list[tuple[Path, dict]]) -> None:
+        """Individual records shouldn't be excessively large."""
+        for path, content in loaded_json_files:
+            for idx, record in enumerate(content.get("data", [])):
+                size_kb = len(json.dumps(record).encode("utf-8")) / 1024
+                assert size_kb < MAX_RECORD_SIZE_KB, (
+                    f"{path.name} record {idx}: {size_kb:.2f}KB > {MAX_RECORD_SIZE_KB}KB"
                 )
 
 
 class TestJSONMetadataPresence:
-    """
-    Property 7: JSON Metadata Presence
+    """Property 7: JSON exports must include required metadata (Requirement 5.3)."""
 
-    Validates Requirement 5.3: Each JSON export must include metadata
-    with export_timestamp and ticker fields.
-    """
+    def test_metadata_exists(self, loaded_json_files: list[tuple[Path, dict]]) -> None:
+        """Each file must have a metadata object."""
+        for path, content in loaded_json_files:
+            assert "metadata" in content, f"{path.name} missing 'metadata'"
+            assert isinstance(content["metadata"], dict), f"{path.name} metadata is not a dict"
 
-    @pytest.fixture
-    def json_files(self):
-        """Get all JSON export files."""
-        data_dir = Path(__file__).parent.parent.parent / "dashboard" / "public" / "data"
-        return list(data_dir.glob("*.json"))
+    def test_metadata_has_required_fields(self, loaded_json_files: list[tuple[Path, dict]]) -> None:
+        """Metadata must contain all required fields."""
+        for path, content in loaded_json_files:
+            metadata = content.get("metadata", {})
+            for field in REQUIRED_METADATA_FIELDS:
+                assert field in metadata, f"{path.name} missing metadata.{field}"
+                assert metadata[field], f"{path.name} metadata.{field} is empty"
 
-    def test_metadata_object_exists(self, json_files):
-        """Test that each JSON file has a metadata object."""
-        for json_file in json_files:
-            with open(json_file) as f:
-                data = json.load(f)
-
-            assert "metadata" in data, (
-                f"{json_file.name} is missing 'metadata' object"
-            )
-
-            assert isinstance(data["metadata"], dict), (
-                f"{json_file.name} metadata is not a dictionary"
-            )
-
-    def test_metadata_has_required_fields(self, json_files):
-        """Test that metadata contains all required fields."""
-        required_fields = ['company', 'ticker', 'statement_type', 'export_timestamp']
-
-        for json_file in json_files:
-            with open(json_file) as f:
-                data = json.load(f)
-
-            metadata = data.get("metadata", {})
-
-            for field in required_fields:
-                assert field in metadata, (
-                    f"{json_file.name} metadata is missing required field: {field}"
-                )
-
-                assert metadata[field] is not None, (
-                    f"{json_file.name} metadata field '{field}' is null"
-                )
-
-                assert metadata[field] != "", (
-                    f"{json_file.name} metadata field '{field}' is empty string"
-                )
-
-    def test_export_timestamp_is_valid_iso8601(self, json_files):
-        """Test that export_timestamp is a valid ISO 8601 datetime."""
-        for json_file in json_files:
-            with open(json_file) as f:
-                data = json.load(f)
-
-            timestamp = data.get("metadata", {}).get("export_timestamp")
-
-            # Should be able to parse as ISO 8601
+    def test_export_timestamp_is_valid_iso8601(self, loaded_json_files: list[tuple[Path, dict]]) -> None:
+        """export_timestamp must be valid ISO 8601."""
+        for path, content in loaded_json_files:
+            timestamp = content.get("metadata", {}).get("export_timestamp", "")
             try:
-                # Remove 'Z' suffix if present and parse
-                timestamp_str = timestamp.rstrip('Z')
-                parsed = datetime.fromisoformat(timestamp_str)
+                datetime.fromisoformat(timestamp.rstrip("Z"))
+            except ValueError:
+                pytest.fail(f"{path.name} has invalid timestamp: {timestamp}")
 
-                assert parsed is not None, (
-                    f"{json_file.name} export_timestamp could not be parsed"
-                )
+    def test_ticker_is_uppercase(self, loaded_json_files: list[tuple[Path, dict]]) -> None:
+        """Ticker should be uppercase."""
+        for path, content in loaded_json_files:
+            ticker = content.get("metadata", {}).get("ticker", "")
+            assert ticker.isupper(), f"{path.name} ticker not uppercase: {ticker}"
 
-            except (ValueError, AttributeError) as e:
-                pytest.fail(
-                    f"{json_file.name} export_timestamp is not valid ISO 8601: "
-                    f"{timestamp}. Error: {e}"
-                )
-
-    def test_ticker_is_uppercase(self, json_files):
-        """Test that ticker symbol is uppercase (convention)."""
-        for json_file in json_files:
-            with open(json_file) as f:
-                data = json.load(f)
-
-            ticker = data.get("metadata", {}).get("ticker", "")
-
-            assert ticker.isupper() or ticker == "", (
-                f"{json_file.name} ticker should be uppercase: {ticker}"
+    def test_statement_type_is_valid(self, loaded_json_files: list[tuple[Path, dict]]) -> None:
+        """statement_type must be a recognized value."""
+        for path, content in loaded_json_files:
+            statement_type = content.get("metadata", {}).get("statement_type")
+            assert statement_type in VALID_STATEMENT_TYPES, (
+                f"{path.name} invalid statement_type: {statement_type}"
             )
 
-    def test_statement_type_is_valid(self, json_files):
-        """Test that statement_type is one of the expected values."""
-        valid_statement_types = {
-            'income_statement',
-            'balance_sheet',
-            'cash_flow',
-            'financial_metrics',
-            'chart_of_accounts'
-        }
+    def test_data_array_exists(self, loaded_json_files: list[tuple[Path, dict]]) -> None:
+        """Each file must have a data array."""
+        for path, content in loaded_json_files:
+            assert "data" in content, f"{path.name} missing 'data'"
+            assert isinstance(content["data"], list), f"{path.name} data is not a list"
 
-        for json_file in json_files:
-            with open(json_file) as f:
-                data = json.load(f)
-
-            statement_type = data.get("metadata", {}).get("statement_type")
-
-            assert statement_type in valid_statement_types, (
-                f"{json_file.name} has invalid statement_type: {statement_type}. "
-                f"Must be one of: {valid_statement_types}"
-            )
-
-    def test_data_array_exists(self, json_files):
-        """Test that each JSON file has a data array."""
-        for json_file in json_files:
-            with open(json_file) as f:
-                data = json.load(f)
-
-            assert "data" in data, (
-                f"{json_file.name} is missing 'data' array"
-            )
-
-            assert isinstance(data["data"], list), (
-                f"{json_file.name} data is not an array"
-            )
-
-    def test_metadata_and_data_only_top_level_keys(self, json_files):
-        """Test that JSON structure only contains metadata and data at top level."""
-        for json_file in json_files:
-            with open(json_file) as f:
-                data = json.load(f)
-
-            top_level_keys = set(data.keys())
-            expected_keys = {'metadata', 'data'}
-
-            assert top_level_keys == expected_keys, (
-                f"{json_file.name} has unexpected top-level keys: "
-                f"{top_level_keys - expected_keys}"
-            )
+    def test_only_metadata_and_data_keys(self, loaded_json_files: list[tuple[Path, dict]]) -> None:
+        """Top-level should only contain metadata and data."""
+        for path, content in loaded_json_files:
+            extra_keys = set(content.keys()) - {"metadata", "data"}
+            assert not extra_keys, f"{path.name} has unexpected keys: {extra_keys}"
 
 
 class TestJSONDataIntegrity:
-    """Additional data integrity tests for JSON exports."""
+    """Additional data structure validation."""
 
-    @pytest.fixture
-    def json_files(self):
-        """Get all JSON export files."""
-        data_dir = Path(__file__).parent.parent.parent / "dashboard" / "public" / "data"
-        return list(data_dir.glob("*.json"))
+    def test_json_is_valid(self, json_files: list[Path]) -> None:
+        """Each file must be valid JSON."""
+        for path in json_files:
+            try:
+                json.loads(path.read_text())
+            except json.JSONDecodeError as e:
+                pytest.fail(f"{path.name} is not valid JSON: {e}")
 
-    def test_json_is_valid(self, json_files):
-        """Test that each file is valid JSON."""
-        for json_file in json_files:
-            with open(json_file) as f:
-                try:
-                    json.load(f)
-                except json.JSONDecodeError as e:
-                    pytest.fail(f"{json_file.name} is not valid JSON: {e}")
-
-    def test_financial_statement_data_has_required_fields(self, json_files):
-        """Test that financial statement data points have required fields."""
-        statement_files = ['income_statement.json', 'balance_sheet.json', 'cash_flow.json']
-
-        required_fields = {
-            'gl_number', 'gl_account', 'period_end_date',
-            'fiscal_year', 'fiscal_quarter', 'amount'
-        }
-
-        for json_file in json_files:
-            if json_file.name not in statement_files:
+    def test_financial_statements_have_required_fields(self, loaded_json_files: list[tuple[Path, dict]]) -> None:
+        """Financial statement records must have required fields."""
+        for path, content in loaded_json_files:
+            if path.name not in FINANCIAL_STATEMENT_FILES:
                 continue
 
-            with open(json_file) as f:
-                data = json.load(f)
+            for idx, record in enumerate(content.get("data", [])):
+                missing = REQUIRED_STATEMENT_FIELDS - set(record.keys())
+                assert not missing, f"{path.name} record {idx} missing: {missing}"
 
-            for idx, record in enumerate(data.get("data", [])):
-                missing_fields = required_fields - set(record.keys())
+    def test_cash_flow_has_period_start_date(self, loaded_json_files: list[tuple[Path, dict]]) -> None:
+        """Cash flow records must include period_start_date."""
+        for path, content in loaded_json_files:
+            if path.name != "cash_flow.json":
+                continue
 
-                assert len(missing_fields) == 0, (
-                    f"{json_file.name} record {idx} is missing fields: {missing_fields}"
+            for idx, record in enumerate(content.get("data", [])):
+                assert "period_start_date" in record, (
+                    f"cash_flow.json record {idx} missing period_start_date"
                 )
-
-    def test_cash_flow_has_period_start_date(self, json_files):
-        """Test that cash flow data includes period_start_date."""
-        cash_flow_file = None
-        for json_file in json_files:
-            if json_file.name == 'cash_flow.json':
-                cash_flow_file = json_file
-                break
-
-        if not cash_flow_file:
-            pytest.skip("cash_flow.json not found")
-
-        with open(cash_flow_file) as f:
-            data = json.load(f)
-
-        for idx, record in enumerate(data.get("data", [])):
-            assert 'period_start_date' in record, (
-                f"cash_flow.json record {idx} is missing period_start_date"
-            )

@@ -3,10 +3,17 @@
  * Based on the long-format structure from dbt exports
  */
 
+export type StatementType =
+  | 'income_statement'
+  | 'balance_sheet'
+  | 'cash_flow'
+  | 'financial_metrics'
+  | 'chart_of_accounts';
+
 export interface FinancialMetadata {
   company: string;
   ticker: string;
-  statement_type: 'income_statement' | 'balance_sheet' | 'cash_flow';
+  statement_type: StatementType;
   export_timestamp: string;
 }
 
@@ -82,9 +89,7 @@ export interface FinancialMetric {
 }
 
 export interface FinancialMetrics {
-  metadata: Omit<FinancialMetadata, 'statement_type'> & {
-    statement_type: 'financial_metrics'
-  };
+  metadata: FinancialMetadata;
   data: FinancialMetric[];
 }
 
@@ -103,8 +108,6 @@ export interface ChartOfAccountsEntry {
 }
 
 export interface ChartOfAccounts {
-  metadata: Omit<FinancialMetadata, 'statement_type'> & {
-    statement_type: 'chart_of_accounts'
-  };
+  metadata: FinancialMetadata;
   data: ChartOfAccountsEntry[];
 }

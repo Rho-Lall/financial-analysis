@@ -154,7 +154,7 @@
 
 ## Scaffold dbt Layer Structure
 
-- [ ] 11. Set up dbt project folder structure for all layers
+- [x] 11. Set up dbt project folder structure for all layers
   - Create folder hierarchy: staging/, raw_vault/, business_vault/, marts/, exports/
   - Create subfolders: raw_vault/hubs/, raw_vault/links/, raw_vault/satellites/
   - Create subfolders: marts/dimensions/, marts/facts/
@@ -169,7 +169,7 @@
 
 ## Export Layer
 
-- [ ] 12. Implement Export Layer dbt models
+- [x] 12. Implement Export Layer dbt models
   - [ ] 12.1 Create export dbt models matching JSON contracts
     - Create export_income_statement, export_balance_sheet, export_cash_flow, export_financial_metrics models
     - Models pull from Information Marts (dim_period, fact_financial_statement, fact_financial_metrics)
@@ -198,36 +198,26 @@
 
 ## Information Marts (Star Schema)
 
-- [ ] 13. Implement Information Marts dbt models
-  - [ ] 13.1 Create dimension models (dim_company, dim_period, dim_account)
+- [x] 13. Implement Information Marts dbt models
+  - [x] 13.1 Create dimension models (dim_company, dim_period, dim_account)
     - dim_company sourced from bv_company
-    - dim_period sourced from bv_financial_period  
+    - dim_period sourced from bv_financial_period
     - dim_account sourced from bv_account
     - _Requirements: 4.1, 4.2, 4.3_
     - _Estimated time: 35 minutes_
     - _Model: Opus (dimension modeling with SCD logic)_
-  - [ ] 13.2 Create fact_financial_statement model
+  - [x] 13.2 Create fact_financial_statement model
     - Grain: company + period + account
     - Joins dim_company, dim_period, dim_account with bv_ledger
     - _Requirements: 4.4_
     - _Estimated time: 30 minutes_
     - _Model: Opus (complex fact table joins)_
-  - [ ] 13.3 Create fact_financial_metrics model with calculated ratios
+  - [x] 13.3 Create fact_financial_metrics model with calculated ratios
     - Implement revenue growth, margins, leverage ratios, FCF metrics
     - _Requirements: 4.5, 4.6_
     - _Estimated time: 45 minutes_
     - _Model: Opus (complex financial calculations)_
-  - [ ]* 13.4 Write property test for financial metric calculations
-    - **Property 4: Financial Metric Calculation Correctness**
-    - **Validates: Requirements 4.6**
-    - _Estimated time: 25 minutes_
-    - _Model: Sonnet (property test with calculations)_
-  - [ ]* 13.5 Write property test for margin calculation bounds
-    - **Property 5: Margin Calculation Bounds**
-    - **Validates: Requirements 4.6**
-    - _Estimated time: 20 minutes_
-    - _Model: Sonnet (property test with bounds checking)_
-  - [ ] 13.6 Add dbt schema tests for Information Marts
+  - [x] 13.4 Add dbt schema tests for Information Marts
     - Add referential integrity tests between facts and dimensions
     - _Requirements: 11.3_
     - _Estimated time: 15 minutes_
@@ -235,92 +225,54 @@
 
 ---
 
-- [ ] 14. Checkpoint - Verify mart layer produces correct export output
-  - Ensure all tests pass, ask the user if questions arise.
-  - _Estimated time: 10 minutes_
-  - _Model: Either (manual verification)_
-
----
-
 # Extract (Pivot to Source Data)
 
-- [ ] 15. Implement SEC Data Extraction
-  - [ ] 15.1 Create SEC EDGAR API client with rate limiting
-    - Implement `SECExtractor` class with ticker lookup and company facts retrieval
-    - Add exponential backoff retry logic for rate limits
-    - _Requirements: 1.1, 1.4_
-    - _Estimated time: 40 minutes_
-    - _Model: Opus (API client with retry logic)_
-  - [ ] 15.2 Implement financial statement extraction and staging
-    - Parse XBRL response to extract income statement, balance sheet, cash flow data
-    - Stage JSON files to local directory with ticker/date partitioning
+- [x] 14. Create dbt Sources for Snowflake Cybersyn
+  - [x] 14.1 Create dbt source definitions for Cybersyn tables
+    - Location: `models/sourcing/sources.yml`
+    - _Requirements: 1.1_
+  - [x] 14.2 Create company seed for ticker-to-CIK mapping
+    - Location: `seeds/companies.csv`
+    - _Requirements: 1.1_
+  - [x] 14.3 Create src_ source models with company filtering
+    - `src_sec_cik_index.sql` - company index data
+    - `src_sec_report_attributes.sql` - financial data filtered by companies seed
     - _Requirements: 1.2, 1.3_
-    - _Estimated time: 45 minutes_
-    - _Model: Opus (complex XBRL parsing)_
-  - [ ]* 15.3 Write property test for staging path format
-    - **Property 1: Staging Path Format Consistency**
-    - **Validates: Requirements 1.3**
-    - _Estimated time: 15 minutes_
-    - _Model: Sonnet (property test for path format)_
-  - [ ]* 15.4 Write property test for financial statement completeness
-    - **Property 2: Financial Statement Completeness**
-    - **Validates: Requirements 1.2**
-    - _Estimated time: 20 minutes_
-    - _Model: Sonnet (property test for completeness)_
-  - [ ] 15.5 Implement missing field handling and logging
-    - Log warnings for missing XBRL fields, continue processing
-    - _Requirements: 1.5_
-    - _Estimated time: 15 minutes_
-    - _Model: Sonnet (error handling logic)_
+  - [ ] 14.4 Add schema tests for sourcing models (deferred)
+    - _Requirements: 11.1_
 
 ---
 
-# Load
-
-- [ ] 16. Implement DuckDB Loader
-  - [ ] 16.1 Create DuckDB loader to ingest staged JSON files
-    - Implement `DuckDBLoader` class to read staged files into raw tables
-    - Create raw tables mirroring SEC API response structure
-    - _Requirements: 1.6, 2.1_
-    - _Estimated time: 35 minutes_
-    - _Model: Opus (DuckDB schema inference and loading)_
-  - [ ] 16.2 Implement staging file cleanup after successful load
-    - Delete staging files after data is loaded into DuckDB
-    - _Requirements: 1.6_
-    - _Estimated time: 10 minutes_
-    - _Model: Sonnet (file cleanup logic)_
-
----
-
-- [ ] 17. Checkpoint - Verify extraction and load with real SEC data
-  - Ensure all tests pass, ask the user if questions arise.
-  - _Estimated time: 15 minutes_
+- [ ] 15. Checkpoint - Verify Cybersyn source and sourcing models
+  - Run `dbt seed` to load companies.csv
+  - Run `dbt run --select sourcing` to verify sourcing models work
+  - Verify data is being pulled correctly from Snowflake Cybersyn
   - _Model: Either (manual verification)_
 
 ---
 
 # Transform (Raw Vault & Business Vault)
 
-- [ ] 18. Implement Raw Vault dbt models
-  - [ ] 18.1 Create Hub models (hub_company, hub_financial_period, hub_account)
+- [ ] 17. Implement Raw Vault dbt models
+  - [ ] 17.1 Create Hub models (hub_company, hub_financial_period, hub_account)
     - Implement hash key generation, load_datetime, record_source columns
     - Map SEC XBRL fields to hub business keys
     - _Requirements: 2.1, 2.2, 2.3, 2.11_
     - _Estimated time: 35 minutes_
     - _Model: Opus (Data Vault hash key logic)_
-  - [ ]* 18.2 Write property test for Data Vault model structure
+  - [ ]* 17.2 Write property test for Data Vault model structure
     - **Property 3: Data Vault Model Structure**
     - **Validates: Requirements 2.9, 2.10**
     - _Estimated time: 25 minutes_
     - _Model: Sonnet (property test for structure)_
-  - [ ] 18.3 Create Link models (link_company_period_filing_header, link_period_account_filing_detail)
+  - [ ] 17.3 Create Link models (link_company_period_filing_header, link_period_account_filing_detail)
     - link_company_period_filing_header connects hub_company and hub_financial_period
     - link_period_account_filing_detail connects link_company_period_filing_header and hub_account
     - Implement relationship hash keys
     - _Requirements: 2.4, 2.5, 2.11_
     - _Estimated time: 40 minutes_
     - _Model: Opus (complex link relationships)_
-  - [ ] 18.4 Create Satellite models (sat_company, sat_account, sat_filing_header, sat_filing_detail, sat_financial_period)
+  - [ ] 17.4 Create Satellite models (sat_company, sat_account, sat_filing_header, sat_filing_detail, sat_financial_period)
     - sat_company hangs off hub_company
     - sat_account hangs off hub_account
     - sat_filing_header hangs off link_company_period_filing_header
@@ -330,31 +282,41 @@
     - _Requirements: 2.6, 2.7, 2.8, 2.9, 2.10, 2.11, 2.12_
     - _Estimated time: 50 minutes_
     - _Model: Opus (5 satellites with hash_diff logic)_
-  - [ ] 18.5 Add dbt schema tests for Raw Vault
+  - [ ] 17.5 Add dbt schema tests for Raw Vault
     - Add unique and not_null tests for hash keys and business keys
     - _Requirements: 11.1, 11.2_
     - _Estimated time: 20 minutes_
     - _Model: Sonnet (dbt test configuration)_
+  - [ ]* 17.6 Write property test for financial metric calculations
+    - **Property 4: Financial Metric Calculation Correctness**
+    - **Validates: Requirements 4.6**
+    - _Estimated time: 25 minutes_
+    - _Model: Sonnet (property test with calculations)_
+  - [ ]* 17.7 Write property test for margin calculation bounds
+    - **Property 5: Margin Calculation Bounds**
+    - **Validates: Requirements 4.6**
+    - _Estimated time: 20 minutes_
+    - _Model: Sonnet (property test with bounds checking)_
 
 ---
 
-- [ ] 19. Implement Business Vault dbt models
-  - [ ] 19.1 Create bv_company model
+- [ ] 18. Implement Business Vault dbt models
+  - [ ] 18.1 Create bv_company model
     - Apply SCD Type 1 logic to get latest company attributes
     - _Requirements: 3.1_
     - _Estimated time: 25 minutes_
     - _Model: Opus (SCD Type 1 logic)_
-  - [ ] 19.2 Create bv_financial_period model
+  - [ ] 18.2 Create bv_financial_period model
     - Map fiscal periods to calendar dates
     - _Requirements: 3.2_
     - _Estimated time: 30 minutes_
     - _Model: Opus (fiscal-to-calendar conversion)_
-  - [ ] 19.3 Create bv_account model
+  - [ ] 18.3 Create bv_account model
     - Map XBRL tags to display names using account mapping table
     - _Requirements: 3.3_
     - _Estimated time: 20 minutes_
     - _Model: Sonnet (seed table join)_
-  - [ ] 19.4 Create bv_ledger model
+  - [ ] 18.4 Create bv_ledger model
     - Join sat_filing_header and sat_filing_detail for complete filing context
     - Handle NULLs and standardize units
     - _Requirements: 3.4_
@@ -363,27 +325,29 @@
 
 ---
 
-- [ ] 20. Checkpoint - Verify full dbt pipeline end-to-end
-  - Ensure all tests pass, ask the user if questions arise.
-  - _Estimated time: 15 minutes_
+- [ ] 19. Checkpoint - Verify full dbt pipeline end-to-end
+  - Verify Raw Vault, Business Vault, and Information Marts produce correct output
+  - Verify mart layer produces correct export output with real data
+  - Ensure all dbt tests pass
+  - _Estimated time: 20 minutes_
   - _Model: Either (manual verification)_
 
 ---
 
 # dbt Docs Site
 
-- [ ] 21. Generate and deploy dbt docs site
-  - [ ] 21.1 Add model and column descriptions to schema.yml files
+- [ ] 20. Generate and deploy dbt docs site
+  - [ ] 20.1 Add model and column descriptions to schema.yml files
     - Add descriptions for all dbt models and columns
     - _Requirements: 10.3_
     - _Estimated time: 40 minutes_
     - _Model: Opus (comprehensive documentation)_
-  - [ ] 21.2 Run `dbt docs generate` and verify DAG visualization
+  - [ ] 20.2 Run `dbt docs generate` and verify DAG visualization
     - Generate dbt docs site with lineage graph
     - _Requirements: 10.1, 10.2_
     - _Estimated time: 15 minutes_
     - _Model: Sonnet (command execution and verification)_
-  - [ ] 21.3 Deploy dbt docs site alongside dashboard
+  - [ ] 20.3 Deploy dbt docs site alongside dashboard
     - Update GitHub Pages deployment to include dbt docs
     - Update dashboard navigation link to point to dbt docs site
     - _Requirements: 10.4, 10.5_
@@ -392,7 +356,7 @@
 
 ---
 
-- [ ] 22. Final Checkpoint - End-to-end verification with real data
+- [ ] 21. Final Checkpoint - End-to-end verification with real data
   - Ensure all tests pass, ask the user if questions arise.
   - _Estimated time: 20 minutes_
   - _Model: Either (manual verification)_
