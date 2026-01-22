@@ -1,3 +1,6 @@
 [submodule "submodules/financials"]
 	path = submodules/financials
 	url = git@github.com:Rho-Lall/financials.git
+[submodule "submodules/analytics-engineering"]
+	path = submodules/analytics-engineering
+	url = git@github.com:Bulldozer-Engineering/analytics-engineering.git

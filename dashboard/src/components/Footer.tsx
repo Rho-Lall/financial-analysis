@@ -1,6 +1,10 @@
 import type { CSSProperties } from 'react';
 
-export default function Footer() {
+interface FooterProps {
+  dataSource?: string;
+}
+
+export default function Footer({ dataSource }: FooterProps) {
   const footerStyle: CSSProperties = {
     background: '#f8f9fa',
     borderTop: '1px solid #e0e0e0',
@@ -24,6 +28,11 @@ export default function Footer() {
   return (
     <footer style={footerStyle}>
       <div className="responsive-container">
+        {dataSource && (
+          <p style={{ ...textStyle, fontSize: '0.8rem', marginBottom: '1rem' }}>
+            Data Source: {dataSource}
+          </p>
+        )}
         <p style={textStyle}>
           Powered by{' '}
           <a

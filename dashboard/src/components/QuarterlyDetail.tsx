@@ -33,7 +33,9 @@ export default function QuarterlyDetail({ data, selectedPeriod }: QuarterlyDetai
     borderRadius: '8px',
     padding: '1.5rem',
     boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
-    height: '400px',
+    minHeight: '400px',
+    height: '100%',
+    boxSizing: 'border-box',
     overflowY: 'auto',
   };
 
@@ -95,15 +97,36 @@ export default function QuarterlyDetail({ data, selectedPeriod }: QuarterlyDetai
   const [year, quarterStr] = displayPeriod.split(' ');
   const quarter = parseInt(quarterStr.substring(1));
 
-  // Filter data for the selected period
+  // Filter data for the selected period and aggregate by gl_account
   const periodData = data.filter(
     d => d.fiscal_year === parseInt(year) && d.fiscal_quarter === quarter
   );
 
+  // Get the max amount per gl_account (the total/summary row, not granular line items)
+  const aggregatedMap = new Map<string, { gl_number: number; gl_account: string; amount: number }>();
+  periodData.forEach(item => {
+    const existing = aggregatedMap.get(item.gl_account);
+    if (existing) {
+      // Take the larger absolute value (handles both positive and negative amounts)
+      if (Math.abs(item.amount) > Math.abs(existing.amount)) {
+        existing.amount = item.amount;
+      }
+    } else {
+      aggregatedMap.set(item.gl_account, {
+        gl_number: item.gl_number,
+        gl_account: item.gl_account,
+        amount: item.amount
+      });
+    }
+  });
+
+  // Convert to array and sort by gl_number
+  const aggregatedData = Array.from(aggregatedMap.values()).sort((a, b) => a.gl_number - b.gl_number);
+
   return (
     <div style={containerStyle}>
       <h4 style={titleStyle}>{displayPeriod}</h4>
-      {periodData.length === 0 ? (
+      {aggregatedData.length === 0 ? (
         <div style={emptyStyle}>No data available for this period</div>
       ) : (
         <table style={tableStyle}>
@@ -114,7 +137,7 @@ export default function QuarterlyDetail({ data, selectedPeriod }: QuarterlyDetai
             </tr>
           </thead>
           <tbody>
-            {periodData.map((item, idx) => (
+            {aggregatedData.map((item, idx) => (
               <tr key={idx}>
                 <td style={tdStyle}>{item.gl_account}</td>
                 <td style={{ ...tdStyle, ...amountStyle }}>{formatCurrency(item.amount)}</td>

@@ -1,11 +1,15 @@
 import type { CSSProperties } from 'react';
+import type { Company } from '../types/financial';
 
 interface NavigationProps {
   currentPage?: 'income' | 'balance' | 'cashflow';
   onNavigate?: (page: string) => void;
+  companies: Company[];
+  selectedCompany: Company | null;
+  onCompanyChange: (ticker: string) => void;
 }
 
-export default function Navigation({ currentPage = 'income', onNavigate }: NavigationProps) {
+export default function Navigation({ currentPage = 'income', onNavigate, companies, selectedCompany, onCompanyChange }: NavigationProps) {
   const navStyle: CSSProperties = {
     background: '#f8f9fa',
     borderBottom: '1px solid #e0e0e0',
@@ -88,11 +92,32 @@ export default function Navigation({ currentPage = 'income', onNavigate }: Navig
         >
           Cash Flow
         </button>
+        <select
+          value={selectedCompany?.ticker || ''}
+          onChange={(e) => onCompanyChange(e.target.value)}
+          style={{
+            marginLeft: 'auto',
+            padding: '1rem 2rem',
+            fontSize: '0.95rem',
+            border: 'none',
+            background: 'transparent',
+            color: '#666',
+            cursor: 'pointer',
+            fontWeight: 400,
+          }}
+        >
+          {companies.map((company) => (
+            <option key={company.ticker} value={company.ticker}>
+              {company.ticker} - {company.company_name}
+            </option>
+          ))}
+        </select>
         <a
-          href="#dbt-docs"
+          href="https://rho-lall.github.io/financial-intelligence/"
+          target="_blank"
+          rel="noopener noreferrer"
           style={{
             ...getNavItemStyle(false),
-            marginLeft: 'auto',
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.background = 'rgba(102, 126, 234, 0.05)';

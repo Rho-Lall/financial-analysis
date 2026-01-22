@@ -10,14 +10,21 @@ export type StatementType =
   | 'financial_metrics'
   | 'chart_of_accounts';
 
-export interface FinancialMetadata {
-  company: string;
+/**
+ * Company information from export_companies.json
+ */
+export interface Company {
+  company_name: string;
   ticker: string;
-  statement_type: StatementType;
-  export_timestamp: string;
+  last_updated: string;
+  data_source: string;
 }
 
-export interface FinancialDataPoint {
+/**
+ * Raw financial data point from export files (flat array format with ticker)
+ */
+export interface RawFinancialDataPoint {
+  ticker: string;
   gl_number: number;
   gl_account: string;
   period_end_date: string;
@@ -26,9 +33,16 @@ export interface FinancialDataPoint {
   amount: number;
 }
 
-export interface FinancialStatement {
-  metadata: FinancialMetadata;
-  data: FinancialDataPoint[];
+/**
+ * Financial data point (for internal use after filtering by ticker)
+ */
+export interface FinancialDataPoint {
+  gl_number: number;
+  gl_account: string;
+  period_end_date: string;
+  fiscal_year: number;
+  fiscal_quarter: number;
+  amount: number;
 }
 
 /**
@@ -49,65 +63,29 @@ export interface BalanceSheetDataPoint extends FinancialDataPoint {
  * Cash Flow Statement specific data point
  */
 export interface CashFlowDataPoint extends FinancialDataPoint {
-  period_start_date: string; // Cash flow includes start date for flow periods
+  period_start_date?: string; // Cash flow may include start date for flow periods
 }
 
 /**
- * Income Statement full structure
+ * Chart of Accounts entry
  */
-export interface IncomeStatement {
-  metadata: FinancialMetadata;
-  data: IncomeStatementDataPoint[];
+export interface ChartOfAccountsEntry {
+  gl_number: number;
+  gl_account: string;
+  category: string;
+  subcategory: string;
+  statement_type: string;
 }
 
 /**
- * Balance Sheet full structure
- */
-export interface BalanceSheet {
-  metadata: FinancialMetadata;
-  data: BalanceSheetDataPoint[];
-}
-
-/**
- * Cash Flow Statement full structure
- */
-export interface CashFlowStatement {
-  metadata: FinancialMetadata;
-  data: CashFlowDataPoint[];
-}
-
-/**
- * Calculated financial metrics (ratios, growth rates, etc.)
+ * Calculated financial metrics
  */
 export interface FinancialMetric {
+  ticker: string;
   metric_name: string;
   period_end_date: string;
   fiscal_year: number;
   fiscal_quarter: number;
   value: number;
-  unit?: string; // e.g., 'percentage', 'ratio', 'currency'
-}
-
-export interface FinancialMetrics {
-  metadata: FinancialMetadata;
-  data: FinancialMetric[];
-}
-
-/**
- * Chart of Accounts - Account master data with hierarchy
- */
-export interface ChartOfAccountsEntry {
-  gl_number: number;
-  gl_account: string;
-  account_type: 'Asset' | 'Liability' | 'Equity' | 'Revenue' | 'Expense' | 'Cash Flow';
-  account_category: string;
-  statement_type: 'income_statement' | 'balance_sheet' | 'cash_flow';
-  parent_gl_number: number | null;
-  is_total_line: boolean;
-  display_order: number;
-}
-
-export interface ChartOfAccounts {
-  metadata: FinancialMetadata;
-  data: ChartOfAccountsEntry[];
+  unit?: string;
 }
