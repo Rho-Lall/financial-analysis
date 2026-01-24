@@ -25,8 +25,8 @@ export default function DataTable({ data, title }: DataTableProps) {
 
   const sortedData = useMemo(() => {
     return [...data].sort((a, b) => {
-      let aVal: string | number = a[sortField];
-      let bVal: string | number = b[sortField];
+      let aVal: string | number = 0;
+      let bVal: string | number = 0;
 
       if (sortField === 'amount') {
         aVal = a.amount;
@@ -38,8 +38,8 @@ export default function DataTable({ data, title }: DataTableProps) {
         aVal = a.gl_account;
         bVal = b.gl_account;
       } else if (sortField === 'period_end_date') {
-        aVal = a.period_end_date;
-        bVal = b.period_end_date;
+        aVal = a.period_end_date ?? '';
+        bVal = b.period_end_date ?? '';
       }
 
       if (aVal < bVal) return sortDirection === 'asc' ? -1 : 1;
