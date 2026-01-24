@@ -1,0 +1,212 @@
+[
+  {
+    "gl_number": 4100,
+    "gl_account": "Cost of Revenue",
+    "category": "cost_of_revenue",
+    "subcategory": "total_cost_of_revenue",
+    "statement_type": "income_statement"
+  },
+  {
+    "gl_number": 4200,
+    "gl_account": "Gross Profit",
+    "category": "gross_profit",
+    "subcategory": "total_gross_profit",
+    "statement_type": "income_statement"
+  },
+  {
+    "gl_number": 5000,
+    "gl_account": "Operating Expenses",
+    "category": "operating_expenses",
+    "subcategory": "total_operating_expenses",
+    "statement_type": "income_statement"
+  },
+  {
+    "gl_number": 5100,
+    "gl_account": "R&D Expense",
+    "category": "operating_expenses",
+    "subcategory": "research_development",
+    "statement_type": "income_statement"
+  },
+  {
+    "gl_number": 1000,
+    "gl_account": "Total Assets",
+    "category": "assets",
+    "subcategory": "total_assets",
+    "statement_type": "balance_sheet"
+  },
+  {
+    "gl_number": 1100,
+    "gl_account": "Current Assets",
+    "category": "assets",
+    "subcategory": "current_assets",
+    "statement_type": "balance_sheet"
+  },
+  {
+    "gl_number": 1110,
+    "gl_account": "Cash & Equivalents",
+    "category": "assets",
+    "subcategory": "cash",
+    "statement_type": "balance_sheet"
+  },
+  {
+    "gl_number": 1130,
+    "gl_account": "Accounts Receivable",
+    "category": "assets",
+    "subcategory": "accounts_receivable",
+    "statement_type": "balance_sheet"
+  },
+  {
+    "gl_number": 1140,
+    "gl_account": "Inventory",
+    "category": "assets",
+    "subcategory": "inventory",
+    "statement_type": "balance_sheet"
+  },
+  {
+    "gl_number": 1210,
+    "gl_account": "PP&E Net",
+    "category": "assets",
+    "subcategory": "ppe",
+    "statement_type": "balance_sheet"
+  },
+  {
+    "gl_number": 1220,
+    "gl_account": "Intangible Assets",
+    "category": "assets",
+    "subcategory": "intangible_assets",
+    "statement_type": "balance_sheet"
+  },
+  {
+    "gl_number": 1230,
+    "gl_account": "Goodwill",
+    "category": "assets",
+    "subcategory": "goodwill",
+    "statement_type": "balance_sheet"
+  },
+  {
+    "gl_number": 3300,
+    "gl_account": "Accumulated Other Comprehensive Income",
+    "category": "equity",
+    "subcategory": "aoci",
+    "statement_type": "balance_sheet"
+  },
+  {
+    "gl_number": 7100,
+    "gl_account": "Operating Cash Flow",
+    "category": "operating",
+    "subcategory": "total_operating_cash_flow",
+    "statement_type": "cash_flow"
+  },
+  {
+    "gl_number": 7200,
+    "gl_account": "Investing Cash Flow",
+    "category": "investing",
+    "subcategory": "total_investing_cash_flow",
+    "statement_type": "cash_flow"
+  },
+  {
+    "gl_number": 7210,
+    "gl_account": "CapEx",
+    "category": "investing",
+    "subcategory": "capex",
+    "statement_type": "cash_flow"
+  },
+  {
+    "gl_number": 2210,
+    "gl_account": "Long-Term Debt",
+    "category": "liabilities",
+    "subcategory": "long_term_debt",
+    "statement_type": "balance_sheet"
+  },
+  {
+    "gl_number": 3100,
+    "gl_account": "Common Stock",
+    "category": "equity",
+    "subcategory": "common_stock",
+    "statement_type": "balance_sheet"
+  },
+  {
+    "gl_number": 3200,
+    "gl_account": "Retained Earnings",
+    "category": "equity",
+    "subcategory": "retained_earnings",
+    "statement_type": "balance_sheet"
+  },
+  {
+    "gl_number": 5200,
+    "gl_account": "SG&A Expense",
+    "category": "operating_expenses",
+    "subcategory": "selling_general_admin",
+    "statement_type": "income_statement"
+  },
+  {
+    "gl_number": 5300,
+    "gl_account": "Operating Income",
+    "category": "operating_income",
+    "subcategory": "total_operating_income",
+    "statement_type": "income_statement"
+  },
+  {
+    "gl_number": 5600,
+    "gl_account": "Income Tax Expense",
+    "category": "tax",
+    "subcategory": "income_tax",
+    "statement_type": "income_statement"
+  },
+  {
+    "gl_number": 7300,
+    "gl_account": "Financing Cash Flow",
+    "category": "financing",
+    "subcategory": "total_financing_cash_flow",
+    "statement_type": "cash_flow"
+  },
+  {
+    "gl_number": 7400,
+    "gl_account": "Net Change in Cash",
+    "category": "net_change",
+    "subcategory": "total_net_change_cash",
+    "statement_type": "cash_flow"
+  },
+  {
+    "gl_number": 4000,
+    "gl_account": "Revenue",
+    "category": "revenue",
+    "subcategory": "total_revenue",
+    "statement_type": "income_statement"
+  },
+  {
+    "gl_number": 4100,
+    "gl_account": "Cost of Revenue",
+    "category": "cost_of_revenue",
+    "subcategory": "total_cost_of_revenue",
+    "statement_type": "income_statement"
+  },
+  {
+    "gl_number": 2000,
+    "gl_account": "Total Liabilities",
+    "category": "liabilities",
+    "subcategory": "total_liabilities",
+    "statement_type": "balance_sheet"
+  },
+  {
+    "gl_number": 2100,
+    "gl_account": "Current Liabilities",
+    "category": "liabilities",
+    "subcategory": "current_liabilities",
+    "statement_type": "balance_sheet"
+  },
+  {
+    "gl_number": 2110,
+    "gl_account": "Accounts Payable",
+    "category": "liabilities",
+    "subcategory": "accounts_payable",
+    "statement_type": "balance_sheet"
+  },
+  {
+    "gl_number": 2120,
+    "gl_account": "Accrued Liabilities",
+    "category": "liabilities",
+    "subcategory": "accrued_liabilities",
+    "statement_type": "balance_sheet"
+  }
+]
