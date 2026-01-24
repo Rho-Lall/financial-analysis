@@ -27,10 +27,15 @@ export interface RawFinancialDataPoint {
   ticker: string;
   gl_number: number;
   gl_account: string;
-  period_end_date: string;
+  statement_type?: string;
+  category?: string;
+  subcategory?: string;
+  period_end_date?: string;
   fiscal_year: number;
   fiscal_quarter: number;
+  covered_quarters?: number;
   amount: number;
+  source_type?: string;
 }
 
 /**
@@ -39,10 +44,15 @@ export interface RawFinancialDataPoint {
 export interface FinancialDataPoint {
   gl_number: number;
   gl_account: string;
-  period_end_date: string;
+  statement_type?: string;
+  category?: string;
+  subcategory?: string;
+  period_end_date?: string;
   fiscal_year: number;
   fiscal_quarter: number;
+  covered_quarters?: number;
   amount: number;
+  source_type?: string;
 }
 
 /**

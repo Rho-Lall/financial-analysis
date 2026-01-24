@@ -5,8 +5,7 @@ import type { FinancialDataPoint } from '../types/financial';
 
 interface SankeyDiagramProps {
   data: FinancialDataPoint[];
-  fiscalYear: number;
-  fiscalQuarter: number;
+  selectedPeriod?: string | null;
   width?: number;
   height?: number;
 }
@@ -23,16 +22,29 @@ interface SankeyLinkExtended {
 
 export default function SankeyDiagram({
   data,
-  fiscalYear,
-  fiscalQuarter,
+  selectedPeriod,
   width = 900,
   height = 167
 }: SankeyDiagramProps) {
   const svgRef = useRef<SVGSVGElement>(null);
   const tooltipRef = useRef<HTMLDivElement>(null);
 
+  // Get the most recent period if none selected
+  const getMostRecentPeriod = (): string | null => {
+    if (data.length === 0) return null;
+    const periods = Array.from(new Set(data.map(d => `${d.fiscal_year} Q${d.fiscal_quarter}`))).sort();
+    return periods[periods.length - 1];
+  };
+
+  const displayPeriod = selectedPeriod || getMostRecentPeriod();
+
   useEffect(() => {
-    if (!data || data.length === 0 || !svgRef.current) return;
+    if (!data || data.length === 0 || !svgRef.current || !displayPeriod) return;
+
+    // Parse the period string (e.g., "2024 Q4")
+    const [yearStr, quarterStr] = displayPeriod.split(' ');
+    const fiscalYear = parseInt(yearStr);
+    const fiscalQuarter = parseInt(quarterStr.substring(1));
 
     // Filter data for the selected period
     const periodData = data.filter(
@@ -73,13 +85,16 @@ export default function SankeyDiagram({
       return nodeMap.get(name)!;
     };
 
-    // Find key accounts
+    // Find key accounts (matching actual data export names)
     const revenue = periodData.find(d => d.gl_account === 'Revenue');
-    const costOfRevenue = periodData.find(d => d.gl_account === 'Cost of revenue');
-    const opex = periodData.filter(d => d.gl_account === 'Marketing' || d.gl_account === 'Technology and development');
-    const investmentIncome = periodData.find(d => d.gl_account === 'Investment income');
-    const incomeTax = periodData.find(d => d.gl_account === 'Income tax');
-    const netProfit = periodData.find(d => d.gl_account === 'Net profit');
+    const costOfRevenue = periodData.find(d => d.gl_account === 'Cost of Revenue');
+    const opex = periodData.filter(d =>
+      d.gl_account === 'R&D Expense' ||
+      d.gl_account === 'SG&A Expense' ||
+      d.gl_account === 'Operating Expenses'
+    );
+    const incomeTax = periodData.find(d => d.gl_account === 'Income Tax Expense');
+    const operatingIncome = periodData.find(d => d.gl_account === 'Operating Income');
 
     if (!revenue) return;
 
@@ -142,14 +157,7 @@ export default function SankeyDiagram({
       value: operatingProfitValue
     } as SankeyLinkExtended);
 
-    // Income Before Taxes to Net Profit, Investment Income, and Taxes
-    let incomeBeforeTaxesValue = operatingProfitValue;
-
-    if (investmentIncome) {
-      const investmentIncomeValue = Math.abs(investmentIncome.amount);
-      incomeBeforeTaxesValue += investmentIncomeValue;
-    }
-
+    // Income Before Taxes to Net Profit and Taxes
     if (incomeTax) {
       const taxIdx = getNodeIndex('Taxes');
       const taxValue = Math.abs(incomeTax.amount);
@@ -160,19 +168,19 @@ export default function SankeyDiagram({
       } as SankeyLinkExtended);
     }
 
-    if (netProfit) {
-      const netProfitValue = Math.abs(netProfit.amount);
+    if (operatingIncome) {
+      const operatingIncomeValue = Math.abs(operatingIncome.amount);
       links.push({
         source: incomeBeforeTaxesIdx,
         target: netProfitIdx,
-        value: netProfitValue
+        value: operatingIncomeValue
       } as SankeyLinkExtended);
     }
 
-    // Create sankey generator
+    // Create sankey generator with wider node spacing
     const sankeyGenerator = sankey<SankeyNodeExtended, SankeyLinkExtended>()
-      .nodeWidth(5)
-      .nodePadding(10)
+      .nodeWidth(8)
+      .nodePadding(20)
       .extent([[0, 0], [chartWidth, chartHeight]]);
 
     const { nodes: sankeyNodes, links: sankeyLinks } = sankeyGenerator({
@@ -180,31 +188,51 @@ export default function SankeyDiagram({
       links: links.map(d => ({ ...d }))
     });
 
-    // Color scale - green for profit/income, red for costs/expenses
+    // Color scale - dark green for profit/income, light red for costs/expenses
     const getNodeColor = (name: string): string => {
       const profitNodes = ['Revenue', 'Gross Profit', 'Operating Profit', 'Income Before Taxes', 'Net Profit', 'Investment Income'];
       const costNodes = ['Cost of Revenue', 'Total Operating Expenses', 'Taxes'];
 
-      if (profitNodes.includes(name)) return '#22c55e'; // green
-      if (costNodes.includes(name)) return '#ef4444'; // red
+      if (profitNodes.includes(name)) return '#15803d'; // dark green
+      if (costNodes.includes(name)) return '#f87171'; // light red
       return '#666'; // fallback gray
     };
 
     const tooltip = d3.select(tooltipRef.current);
 
-    // Draw links
+    // Create gradient definitions for links
+    const defs = svg.append('defs');
+    sankeyLinks.forEach((link: any, i: number) => {
+      const gradient = defs.append('linearGradient')
+        .attr('id', `gradient-${i}`)
+        .attr('gradientUnits', 'userSpaceOnUse')
+        .attr('x1', link.source.x1)
+        .attr('x2', link.target.x0);
+
+      gradient.append('stop')
+        .attr('offset', '0%')
+        .attr('stop-color', getNodeColor(link.source.name))
+        .attr('stop-opacity', 0.6);
+
+      gradient.append('stop')
+        .attr('offset', '100%')
+        .attr('stop-color', getNodeColor(link.target.name))
+        .attr('stop-opacity', 0.6);
+    });
+
+    // Draw links with gradient fill
     g.append('g')
       .selectAll('.link')
       .data(sankeyLinks)
       .join('path')
       .attr('class', 'link')
       .attr('d', sankeyLinkHorizontal())
-      .attr('stroke', (d: any) => getNodeColor(d.target.name))
+      .attr('stroke', (_d: any, i: number) => `url(#gradient-${i})`)
       .attr('stroke-width', (d: any) => Math.max(1, d.width))
       .attr('fill', 'none')
-      .attr('opacity', 0.4)
+      .attr('opacity', 0.8)
       .on('mouseover', function(event, d: any) {
-        d3.select(this).attr('opacity', 0.7);
+        d3.select(this).attr('opacity', 1);
 
         const value = d.value;
         tooltip
@@ -224,11 +252,11 @@ export default function SankeyDiagram({
           `);
       })
       .on('mouseout', function() {
-        d3.select(this).attr('opacity', 0.4);
+        d3.select(this).attr('opacity', 0.8);
         tooltip.style('opacity', 0);
       });
 
-    // Draw nodes
+    // Draw nodes with rounded corners
     const node = g.append('g')
       .selectAll('.node')
       .data(sankeyNodes)
@@ -240,8 +268,10 @@ export default function SankeyDiagram({
       .attr('y', (d: any) => d.y0)
       .attr('height', (d: any) => d.y1 - d.y0)
       .attr('width', (d: any) => d.x1 - d.x0)
+      .attr('rx', 3)
+      .attr('ry', 3)
       .attr('fill', (d: any) => getNodeColor(d.name))
-      .attr('opacity', 0.8)
+      .attr('opacity', 0.9)
       .on('mouseover', function(event, d: any) {
         d3.select(this).attr('opacity', 1);
 
@@ -261,7 +291,7 @@ export default function SankeyDiagram({
           `);
       })
       .on('mouseout', function() {
-        d3.select(this).attr('opacity', 0.8);
+        d3.select(this).attr('opacity', 0.9);
         tooltip.style('opacity', 0);
       });
 
@@ -283,9 +313,9 @@ export default function SankeyDiagram({
       .style('font-size', '11px')
       .style('fill', '#666')
       .style('font-weight', '600')
-      .text(`Income Flow (${fiscalYear} Q${fiscalQuarter})`);
+      .text(`Income Flow (${displayPeriod})`);
 
-  }, [data, fiscalYear, fiscalQuarter, width, height]);
+  }, [data, displayPeriod, width, height]);
 
   return (
     <div style={{ position: 'relative', width: '100%', overflowX: 'auto' }}>

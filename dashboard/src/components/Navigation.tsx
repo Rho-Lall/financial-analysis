@@ -113,7 +113,7 @@ export default function Navigation({ currentPage = 'income', onNavigate, compani
           ))}
         </select>
         <a
-          href="https://rho-lall.github.io/financial-intelligence/"
+          href={`${import.meta.env.BASE_URL}dbtdocs/`}
           target="_blank"
           rel="noopener noreferrer"
           style={{
