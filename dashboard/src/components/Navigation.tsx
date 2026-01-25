@@ -113,7 +113,7 @@ export default function Navigation({ currentPage = 'income', onNavigate, compani
           ))}
         </select>
         <a
-          href={`${import.meta.env.BASE_URL}dbtdocs/`}
+          href={`${import.meta.env.BASE_URL}dbtdocs/index.html`}
           target="_blank"
           rel="noopener noreferrer"
           style={{
