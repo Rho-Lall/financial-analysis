@@ -206,22 +206,13 @@ function App() {
                   </div>
 
                   {/* Sankey Diagram */}
-                  <div style={{ marginBottom: '2rem', display: 'flex', gap: '1.5rem' }}>
-                    <div style={{ flex: '1', background: 'white', borderRadius: '8px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
-                      <SankeyDiagram
-                        data={incomeStatement}
-                        selectedPeriod={selectedPeriod}
-                        width={900}
-                        height={167}
-                      />
-                    </div>
-                    <div style={{ width: '167px', height: '167px', background: 'white', borderRadius: '8px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                      <img
-                        src={`${import.meta.env.BASE_URL}images/1_IncomeStatement.jpg`}
-                        alt="Income Statement Flow"
-                        style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
-                      />
-                    </div>
+                  <div style={{ marginBottom: '2rem', background: 'white', borderRadius: '8px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
+                    <SankeyDiagram
+                      data={incomeStatement}
+                      selectedPeriod={selectedPeriod}
+                      width={1000}
+                      height={167}
+                    />
                   </div>
                 </>
               );
@@ -255,10 +246,8 @@ function App() {
                 );
                 const totalAssetsValue = activePeriodData.find(d => d.gl_account === 'Total Assets')?.amount ?? 0;
 
-                // Get metrics for active period
-                const debtToEquityMetric = getMetricByPeriod('Debt-to-Equity Ratio', activePeriod);
-                const roaMetric = getMetricByPeriod('ROA', activePeriod);
-                const currentRatioMetric = getMetricByPeriod('Current Ratio', activePeriod);
+                // Get metrics for active period, falling back to most recent if not available
+                const debtToEquityMetric = getMetricByPeriod('Debt to Equity', activePeriod) || getLatestMetric('Debt to Equity');
 
                 // Aggregate balance sheet data into Equity and Liabilities for bar chart
                 const periodMap = new Map();
@@ -319,7 +308,7 @@ function App() {
 
                 // Build debt-to-equity line data from financial metrics
                 const debtToEquityData = financialMetrics
-                  .filter(m => m.metric_name === 'Debt-to-Equity Ratio')
+                  .filter(m => m.metric_name === 'Debt to Equity')
                   .map(m => ({
                     period: `${m.fiscal_year} Q${m.fiscal_quarter}`,
                     value: m.value
@@ -328,7 +317,7 @@ function App() {
 
                 return (
                   <div style={{ flex: '2' }}>
-                    {/* 2x2 Scorecard Grid */}
+                    {/* Scorecard Row */}
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem', marginBottom: '1.5rem' }}>
                       <ScoreCard
                         title={`Total Assets${activePeriod ? ` (${activePeriod})` : ''}`}
@@ -340,23 +329,13 @@ function App() {
                         value={debtToEquityMetric?.value ?? 0}
                         format="ratio"
                       />
-                      <ScoreCard
-                        title={`ROA${activePeriod ? ` (${activePeriod})` : ''}`}
-                        value={(roaMetric?.value ?? 0) / 100}
-                        format="percentage"
-                      />
-                      <ScoreCard
-                        title={`Current Ratio${activePeriod ? ` (${activePeriod})` : ''}`}
-                        value={currentRatioMetric?.value ?? 0}
-                        format="ratio"
-                      />
                     </div>
                     {/* Bar Chart */}
-                    <div style={{ background: 'white', borderRadius: '8px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)', padding: '1.5rem', height: '550px', boxSizing: 'border-box' }}>
+                    <div style={{ background: 'white', borderRadius: '8px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)', padding: '1.5rem', height: '640px', boxSizing: 'border-box' }}>
                       <StackedBarChart
                         data={chartData}
                         width={600}
-                        height={490}
+                        height={580}
                         colors={['#f4c430', '#5a4a8a']}
                         onPeriodHover={setSelectedPeriod}
                         lineOverlay={debtToEquityData.length > 0 ? {

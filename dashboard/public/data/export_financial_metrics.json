@@ -1,785 +1,299 @@
 [
   {
     "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2020-06-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 2,
-    "value": 10.6,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2020-06-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 2,
-    "value": 7.84,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2020-06-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 2,
-    "value": -30.73,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2020-06-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 2,
-    "value": -64.17,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2020-06-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 2,
-    "value": -26.04,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2020-06-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 2,
-    "value": 42.96,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Current Ratio",
-    "period_end_date": "2020-09-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 3,
-    "value": 1.54,
-    "unit": "ratio"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Current Ratio",
-    "period_end_date": "2020-09-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 3,
-    "value": 1.54,
-    "unit": "ratio"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Current Ratio",
-    "period_end_date": "2020-09-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 3,
-    "value": 1.54,
-    "unit": "ratio"
-  },
-  {
-    "ticker": "CAT",
     "metric_name": "FCF Margin",
-    "period_end_date": "2020-09-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 3,
-    "value": 11.7,
+    "period_end_date": "2024-06-30",
+    "fiscal_year": 2024,
+    "fiscal_quarter": 2,
+    "value": 13.03,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "FCF Margin",
-    "period_end_date": "2020-09-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 3,
-    "value": 11.7,
+    "period_end_date": "2024-06-30",
+    "fiscal_year": 2024,
+    "fiscal_quarter": 2,
+    "value": 13.03,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "FCF Margin",
-    "period_end_date": "2020-09-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 3,
-    "value": 11.7,
+    "period_end_date": "2024-06-30",
+    "fiscal_year": 2024,
+    "fiscal_quarter": 2,
+    "value": 13.03,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Free Cash Flow",
-    "period_end_date": "2020-09-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 3,
-    "value": 3569000000.0,
+    "period_end_date": "2024-06-30",
+    "fiscal_year": 2024,
+    "fiscal_quarter": 2,
+    "value": 4232000000.0,
     "unit": "currency"
   },
   {
     "ticker": "CAT",
     "metric_name": "Free Cash Flow",
-    "period_end_date": "2020-09-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 3,
-    "value": 3569000000.0,
+    "period_end_date": "2024-06-30",
+    "fiscal_year": 2024,
+    "fiscal_quarter": 2,
+    "value": 4232000000.0,
     "unit": "currency"
   },
   {
     "ticker": "CAT",
     "metric_name": "Free Cash Flow",
-    "period_end_date": "2020-09-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 3,
-    "value": 3569000000.0,
+    "period_end_date": "2024-06-30",
+    "fiscal_year": 2024,
+    "fiscal_quarter": 2,
+    "value": 4232000000.0,
     "unit": "currency"
   },
   {
     "ticker": "CAT",
     "metric_name": "Gross Margin",
-    "period_end_date": "2020-09-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 3,
-    "value": 30.2,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2020-09-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 3,
-    "value": 29.98,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2020-09-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 3,
-    "value": 30.2,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2020-09-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 3,
-    "value": 29.98,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2020-09-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 3,
-    "value": 30.2,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2020-09-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 3,
-    "value": 29.98,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2020-09-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 3,
-    "value": 10.4,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2020-09-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 3,
-    "value": 9.97,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2020-09-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 3,
-    "value": 9.97,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2020-09-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 3,
-    "value": 10.4,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2020-09-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 3,
-    "value": 9.97,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2020-09-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 3,
-    "value": 10.4,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2023-06-30",
-    "fiscal_year": 2023,
+    "period_end_date": "2024-06-30",
+    "fiscal_year": 2024,
     "fiscal_quarter": 2,
-    "value": 19.24,
+    "value": 39.02,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2024-06-30",
+    "fiscal_year": 2024,
+    "fiscal_quarter": 2,
+    "value": 39.02,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2024-06-30",
+    "fiscal_year": 2024,
+    "fiscal_quarter": 2,
+    "value": 39.18,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2024-06-30",
+    "fiscal_year": 2024,
+    "fiscal_quarter": 2,
+    "value": 39.02,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2024-06-30",
+    "fiscal_year": 2024,
+    "fiscal_quarter": 2,
+    "value": 39.18,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2024-06-30",
+    "fiscal_year": 2024,
+    "fiscal_quarter": 2,
+    "value": 39.18,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Operating Margin",
-    "period_end_date": "2023-06-30",
-    "fiscal_year": 2023,
+    "period_end_date": "2024-06-30",
+    "fiscal_year": 2024,
     "fiscal_quarter": 2,
-    "value": 21.09,
+    "value": 21.55,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Operating Margin",
-    "period_end_date": "2023-06-30",
-    "fiscal_year": 2023,
+    "period_end_date": "2024-06-30",
+    "fiscal_year": 2024,
     "fiscal_quarter": 2,
-    "value": 21.09,
+    "value": 21.55,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2024-06-30",
+    "fiscal_year": 2024,
+    "fiscal_quarter": 2,
+    "value": 20.86,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2024-06-30",
+    "fiscal_year": 2024,
+    "fiscal_quarter": 2,
+    "value": 20.86,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2024-06-30",
+    "fiscal_year": 2024,
+    "fiscal_quarter": 2,
+    "value": 21.55,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2024-06-30",
+    "fiscal_year": 2024,
+    "fiscal_quarter": 2,
+    "value": 20.86,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2023-06-30",
-    "fiscal_year": 2023,
+    "period_end_date": "2024-06-30",
+    "fiscal_year": 2024,
     "fiscal_quarter": 2,
-    "value": 19.2,
+    "value": -49.7,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2023-06-30",
-    "fiscal_year": 2023,
+    "period_end_date": "2024-06-30",
+    "fiscal_year": 2024,
     "fiscal_quarter": 2,
-    "value": 21.56,
+    "value": -2.09,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2023-06-30",
-    "fiscal_year": 2023,
+    "period_end_date": "2024-06-30",
+    "fiscal_year": 2024,
     "fiscal_quarter": 2,
-    "value": -37.79,
+    "value": -3.63,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2023-06-30",
-    "fiscal_year": 2023,
+    "period_end_date": "2024-06-30",
+    "fiscal_year": 2024,
     "fiscal_quarter": 2,
-    "value": 132.89,
+    "value": 87.6,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Current Ratio",
-    "period_end_date": "2023-09-30",
-    "fiscal_year": 2023,
+    "period_end_date": "2024-09-30",
+    "fiscal_year": 2024,
     "fiscal_quarter": 3,
-    "value": 1.45,
+    "value": 1.4,
     "unit": "ratio"
   },
   {
     "ticker": "CAT",
     "metric_name": "Current Ratio",
-    "period_end_date": "2023-09-30",
-    "fiscal_year": 2023,
+    "period_end_date": "2024-09-30",
+    "fiscal_year": 2024,
     "fiscal_quarter": 3,
-    "value": 1.45,
+    "value": 1.4,
     "unit": "ratio"
   },
   {
     "ticker": "CAT",
     "metric_name": "Current Ratio",
-    "period_end_date": "2023-09-30",
-    "fiscal_year": 2023,
+    "period_end_date": "2024-09-30",
+    "fiscal_year": 2024,
     "fiscal_quarter": 3,
-    "value": 1.45,
+    "value": 1.4,
     "unit": "ratio"
   },
   {
     "ticker": "CAT",
     "metric_name": "FCF Margin",
-    "period_end_date": "2023-09-30",
-    "fiscal_year": 2023,
+    "period_end_date": "2024-09-30",
+    "fiscal_year": 2024,
     "fiscal_quarter": 3,
-    "value": 15.65,
+    "value": 15.14,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "FCF Margin",
-    "period_end_date": "2023-09-30",
-    "fiscal_year": 2023,
+    "period_end_date": "2024-09-30",
+    "fiscal_year": 2024,
     "fiscal_quarter": 3,
-    "value": 15.65,
+    "value": 15.14,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "FCF Margin",
-    "period_end_date": "2023-09-30",
-    "fiscal_year": 2023,
+    "period_end_date": "2024-09-30",
+    "fiscal_year": 2024,
     "fiscal_quarter": 3,
-    "value": 15.65,
+    "value": 15.14,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Free Cash Flow",
-    "period_end_date": "2023-09-30",
-    "fiscal_year": 2023,
+    "period_end_date": "2024-09-30",
+    "fiscal_year": 2024,
     "fiscal_quarter": 3,
-    "value": 7821000000.0,
+    "value": 7357000000.0,
     "unit": "currency"
   },
   {
     "ticker": "CAT",
     "metric_name": "Free Cash Flow",
-    "period_end_date": "2023-09-30",
-    "fiscal_year": 2023,
+    "period_end_date": "2024-09-30",
+    "fiscal_year": 2024,
     "fiscal_quarter": 3,
-    "value": 7821000000.0,
+    "value": 7357000000.0,
     "unit": "currency"
   },
   {
     "ticker": "CAT",
     "metric_name": "Free Cash Flow",
-    "period_end_date": "2023-09-30",
-    "fiscal_year": 2023,
+    "period_end_date": "2024-09-30",
+    "fiscal_year": 2024,
     "fiscal_quarter": 3,
-    "value": 7821000000.0,
+    "value": 7357000000.0,
     "unit": "currency"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2023-09-30",
-    "fiscal_year": 2023,
-    "fiscal_quarter": 3,
-    "value": 36.49,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2023-09-30",
-    "fiscal_year": 2023,
-    "fiscal_quarter": 3,
-    "value": 37.04,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2023-09-30",
-    "fiscal_year": 2023,
-    "fiscal_quarter": 3,
-    "value": 36.49,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2023-09-30",
-    "fiscal_year": 2023,
-    "fiscal_quarter": 3,
-    "value": 36.49,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2023-09-30",
-    "fiscal_year": 2023,
-    "fiscal_quarter": 3,
-    "value": 37.04,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2023-09-30",
-    "fiscal_year": 2023,
-    "fiscal_quarter": 3,
-    "value": 37.04,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2023-09-30",
-    "fiscal_year": 2023,
-    "fiscal_quarter": 3,
-    "value": 20.52,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2023-09-30",
-    "fiscal_year": 2023,
-    "fiscal_quarter": 3,
-    "value": 19.67,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2023-09-30",
-    "fiscal_year": 2023,
-    "fiscal_quarter": 3,
-    "value": 19.67,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2023-09-30",
-    "fiscal_year": 2023,
-    "fiscal_quarter": 3,
-    "value": 20.52,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2023-09-30",
-    "fiscal_year": 2023,
-    "fiscal_quarter": 3,
-    "value": 20.52,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2023-09-30",
-    "fiscal_year": 2023,
-    "fiscal_quarter": 3,
-    "value": 19.67,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2021-06-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 2,
-    "value": -37.53,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2021-06-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 2,
-    "value": 28.93,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2021-06-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 2,
-    "value": 147.83,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2021-06-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 2,
-    "value": 20.09,
-    "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Current Ratio",
-    "period_end_date": "2021-09-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 3,
-    "value": 1.61,
+    "period_end_date": "2025-03-31",
+    "fiscal_year": 2025,
+    "fiscal_quarter": 1,
+    "value": 1.32,
     "unit": "ratio"
   },
   {
     "ticker": "CAT",
     "metric_name": "Current Ratio",
-    "period_end_date": "2021-09-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 3,
-    "value": 1.61,
-    "unit": "ratio"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Current Ratio",
-    "period_end_date": "2021-09-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 3,
-    "value": 1.61,
-    "unit": "ratio"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "FCF Margin",
-    "period_end_date": "2021-09-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 3,
-    "value": 13.75,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "FCF Margin",
-    "period_end_date": "2021-09-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 3,
-    "value": 13.75,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "FCF Margin",
-    "period_end_date": "2021-09-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 3,
-    "value": 13.75,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Free Cash Flow",
-    "period_end_date": "2021-09-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 3,
-    "value": 5113000000.0,
-    "unit": "currency"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Free Cash Flow",
-    "period_end_date": "2021-09-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 3,
-    "value": 5113000000.0,
-    "unit": "currency"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Free Cash Flow",
-    "period_end_date": "2021-09-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 3,
-    "value": 5113000000.0,
-    "unit": "currency"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2021-09-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 3,
-    "value": 31.37,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2021-09-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 3,
-    "value": 31.37,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2021-09-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 3,
-    "value": 30.49,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2021-09-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 3,
-    "value": 30.49,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2021-09-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 3,
-    "value": 31.37,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2021-09-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 3,
-    "value": 30.49,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2021-09-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 3,
-    "value": 14.17,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2021-09-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 3,
-    "value": 13.42,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2021-09-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 3,
-    "value": 13.42,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2021-09-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 3,
-    "value": 14.17,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2021-09-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 3,
-    "value": 14.17,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2021-09-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 3,
-    "value": 13.42,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2021-09-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 3,
-    "value": -59.37,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2021-09-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 3,
-    "value": 21.83,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2021-09-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 3,
-    "value": 276.21,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2021-09-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 3,
-    "value": 25.46,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Current Ratio",
-    "period_end_date": "2021-12-31",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 4,
-    "value": 1.46,
-    "unit": "ratio"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Current Ratio",
-    "period_end_date": "2021-12-31",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 4,
-    "value": 1.46,
-    "unit": "ratio"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Current Ratio",
-    "period_end_date": "2021-12-31",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 4,
-    "value": 1.46,
+    "period_end_date": "2025-03-31",
+    "fiscal_year": 2025,
+    "fiscal_quarter": 1,
+    "value": 1.32,
     "unit": "ratio"
   },
   {
@@ -950,7 +464,7 @@
     "period_end_date": "2025-06-30",
     "fiscal_year": 2025,
     "fiscal_quarter": 2,
-    "value": 34.78,
+    "value": 35.84,
     "unit": "percentage"
   },
   {
@@ -977,7 +491,7 @@
     "period_end_date": "2025-06-30",
     "fiscal_year": 2025,
     "fiscal_quarter": 2,
-    "value": 35.84,
+    "value": 34.78,
     "unit": "percentage"
   },
   {
@@ -996,24 +510,6 @@
     "fiscal_year": 2025,
     "fiscal_quarter": 2,
     "value": 34.78,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2025-06-30",
-    "fiscal_year": 2025,
-    "fiscal_quarter": 2,
-    "value": 17.65,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2025-06-30",
-    "fiscal_year": 2025,
-    "fiscal_quarter": 2,
-    "value": 17.26,
     "unit": "percentage"
   },
   {
@@ -1054,560 +550,1388 @@
   },
   {
     "ticker": "CAT",
-    "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2025-06-30",
-    "fiscal_year": 2025,
-    "fiscal_quarter": 2,
-    "value": -0.72,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2025-06-30",
-    "fiscal_year": 2025,
-    "fiscal_quarter": 2,
-    "value": -49.0,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2025-06-30",
-    "fiscal_year": 2025,
-    "fiscal_quarter": 2,
-    "value": -5.14,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2025-06-30",
-    "fiscal_year": 2025,
-    "fiscal_quarter": 2,
-    "value": 84.66,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
     "metric_name": "Current Ratio",
-    "period_end_date": "2025-09-30",
-    "fiscal_year": 2025,
-    "fiscal_quarter": 3,
-    "value": 1.38,
+    "period_end_date": "2022-06-30",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 2,
+    "value": 1.45,
     "unit": "ratio"
   },
   {
     "ticker": "CAT",
     "metric_name": "Current Ratio",
-    "period_end_date": "2025-09-30",
-    "fiscal_year": 2025,
-    "fiscal_quarter": 3,
-    "value": 1.38,
+    "period_end_date": "2022-06-30",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 2,
+    "value": 1.45,
     "unit": "ratio"
   },
   {
     "ticker": "CAT",
     "metric_name": "Current Ratio",
-    "period_end_date": "2025-09-30",
-    "fiscal_year": 2025,
-    "fiscal_quarter": 3,
-    "value": 1.38,
+    "period_end_date": "2022-06-30",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 2,
+    "value": 1.45,
     "unit": "ratio"
   },
   {
     "ticker": "CAT",
     "metric_name": "FCF Margin",
-    "period_end_date": "2025-09-30",
-    "fiscal_year": 2025,
-    "fiscal_quarter": 3,
-    "value": 12.85,
+    "period_end_date": "2022-06-30",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 2,
+    "value": 7.04,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "FCF Margin",
-    "period_end_date": "2025-09-30",
-    "fiscal_year": 2025,
-    "fiscal_quarter": 3,
-    "value": 12.85,
+    "period_end_date": "2022-06-30",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 2,
+    "value": 7.04,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "FCF Margin",
-    "period_end_date": "2025-09-30",
-    "fiscal_year": 2025,
-    "fiscal_quarter": 3,
-    "value": 12.85,
+    "period_end_date": "2022-06-30",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 2,
+    "value": 7.04,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Free Cash Flow",
-    "period_end_date": "2025-09-30",
-    "fiscal_year": 2025,
-    "fiscal_quarter": 3,
-    "value": 6225000000.0,
+    "period_end_date": "2022-06-30",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 2,
+    "value": 1960000000.0,
     "unit": "currency"
   },
   {
     "ticker": "CAT",
     "metric_name": "Free Cash Flow",
-    "period_end_date": "2025-09-30",
-    "fiscal_year": 2025,
-    "fiscal_quarter": 3,
-    "value": 6225000000.0,
+    "period_end_date": "2022-06-30",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 2,
+    "value": 1960000000.0,
     "unit": "currency"
   },
   {
     "ticker": "CAT",
     "metric_name": "Free Cash Flow",
-    "period_end_date": "2025-09-30",
-    "fiscal_year": 2025,
-    "fiscal_quarter": 3,
-    "value": 6225000000.0,
+    "period_end_date": "2022-06-30",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 2,
+    "value": 1960000000.0,
     "unit": "currency"
   },
   {
     "ticker": "CAT",
     "metric_name": "Gross Margin",
-    "period_end_date": "2025-09-30",
-    "fiscal_year": 2025,
-    "fiscal_quarter": 3,
-    "value": 35.11,
+    "period_end_date": "2022-06-30",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 2,
+    "value": 29.82,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Gross Margin",
-    "period_end_date": "2025-09-30",
-    "fiscal_year": 2025,
-    "fiscal_quarter": 3,
-    "value": 33.82,
+    "period_end_date": "2022-06-30",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 2,
+    "value": 29.82,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Gross Margin",
-    "period_end_date": "2025-09-30",
-    "fiscal_year": 2025,
-    "fiscal_quarter": 3,
-    "value": 35.11,
+    "period_end_date": "2022-06-30",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 2,
+    "value": 29.99,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Gross Margin",
-    "period_end_date": "2025-09-30",
-    "fiscal_year": 2025,
-    "fiscal_quarter": 3,
-    "value": 33.82,
+    "period_end_date": "2022-06-30",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 2,
+    "value": 29.99,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Gross Margin",
-    "period_end_date": "2025-09-30",
-    "fiscal_year": 2025,
-    "fiscal_quarter": 3,
-    "value": 33.82,
+    "period_end_date": "2022-06-30",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 2,
+    "value": 29.82,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Gross Margin",
-    "period_end_date": "2025-09-30",
-    "fiscal_year": 2025,
-    "fiscal_quarter": 3,
-    "value": 35.11,
+    "period_end_date": "2022-06-30",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 2,
+    "value": 29.99,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Operating Margin",
-    "period_end_date": "2025-09-30",
-    "fiscal_year": 2025,
-    "fiscal_quarter": 3,
-    "value": 17.3,
+    "period_end_date": "2022-06-30",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 2,
+    "value": 13.65,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Operating Margin",
-    "period_end_date": "2025-09-30",
-    "fiscal_year": 2025,
-    "fiscal_quarter": 3,
-    "value": 17.52,
+    "period_end_date": "2022-06-30",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 2,
+    "value": 13.64,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Operating Margin",
-    "period_end_date": "2025-09-30",
-    "fiscal_year": 2025,
-    "fiscal_quarter": 3,
-    "value": 17.3,
+    "period_end_date": "2022-06-30",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 2,
+    "value": 13.65,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Operating Margin",
-    "period_end_date": "2025-09-30",
-    "fiscal_year": 2025,
-    "fiscal_quarter": 3,
-    "value": 17.52,
+    "period_end_date": "2022-06-30",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 2,
+    "value": 13.65,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Operating Margin",
-    "period_end_date": "2025-09-30",
-    "fiscal_year": 2025,
-    "fiscal_quarter": 3,
-    "value": 17.3,
+    "period_end_date": "2022-06-30",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 2,
+    "value": 13.64,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Operating Margin",
-    "period_end_date": "2025-09-30",
-    "fiscal_year": 2025,
-    "fiscal_quarter": 3,
-    "value": 17.52,
+    "period_end_date": "2022-06-30",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 2,
+    "value": 13.64,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2025-09-30",
-    "fiscal_year": 2025,
-    "fiscal_quarter": 3,
-    "value": 200.86,
+    "period_end_date": "2022-06-30",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 2,
+    "value": -42.5,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2025-09-30",
-    "fiscal_year": 2025,
-    "fiscal_quarter": 3,
-    "value": 9.51,
+    "period_end_date": "2022-06-30",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 2,
+    "value": 10.54,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2025-09-30",
-    "fiscal_year": 2025,
-    "fiscal_quarter": 3,
-    "value": -0.28,
+    "period_end_date": "2022-06-30",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 2,
+    "value": 115.97,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2025-09-30",
-    "fiscal_year": 2025,
-    "fiscal_quarter": 3,
-    "value": -63.7,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "FCF Margin",
-    "period_end_date": "2024-06-30",
-    "fiscal_year": 2024,
+    "period_end_date": "2022-06-30",
+    "fiscal_year": 2022,
     "fiscal_quarter": 2,
-    "value": 13.03,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "FCF Margin",
-    "period_end_date": "2024-06-30",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 2,
-    "value": 13.03,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "FCF Margin",
-    "period_end_date": "2024-06-30",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 2,
-    "value": 13.03,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Free Cash Flow",
-    "period_end_date": "2024-06-30",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 2,
-    "value": 4232000000.0,
-    "unit": "currency"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Free Cash Flow",
-    "period_end_date": "2024-06-30",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 2,
-    "value": 4232000000.0,
-    "unit": "currency"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Free Cash Flow",
-    "period_end_date": "2024-06-30",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 2,
-    "value": 4232000000.0,
-    "unit": "currency"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2024-06-30",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 2,
-    "value": 39.18,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2024-06-30",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 2,
-    "value": 39.18,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2024-06-30",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 2,
-    "value": 39.02,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2024-06-30",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 2,
-    "value": 39.02,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2024-06-30",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 2,
-    "value": 39.02,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2024-06-30",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 2,
-    "value": 39.18,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2024-06-30",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 2,
-    "value": 21.55,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2024-06-30",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 2,
-    "value": 21.55,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2024-06-30",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 2,
-    "value": 20.86,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2024-06-30",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 2,
-    "value": 20.86,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2024-06-30",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 2,
-    "value": 21.55,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2024-06-30",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 2,
-    "value": 20.86,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2024-06-30",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 2,
-    "value": 87.6,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2024-06-30",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 2,
-    "value": -3.63,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2024-06-30",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 2,
-    "value": -2.09,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2024-06-30",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 2,
-    "value": -49.7,
+    "value": 12.35,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Current Ratio",
-    "period_end_date": "2024-09-30",
-    "fiscal_year": 2024,
+    "period_end_date": "2022-09-30",
+    "fiscal_year": 2022,
     "fiscal_quarter": 3,
-    "value": 1.4,
+    "value": 1.41,
     "unit": "ratio"
   },
   {
     "ticker": "CAT",
     "metric_name": "Current Ratio",
-    "period_end_date": "2024-09-30",
-    "fiscal_year": 2024,
+    "period_end_date": "2022-09-30",
+    "fiscal_year": 2022,
     "fiscal_quarter": 3,
-    "value": 1.4,
+    "value": 1.41,
     "unit": "ratio"
   },
   {
     "ticker": "CAT",
     "metric_name": "Current Ratio",
-    "period_end_date": "2024-09-30",
-    "fiscal_year": 2024,
+    "period_end_date": "2022-09-30",
+    "fiscal_year": 2022,
     "fiscal_quarter": 3,
-    "value": 1.4,
+    "value": 1.41,
     "unit": "ratio"
   },
   {
     "ticker": "CAT",
     "metric_name": "FCF Margin",
-    "period_end_date": "2024-09-30",
-    "fiscal_year": 2024,
+    "period_end_date": "2022-09-30",
+    "fiscal_year": 2022,
     "fiscal_quarter": 3,
-    "value": 15.14,
+    "value": 9.71,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "FCF Margin",
-    "period_end_date": "2024-09-30",
-    "fiscal_year": 2024,
+    "period_end_date": "2022-09-30",
+    "fiscal_year": 2022,
     "fiscal_quarter": 3,
-    "value": 15.14,
+    "value": 9.71,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "FCF Margin",
-    "period_end_date": "2024-09-30",
-    "fiscal_year": 2024,
+    "period_end_date": "2022-09-30",
+    "fiscal_year": 2022,
     "fiscal_quarter": 3,
-    "value": 15.14,
+    "value": 9.71,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
-    "metric_name": "Free Cash Flow",
-    "period_end_date": "2024-09-30",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 3,
-    "value": 7357000000.0,
-    "unit": "currency"
+    "metric_name": "Operating Margin",
+    "period_end_date": "2020-06-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 2,
+    "value": 10.6,
+    "unit": "percentage"
   },
   {
     "ticker": "CAT",
-    "metric_name": "Free Cash Flow",
-    "period_end_date": "2024-09-30",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 3,
-    "value": 7357000000.0,
-    "unit": "currency"
+    "metric_name": "Operating Margin",
+    "period_end_date": "2020-06-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 2,
+    "value": 7.84,
+    "unit": "percentage"
   },
   {
     "ticker": "CAT",
-    "metric_name": "Free Cash Flow",
-    "period_end_date": "2024-09-30",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 3,
-    "value": 7357000000.0,
-    "unit": "currency"
+    "metric_name": "Operating Margin",
+    "period_end_date": "2020-06-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 2,
+    "value": 10.6,
+    "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2020-06-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 2,
+    "value": 42.96,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2020-06-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 2,
+    "value": -64.17,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2020-06-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 2,
+    "value": -30.73,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2020-06-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 2,
+    "value": -26.04,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Current Ratio",
+    "period_end_date": "2020-09-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 3,
+    "value": 1.54,
+    "unit": "ratio"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Current Ratio",
+    "period_end_date": "2020-09-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 3,
+    "value": 1.54,
+    "unit": "ratio"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Current Ratio",
+    "period_end_date": "2020-09-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 3,
+    "value": 1.54,
+    "unit": "ratio"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "FCF Margin",
+    "period_end_date": "2020-09-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 3,
+    "value": 11.7,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "FCF Margin",
+    "period_end_date": "2020-09-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 3,
+    "value": 11.7,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "FCF Margin",
+    "period_end_date": "2020-09-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 3,
+    "value": 11.7,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Free Cash Flow",
+    "period_end_date": "2020-09-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 3,
+    "value": 3569000000.0,
+    "unit": "currency"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Free Cash Flow",
+    "period_end_date": "2020-09-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 3,
+    "value": 3569000000.0,
+    "unit": "currency"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Free Cash Flow",
+    "period_end_date": "2020-09-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 3,
+    "value": 3569000000.0,
+    "unit": "currency"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2020-09-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 3,
+    "value": 30.2,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2020-09-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 3,
+    "value": 29.98,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2020-09-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 3,
+    "value": 29.98,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2020-09-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 3,
+    "value": 29.98,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2020-09-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 3,
+    "value": 30.2,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2020-09-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 3,
+    "value": 30.2,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2020-09-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 3,
+    "value": 9.97,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2020-09-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 3,
+    "value": 10.4,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2020-09-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 3,
+    "value": 9.97,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2020-09-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 3,
+    "value": 9.97,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2020-09-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 3,
+    "value": 10.4,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2020-09-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 3,
+    "value": 10.4,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2020-09-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 3,
+    "value": -24.95,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2020-09-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 3,
+    "value": -22.55,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2020-09-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 3,
+    "value": 139.17,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2020-09-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 3,
+    "value": -75.7,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Current Ratio",
+    "period_end_date": "2020-12-31",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 4,
+    "value": 1.53,
+    "unit": "ratio"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Current Ratio",
+    "period_end_date": "2020-12-31",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 4,
+    "value": 1.53,
+    "unit": "ratio"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Current Ratio",
+    "period_end_date": "2020-12-31",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 4,
+    "value": 1.53,
+    "unit": "ratio"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Debt to Equity",
+    "period_end_date": "2020-12-31",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 4,
+    "value": 1.69,
+    "unit": "ratio"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Debt to Equity",
+    "period_end_date": "2020-12-31",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 4,
+    "value": 1.69,
+    "unit": "ratio"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Debt to Equity",
+    "period_end_date": "2020-12-31",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 4,
+    "value": 1.69,
+    "unit": "ratio"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "FCF Margin",
+    "period_end_date": "2020-12-31",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 4,
+    "value": 12.81,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "FCF Margin",
+    "period_end_date": "2020-12-31",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 4,
+    "value": 12.81,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "FCF Margin",
+    "period_end_date": "2020-12-31",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 4,
+    "value": 12.81,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Free Cash Flow",
+    "period_end_date": "2020-12-31",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 4,
+    "value": 5349000000.0,
+    "unit": "currency"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Free Cash Flow",
+    "period_end_date": "2020-12-31",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 4,
+    "value": 5349000000.0,
+    "unit": "currency"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Free Cash Flow",
+    "period_end_date": "2020-12-31",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 4,
+    "value": 5349000000.0,
+    "unit": "currency"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2020-12-31",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 4,
+    "value": 30.34,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2020-12-31",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 4,
+    "value": 30.34,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2020-12-31",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 4,
+    "value": 30.34,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2020-12-31",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 4,
+    "value": 30.72,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2020-12-31",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 4,
+    "value": 30.72,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2020-12-31",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 4,
+    "value": 30.72,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2020-12-31",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 4,
+    "value": 10.91,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2020-12-31",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 4,
+    "value": 10.91,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2020-12-31",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 4,
+    "value": 10.91,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2020-12-31",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 4,
+    "value": -22.4,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2020-12-31",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 4,
+    "value": -79.12,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2020-12-31",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 4,
+    "value": -14.52,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2020-12-31",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 4,
+    "value": 217.62,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Current Ratio",
+    "period_end_date": "2021-03-31",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 1,
+    "value": 1.6,
+    "unit": "ratio"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Current Ratio",
+    "period_end_date": "2021-03-31",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 1,
+    "value": 1.6,
+    "unit": "ratio"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "FCF Margin",
+    "period_end_date": "2021-03-31",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 1,
+    "value": 14.1,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "FCF Margin",
+    "period_end_date": "2021-03-31",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 1,
+    "value": 14.1,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2023-06-30",
+    "fiscal_year": 2023,
+    "fiscal_quarter": 2,
+    "value": 21.09,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2023-06-30",
+    "fiscal_year": 2023,
+    "fiscal_quarter": 2,
+    "value": 19.24,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2023-06-30",
+    "fiscal_year": 2023,
+    "fiscal_quarter": 2,
+    "value": 21.09,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2023-06-30",
+    "fiscal_year": 2023,
+    "fiscal_quarter": 2,
+    "value": 19.24,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2023-06-30",
+    "fiscal_year": 2023,
+    "fiscal_quarter": 2,
+    "value": 21.09,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2023-06-30",
+    "fiscal_year": 2023,
+    "fiscal_quarter": 2,
+    "value": 19.24,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2023-06-30",
+    "fiscal_year": 2023,
+    "fiscal_quarter": 2,
+    "value": 19.2,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2023-06-30",
+    "fiscal_year": 2023,
+    "fiscal_quarter": 2,
+    "value": 132.89,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2023-06-30",
+    "fiscal_year": 2023,
+    "fiscal_quarter": 2,
+    "value": 21.56,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2023-06-30",
+    "fiscal_year": 2023,
+    "fiscal_quarter": 2,
+    "value": -37.79,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Current Ratio",
     "period_end_date": "2023-09-30",
     "fiscal_year": 2023,
     "fiscal_quarter": 3,
-    "value": 233.4,
+    "value": 1.45,
+    "unit": "ratio"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Current Ratio",
+    "period_end_date": "2023-09-30",
+    "fiscal_year": 2023,
+    "fiscal_quarter": 3,
+    "value": 1.45,
+    "unit": "ratio"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Current Ratio",
+    "period_end_date": "2023-09-30",
+    "fiscal_year": 2023,
+    "fiscal_quarter": 3,
+    "value": 1.45,
+    "unit": "ratio"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "FCF Margin",
+    "period_end_date": "2023-09-30",
+    "fiscal_year": 2023,
+    "fiscal_quarter": 3,
+    "value": 15.65,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "FCF Margin",
+    "period_end_date": "2023-09-30",
+    "fiscal_year": 2023,
+    "fiscal_quarter": 3,
+    "value": 15.65,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "FCF Margin",
+    "period_end_date": "2023-09-30",
+    "fiscal_year": 2023,
+    "fiscal_quarter": 3,
+    "value": 15.65,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Free Cash Flow",
+    "period_end_date": "2023-09-30",
+    "fiscal_year": 2023,
+    "fiscal_quarter": 3,
+    "value": 7821000000.0,
+    "unit": "currency"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Free Cash Flow",
+    "period_end_date": "2023-09-30",
+    "fiscal_year": 2023,
+    "fiscal_quarter": 3,
+    "value": 7821000000.0,
+    "unit": "currency"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Free Cash Flow",
+    "period_end_date": "2023-09-30",
+    "fiscal_year": 2023,
+    "fiscal_quarter": 3,
+    "value": 7821000000.0,
+    "unit": "currency"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2023-09-30",
+    "fiscal_year": 2023,
+    "fiscal_quarter": 3,
+    "value": 36.49,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2023-09-30",
+    "fiscal_year": 2023,
+    "fiscal_quarter": 3,
+    "value": 36.49,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2023-09-30",
+    "fiscal_year": 2023,
+    "fiscal_quarter": 3,
+    "value": 37.04,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2023-09-30",
+    "fiscal_year": 2023,
+    "fiscal_quarter": 3,
+    "value": 37.04,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2023-09-30",
+    "fiscal_year": 2023,
+    "fiscal_quarter": 3,
+    "value": 36.49,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2023-09-30",
+    "fiscal_year": 2023,
+    "fiscal_quarter": 3,
+    "value": 37.04,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2023-09-30",
+    "fiscal_year": 2023,
+    "fiscal_quarter": 3,
+    "value": 20.52,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2023-09-30",
+    "fiscal_year": 2023,
+    "fiscal_quarter": 3,
+    "value": 19.67,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2023-09-30",
+    "fiscal_year": 2023,
+    "fiscal_quarter": 3,
+    "value": 19.67,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2023-09-30",
+    "fiscal_year": 2023,
+    "fiscal_quarter": 3,
+    "value": 20.52,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2023-09-30",
+    "fiscal_year": 2023,
+    "fiscal_quarter": 3,
+    "value": 20.52,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2023-09-30",
+    "fiscal_year": 2023,
+    "fiscal_quarter": 3,
+    "value": 19.67,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Free Cash Flow",
+    "period_end_date": "2022-09-30",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 3,
+    "value": 4159000000.0,
+    "unit": "currency"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Free Cash Flow",
+    "period_end_date": "2022-09-30",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 3,
+    "value": 4159000000.0,
+    "unit": "currency"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Free Cash Flow",
+    "period_end_date": "2022-09-30",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 3,
+    "value": 4159000000.0,
+    "unit": "currency"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2022-09-30",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 3,
+    "value": 31.96,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2022-09-30",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 3,
+    "value": 30.57,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2022-09-30",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 3,
+    "value": 30.57,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2022-09-30",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 3,
+    "value": 31.96,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2022-09-30",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 3,
+    "value": 30.57,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2022-09-30",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 3,
+    "value": 31.96,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2022-09-30",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 3,
+    "value": 16.17,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2022-09-30",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 3,
+    "value": 16.17,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2022-09-30",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 3,
+    "value": 14.53,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2022-09-30",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 3,
+    "value": 16.17,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2022-09-30",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 3,
+    "value": 14.53,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2022-09-30",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 3,
+    "value": 14.53,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2023-09-30",
-    "fiscal_year": 2023,
+    "period_end_date": "2022-09-30",
+    "fiscal_year": 2022,
     "fiscal_quarter": 3,
-    "value": -60.75,
+    "value": 245.49,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2022-09-30",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 3,
+    "value": -59.66,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2022-09-30",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 3,
+    "value": 15.22,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2022-09-30",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 3,
+    "value": 20.95,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Current Ratio",
+    "period_end_date": "2022-12-31",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 4,
+    "value": 1.39,
+    "unit": "ratio"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Current Ratio",
+    "period_end_date": "2022-12-31",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 4,
+    "value": 1.39,
+    "unit": "ratio"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Debt to Equity",
+    "period_end_date": "2022-12-31",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 4,
+    "value": 1.62,
+    "unit": "ratio"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Debt to Equity",
+    "period_end_date": "2022-12-31",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 4,
+    "value": 1.62,
+    "unit": "ratio"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "FCF Margin",
+    "period_end_date": "2022-12-31",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 4,
+    "value": 10.89,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "FCF Margin",
+    "period_end_date": "2022-12-31",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 4,
+    "value": 10.89,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Free Cash Flow",
+    "period_end_date": "2022-12-31",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 4,
+    "value": 6470000000.0,
+    "unit": "currency"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Free Cash Flow",
+    "period_end_date": "2022-12-31",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 4,
+    "value": 6470000000.0,
+    "unit": "currency"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2022-12-31",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 4,
+    "value": 30.42,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2022-12-31",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 4,
+    "value": 30.42,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2022-12-31",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 4,
+    "value": 13.3,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2022-12-31",
+    "fiscal_year": 2022,
+    "fiscal_quarter": 4,
+    "value": 13.3,
     "unit": "percentage"
   },
   {
@@ -1630,6 +1954,24 @@
   },
   {
     "ticker": "CAT",
+    "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2023-09-30",
+    "fiscal_year": 2023,
+    "fiscal_quarter": 3,
+    "value": 233.4,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2023-09-30",
+    "fiscal_year": 2023,
+    "fiscal_quarter": 3,
+    "value": -60.75,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
     "metric_name": "Current Ratio",
     "period_end_date": "2023-12-31",
     "fiscal_year": 2023,
@@ -1644,6 +1986,24 @@
     "fiscal_year": 2023,
     "fiscal_quarter": 4,
     "value": 1.35,
+    "unit": "ratio"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Debt to Equity",
+    "period_end_date": "2023-12-31",
+    "fiscal_year": 2023,
+    "fiscal_quarter": 4,
+    "value": 1.25,
+    "unit": "ratio"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Debt to Equity",
+    "period_end_date": "2023-12-31",
+    "fiscal_year": 2023,
+    "fiscal_quarter": 4,
+    "value": 1.25,
     "unit": "ratio"
   },
   {
@@ -1855,263 +2215,839 @@
   },
   {
     "ticker": "CAT",
-    "metric_name": "Free Cash Flow",
-    "period_end_date": "2022-09-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 3,
-    "value": 4159000000.0,
-    "unit": "currency"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Free Cash Flow",
-    "period_end_date": "2022-09-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 3,
-    "value": 4159000000.0,
-    "unit": "currency"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Free Cash Flow",
-    "period_end_date": "2022-09-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 3,
-    "value": 4159000000.0,
-    "unit": "currency"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2022-09-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 3,
-    "value": 30.57,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2022-09-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 3,
-    "value": 31.96,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2022-09-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 3,
-    "value": 30.57,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2022-09-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 3,
-    "value": 31.96,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2022-09-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 3,
-    "value": 30.57,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2022-09-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 3,
-    "value": 31.96,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2022-09-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 3,
-    "value": 16.17,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2022-09-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 3,
-    "value": 16.17,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2022-09-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 3,
-    "value": 14.53,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2022-09-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 3,
-    "value": 14.53,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2022-09-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 3,
-    "value": 16.17,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2022-09-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 3,
-    "value": 14.53,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2022-09-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 3,
-    "value": 15.22,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2022-09-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 3,
-    "value": 20.95,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2022-09-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 3,
-    "value": 245.49,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2022-09-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 3,
-    "value": -59.66,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
     "metric_name": "Current Ratio",
-    "period_end_date": "2022-12-31",
-    "fiscal_year": 2022,
+    "period_end_date": "2017-12-31",
+    "fiscal_year": 2017,
     "fiscal_quarter": 4,
-    "value": 1.39,
+    "value": 1.35,
+    "unit": "ratio"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Debt to Equity",
+    "period_end_date": "2017-12-31",
+    "fiscal_year": 2017,
+    "fiscal_quarter": 4,
+    "value": 1.73,
     "unit": "ratio"
   },
   {
     "ticker": "CAT",
     "metric_name": "Current Ratio",
-    "period_end_date": "2022-12-31",
-    "fiscal_year": 2022,
+    "period_end_date": "2018-12-31",
+    "fiscal_year": 2018,
     "fiscal_quarter": 4,
-    "value": 1.39,
+    "value": 1.37,
+    "unit": "ratio"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Debt to Equity",
+    "period_end_date": "2018-12-31",
+    "fiscal_year": 2018,
+    "fiscal_quarter": 4,
+    "value": 1.78,
+    "unit": "ratio"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Current Ratio",
+    "period_end_date": "2019-03-31",
+    "fiscal_year": 2019,
+    "fiscal_quarter": 1,
+    "value": 1.43,
     "unit": "ratio"
   },
   {
     "ticker": "CAT",
     "metric_name": "FCF Margin",
-    "period_end_date": "2022-12-31",
-    "fiscal_year": 2022,
+    "period_end_date": "2019-03-31",
+    "fiscal_year": 2019,
+    "fiscal_quarter": 1,
+    "value": 6.26,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Free Cash Flow",
+    "period_end_date": "2019-03-31",
+    "fiscal_year": 2019,
+    "fiscal_quarter": 1,
+    "value": 843000000.0,
+    "unit": "currency"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2019-03-31",
+    "fiscal_year": 2019,
+    "fiscal_quarter": 1,
+    "value": 33.14,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2019-03-31",
+    "fiscal_year": 2019,
+    "fiscal_quarter": 1,
+    "value": 16.39,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Current Ratio",
+    "period_end_date": "2019-06-30",
+    "fiscal_year": 2019,
+    "fiscal_quarter": 2,
+    "value": 1.43,
+    "unit": "ratio"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "FCF Margin",
+    "period_end_date": "2019-06-30",
+    "fiscal_year": 2019,
+    "fiscal_quarter": 2,
+    "value": 11.58,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Free Cash Flow",
+    "period_end_date": "2019-06-30",
+    "fiscal_year": 2019,
+    "fiscal_quarter": 2,
+    "value": 3230000000.0,
+    "unit": "currency"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2019-06-30",
+    "fiscal_year": 2019,
+    "fiscal_quarter": 2,
+    "value": 31.12,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2019-06-30",
+    "fiscal_year": 2019,
+    "fiscal_quarter": 2,
+    "value": 32.1,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2019-06-30",
+    "fiscal_year": 2019,
+    "fiscal_quarter": 2,
+    "value": 15.33,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2019-06-30",
+    "fiscal_year": 2019,
+    "fiscal_quarter": 2,
+    "value": 15.84,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Current Ratio",
+    "period_end_date": "2019-09-30",
+    "fiscal_year": 2019,
+    "fiscal_quarter": 3,
+    "value": 1.44,
+    "unit": "ratio"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "FCF Margin",
+    "period_end_date": "2019-09-30",
+    "fiscal_year": 2019,
+    "fiscal_quarter": 3,
+    "value": 9.24,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Free Cash Flow",
+    "period_end_date": "2019-09-30",
+    "fiscal_year": 2019,
+    "fiscal_quarter": 3,
+    "value": 3755000000.0,
+    "unit": "currency"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2019-09-30",
+    "fiscal_year": 2019,
+    "fiscal_quarter": 3,
+    "value": 32.33,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2019-09-30",
+    "fiscal_year": 2019,
+    "fiscal_quarter": 3,
+    "value": 32.83,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2019-09-30",
+    "fiscal_year": 2019,
+    "fiscal_quarter": 3,
+    "value": 15.83,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2019-09-30",
+    "fiscal_year": 2019,
+    "fiscal_quarter": 3,
+    "value": 15.84,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Current Ratio",
+    "period_end_date": "2019-12-31",
+    "fiscal_year": 2019,
     "fiscal_quarter": 4,
-    "value": 10.89,
+    "value": 1.47,
+    "unit": "ratio"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Debt to Equity",
+    "period_end_date": "2019-12-31",
+    "fiscal_year": 2019,
+    "fiscal_quarter": 4,
+    "value": 1.8,
+    "unit": "ratio"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "FCF Margin",
+    "period_end_date": "2019-12-31",
+    "fiscal_year": 2019,
+    "fiscal_quarter": 4,
+    "value": 10.88,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Free Cash Flow",
+    "period_end_date": "2019-12-31",
+    "fiscal_year": 2019,
+    "fiscal_quarter": 4,
+    "value": 5856000000.0,
+    "unit": "currency"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2019-12-31",
+    "fiscal_year": 2019,
+    "fiscal_quarter": 4,
+    "value": 30.64,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2019-12-31",
+    "fiscal_year": 2019,
+    "fiscal_quarter": 4,
+    "value": 31.91,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2019-12-31",
+    "fiscal_year": 2019,
+    "fiscal_quarter": 4,
+    "value": 15.41,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2021-06-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 2,
+    "value": 20.09,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2021-06-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 2,
+    "value": 147.83,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2021-06-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 2,
+    "value": 28.93,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2021-06-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 2,
+    "value": -37.53,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Current Ratio",
+    "period_end_date": "2021-09-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 3,
+    "value": 1.61,
+    "unit": "ratio"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Current Ratio",
+    "period_end_date": "2021-09-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 3,
+    "value": 1.61,
+    "unit": "ratio"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Current Ratio",
+    "period_end_date": "2021-09-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 3,
+    "value": 1.61,
+    "unit": "ratio"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "FCF Margin",
+    "period_end_date": "2021-09-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 3,
+    "value": 13.75,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "FCF Margin",
-    "period_end_date": "2022-12-31",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 4,
-    "value": 10.89,
+    "period_end_date": "2021-09-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 3,
+    "value": 13.75,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "FCF Margin",
+    "period_end_date": "2021-09-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 3,
+    "value": 13.75,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Free Cash Flow",
-    "period_end_date": "2022-12-31",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 4,
-    "value": 6470000000.0,
+    "period_end_date": "2021-09-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 3,
+    "value": 5113000000.0,
     "unit": "currency"
   },
   {
     "ticker": "CAT",
     "metric_name": "Free Cash Flow",
-    "period_end_date": "2022-12-31",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 4,
-    "value": 6470000000.0,
+    "period_end_date": "2021-09-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 3,
+    "value": 5113000000.0,
+    "unit": "currency"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Free Cash Flow",
+    "period_end_date": "2021-09-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 3,
+    "value": 5113000000.0,
     "unit": "currency"
   },
   {
     "ticker": "CAT",
     "metric_name": "Gross Margin",
-    "period_end_date": "2022-12-31",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 4,
-    "value": 30.42,
+    "period_end_date": "2021-09-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 3,
+    "value": 31.37,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Gross Margin",
-    "period_end_date": "2022-12-31",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 4,
-    "value": 30.42,
+    "period_end_date": "2021-09-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 3,
+    "value": 30.49,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2021-09-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 3,
+    "value": 31.37,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2021-09-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 3,
+    "value": 30.49,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2021-09-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 3,
+    "value": 31.37,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2021-09-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 3,
+    "value": 30.49,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Operating Margin",
-    "period_end_date": "2022-12-31",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 4,
-    "value": 13.3,
+    "period_end_date": "2021-09-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 3,
+    "value": 13.42,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Operating Margin",
-    "period_end_date": "2022-12-31",
-    "fiscal_year": 2022,
+    "period_end_date": "2021-09-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 3,
+    "value": 14.17,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2021-09-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 3,
+    "value": 14.17,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2021-09-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 3,
+    "value": 13.42,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2021-09-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 3,
+    "value": 13.42,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2021-09-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 3,
+    "value": 14.17,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2021-09-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 3,
+    "value": 21.83,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2021-09-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 3,
+    "value": -59.37,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2021-09-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 3,
+    "value": 276.21,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2021-09-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 3,
+    "value": 25.46,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Current Ratio",
+    "period_end_date": "2021-12-31",
+    "fiscal_year": 2021,
     "fiscal_quarter": 4,
-    "value": 13.3,
+    "value": 1.46,
+    "unit": "ratio"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Current Ratio",
+    "period_end_date": "2021-12-31",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 4,
+    "value": 1.46,
+    "unit": "ratio"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Current Ratio",
+    "period_end_date": "2021-12-31",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 4,
+    "value": 1.46,
+    "unit": "ratio"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2025-06-30",
+    "fiscal_year": 2025,
+    "fiscal_quarter": 2,
+    "value": 17.26,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2025-06-30",
+    "fiscal_year": 2025,
+    "fiscal_quarter": 2,
+    "value": 17.65,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2025-06-30",
+    "fiscal_year": 2025,
+    "fiscal_quarter": 2,
+    "value": -0.72,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2025-06-30",
+    "fiscal_year": 2025,
+    "fiscal_quarter": 2,
+    "value": -49.0,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2025-06-30",
+    "fiscal_year": 2025,
+    "fiscal_quarter": 2,
+    "value": -5.14,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2025-06-30",
+    "fiscal_year": 2025,
+    "fiscal_quarter": 2,
+    "value": 84.66,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Current Ratio",
+    "period_end_date": "2025-09-30",
+    "fiscal_year": 2025,
+    "fiscal_quarter": 3,
+    "value": 1.38,
+    "unit": "ratio"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Current Ratio",
+    "period_end_date": "2025-09-30",
+    "fiscal_year": 2025,
+    "fiscal_quarter": 3,
+    "value": 1.38,
+    "unit": "ratio"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Current Ratio",
+    "period_end_date": "2025-09-30",
+    "fiscal_year": 2025,
+    "fiscal_quarter": 3,
+    "value": 1.38,
+    "unit": "ratio"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "FCF Margin",
+    "period_end_date": "2025-09-30",
+    "fiscal_year": 2025,
+    "fiscal_quarter": 3,
+    "value": 12.85,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "FCF Margin",
+    "period_end_date": "2025-09-30",
+    "fiscal_year": 2025,
+    "fiscal_quarter": 3,
+    "value": 12.85,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "FCF Margin",
+    "period_end_date": "2025-09-30",
+    "fiscal_year": 2025,
+    "fiscal_quarter": 3,
+    "value": 12.85,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Free Cash Flow",
+    "period_end_date": "2025-09-30",
+    "fiscal_year": 2025,
+    "fiscal_quarter": 3,
+    "value": 6225000000.0,
+    "unit": "currency"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Free Cash Flow",
+    "period_end_date": "2025-09-30",
+    "fiscal_year": 2025,
+    "fiscal_quarter": 3,
+    "value": 6225000000.0,
+    "unit": "currency"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Free Cash Flow",
+    "period_end_date": "2025-09-30",
+    "fiscal_year": 2025,
+    "fiscal_quarter": 3,
+    "value": 6225000000.0,
+    "unit": "currency"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2025-09-30",
+    "fiscal_year": 2025,
+    "fiscal_quarter": 3,
+    "value": 35.11,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2025-09-30",
+    "fiscal_year": 2025,
+    "fiscal_quarter": 3,
+    "value": 35.11,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2025-09-30",
+    "fiscal_year": 2025,
+    "fiscal_quarter": 3,
+    "value": 33.82,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2025-09-30",
+    "fiscal_year": 2025,
+    "fiscal_quarter": 3,
+    "value": 35.11,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2025-09-30",
+    "fiscal_year": 2025,
+    "fiscal_quarter": 3,
+    "value": 33.82,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2025-09-30",
+    "fiscal_year": 2025,
+    "fiscal_quarter": 3,
+    "value": 33.82,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2025-09-30",
+    "fiscal_year": 2025,
+    "fiscal_quarter": 3,
+    "value": 17.3,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2025-09-30",
+    "fiscal_year": 2025,
+    "fiscal_quarter": 3,
+    "value": 17.3,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2025-09-30",
+    "fiscal_year": 2025,
+    "fiscal_quarter": 3,
+    "value": 17.52,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2025-09-30",
+    "fiscal_year": 2025,
+    "fiscal_quarter": 3,
+    "value": 17.3,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2025-09-30",
+    "fiscal_year": 2025,
+    "fiscal_quarter": 3,
+    "value": 17.52,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2025-09-30",
+    "fiscal_year": 2025,
+    "fiscal_quarter": 3,
+    "value": 17.52,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2025-09-30",
+    "fiscal_year": 2025,
+    "fiscal_quarter": 3,
+    "value": 9.51,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2025-09-30",
+    "fiscal_year": 2025,
+    "fiscal_quarter": 3,
+    "value": 200.86,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2025-09-30",
+    "fiscal_year": 2025,
+    "fiscal_quarter": 3,
+    "value": -63.7,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2025-09-30",
+    "fiscal_year": 2025,
+    "fiscal_quarter": 3,
+    "value": -0.28,
     "unit": "percentage"
   },
   {
@@ -2121,744 +3057,6 @@
     "fiscal_year": 2022,
     "fiscal_quarter": 4,
     "value": 16.59,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "FCF Margin",
-    "period_end_date": "2022-06-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 2,
-    "value": 7.04,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "FCF Margin",
-    "period_end_date": "2022-06-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 2,
-    "value": 7.04,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "FCF Margin",
-    "period_end_date": "2022-06-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 2,
-    "value": 7.04,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Free Cash Flow",
-    "period_end_date": "2022-06-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 2,
-    "value": 1960000000.0,
-    "unit": "currency"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Free Cash Flow",
-    "period_end_date": "2022-06-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 2,
-    "value": 1960000000.0,
-    "unit": "currency"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Free Cash Flow",
-    "period_end_date": "2022-06-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 2,
-    "value": 1960000000.0,
-    "unit": "currency"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2022-06-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 2,
-    "value": 29.82,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2022-06-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 2,
-    "value": 29.82,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2022-06-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 2,
-    "value": 29.99,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2022-06-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 2,
-    "value": 29.99,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2022-06-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 2,
-    "value": 29.82,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2022-06-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 2,
-    "value": 29.99,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2022-06-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 2,
-    "value": 13.65,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2022-06-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 2,
-    "value": 13.65,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2022-06-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 2,
-    "value": 13.64,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2022-06-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 2,
-    "value": 13.64,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2022-06-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 2,
-    "value": 13.64,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2022-06-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 2,
-    "value": 13.65,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2022-06-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 2,
-    "value": -42.5,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2022-06-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 2,
-    "value": 12.35,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2022-06-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 2,
-    "value": 115.97,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2022-06-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 2,
-    "value": 10.54,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Current Ratio",
-    "period_end_date": "2022-09-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 3,
-    "value": 1.41,
-    "unit": "ratio"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Current Ratio",
-    "period_end_date": "2022-09-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 3,
-    "value": 1.41,
-    "unit": "ratio"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Current Ratio",
-    "period_end_date": "2022-09-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 3,
-    "value": 1.41,
-    "unit": "ratio"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "FCF Margin",
-    "period_end_date": "2022-09-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 3,
-    "value": 9.71,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "FCF Margin",
-    "period_end_date": "2022-09-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 3,
-    "value": 9.71,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "FCF Margin",
-    "period_end_date": "2022-09-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 3,
-    "value": 9.71,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "FCF Margin",
-    "period_end_date": "2020-03-31",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 1,
-    "value": 7.76,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "FCF Margin",
-    "period_end_date": "2020-03-31",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 1,
-    "value": 7.76,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Free Cash Flow",
-    "period_end_date": "2020-03-31",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 1,
-    "value": 825000000.0,
-    "unit": "currency"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Free Cash Flow",
-    "period_end_date": "2020-03-31",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 1,
-    "value": 825000000.0,
-    "unit": "currency"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2020-03-31",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 1,
-    "value": 31.68,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2020-03-31",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 1,
-    "value": 31.68,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2020-03-31",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 1,
-    "value": 13.2,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2020-03-31",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 1,
-    "value": 13.2,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2020-03-31",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 1,
-    "value": -21.02,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Current Ratio",
-    "period_end_date": "2020-06-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 2,
-    "value": 1.5,
-    "unit": "ratio"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Current Ratio",
-    "period_end_date": "2020-06-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 2,
-    "value": 1.5,
-    "unit": "ratio"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Current Ratio",
-    "period_end_date": "2020-06-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 2,
-    "value": 1.5,
-    "unit": "ratio"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "FCF Margin",
-    "period_end_date": "2020-06-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 2,
-    "value": 9.93,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "FCF Margin",
-    "period_end_date": "2020-06-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 2,
-    "value": 9.93,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "FCF Margin",
-    "period_end_date": "2020-06-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 2,
-    "value": 9.93,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Free Cash Flow",
-    "period_end_date": "2020-06-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 2,
-    "value": 2049000000.0,
-    "unit": "currency"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Free Cash Flow",
-    "period_end_date": "2020-06-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 2,
-    "value": 2049000000.0,
-    "unit": "currency"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Free Cash Flow",
-    "period_end_date": "2020-06-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 2,
-    "value": 2049000000.0,
-    "unit": "currency"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2020-06-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 2,
-    "value": 28.85,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2020-06-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 2,
-    "value": 30.31,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2020-06-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 2,
-    "value": 28.85,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2020-06-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 2,
-    "value": 30.31,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2020-06-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 2,
-    "value": 30.31,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2020-06-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 2,
-    "value": 28.85,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2020-06-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 2,
-    "value": 10.6,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2020-06-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 2,
-    "value": 7.84,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2020-06-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 2,
-    "value": 7.84,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2020-06-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 2,
-    "value": 10.6,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2021-03-31",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 1,
-    "value": 32.6,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2021-03-31",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 1,
-    "value": 32.6,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2021-03-31",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 1,
-    "value": 15.26,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2021-03-31",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 1,
-    "value": 15.26,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2021-03-31",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 1,
-    "value": 11.77,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Current Ratio",
-    "period_end_date": "2021-06-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 2,
-    "value": 1.56,
-    "unit": "ratio"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Current Ratio",
-    "period_end_date": "2021-06-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 2,
-    "value": 1.56,
-    "unit": "ratio"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Current Ratio",
-    "period_end_date": "2021-06-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 2,
-    "value": 1.56,
-    "unit": "ratio"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "FCF Margin",
-    "period_end_date": "2021-06-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 2,
-    "value": 14.64,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "FCF Margin",
-    "period_end_date": "2021-06-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 2,
-    "value": 14.64,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "FCF Margin",
-    "period_end_date": "2021-06-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 2,
-    "value": 14.64,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Free Cash Flow",
-    "period_end_date": "2021-06-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 2,
-    "value": 3627000000.0,
-    "unit": "currency"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Free Cash Flow",
-    "period_end_date": "2021-06-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 2,
-    "value": 3627000000.0,
-    "unit": "currency"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Free Cash Flow",
-    "period_end_date": "2021-06-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 2,
-    "value": 3627000000.0,
-    "unit": "currency"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2021-06-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 2,
-    "value": 31.82,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2021-06-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 2,
-    "value": 31.1,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2021-06-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 2,
-    "value": 31.1,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2021-06-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 2,
-    "value": 31.82,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2021-06-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 2,
-    "value": 31.82,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2021-06-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 2,
-    "value": 31.1,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2021-06-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 2,
-    "value": 13.88,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2021-06-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 2,
-    "value": 14.54,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2021-06-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 2,
-    "value": 14.54,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2021-06-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 2,
-    "value": 13.88,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2021-06-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 2,
-    "value": 13.88,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2021-06-30",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 2,
-    "value": 14.54,
     "unit": "percentage"
   },
   {
@@ -3047,6 +3245,15 @@
     "period_end_date": "2023-06-30",
     "fiscal_year": 2023,
     "fiscal_quarter": 2,
+    "value": 36.2,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2023-06-30",
+    "fiscal_year": 2023,
+    "fiscal_quarter": 2,
     "value": 36.11,
     "unit": "percentage"
   },
@@ -3074,295 +3281,529 @@
     "period_end_date": "2023-06-30",
     "fiscal_year": 2023,
     "fiscal_quarter": 2,
+    "value": 36.2,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2023-06-30",
+    "fiscal_year": 2023,
+    "fiscal_quarter": 2,
     "value": 36.11,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Gross Margin",
-    "period_end_date": "2023-06-30",
-    "fiscal_year": 2023,
-    "fiscal_quarter": 2,
-    "value": 36.2,
+    "period_end_date": "2024-09-30",
+    "fiscal_year": 2024,
+    "fiscal_quarter": 3,
+    "value": 37.5,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Gross Margin",
-    "period_end_date": "2023-06-30",
-    "fiscal_year": 2023,
-    "fiscal_quarter": 2,
-    "value": 36.2,
+    "period_end_date": "2024-09-30",
+    "fiscal_year": 2024,
+    "fiscal_quarter": 3,
+    "value": 38.52,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2024-09-30",
+    "fiscal_year": 2024,
+    "fiscal_quarter": 3,
+    "value": 37.5,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2024-09-30",
+    "fiscal_year": 2024,
+    "fiscal_quarter": 3,
+    "value": 37.5,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2024-09-30",
+    "fiscal_year": 2024,
+    "fiscal_quarter": 3,
+    "value": 38.52,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2024-09-30",
+    "fiscal_year": 2024,
+    "fiscal_quarter": 3,
+    "value": 38.52,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Operating Margin",
-    "period_end_date": "2023-06-30",
-    "fiscal_year": 2023,
-    "fiscal_quarter": 2,
-    "value": 19.24,
+    "period_end_date": "2024-09-30",
+    "fiscal_year": 2024,
+    "fiscal_quarter": 3,
+    "value": 20.88,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Operating Margin",
-    "period_end_date": "2023-06-30",
-    "fiscal_year": 2023,
-    "fiscal_quarter": 2,
-    "value": 21.09,
+    "period_end_date": "2024-09-30",
+    "fiscal_year": 2024,
+    "fiscal_quarter": 3,
+    "value": 20.88,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Operating Margin",
-    "period_end_date": "2023-06-30",
-    "fiscal_year": 2023,
-    "fiscal_quarter": 2,
-    "value": 19.24,
+    "period_end_date": "2024-09-30",
+    "fiscal_year": 2024,
+    "fiscal_quarter": 3,
+    "value": 19.54,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2024-09-30",
+    "fiscal_year": 2024,
+    "fiscal_quarter": 3,
+    "value": 19.54,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2024-09-30",
+    "fiscal_year": 2024,
+    "fiscal_quarter": 3,
+    "value": 19.54,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2024-09-30",
+    "fiscal_year": 2024,
+    "fiscal_quarter": 3,
+    "value": 20.88,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2024-09-30",
+    "fiscal_year": 2024,
+    "fiscal_quarter": 3,
+    "value": -4.19,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2024-09-30",
+    "fiscal_year": 2024,
+    "fiscal_quarter": 3,
+    "value": 189.08,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2024-09-30",
+    "fiscal_year": 2024,
+    "fiscal_quarter": 3,
+    "value": -2.79,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2024-09-30",
+    "fiscal_year": 2024,
+    "fiscal_quarter": 3,
+    "value": -67.78,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Current Ratio",
-    "period_end_date": "2017-12-31",
-    "fiscal_year": 2017,
+    "period_end_date": "2024-12-31",
+    "fiscal_year": 2024,
     "fiscal_quarter": 4,
-    "value": 1.35,
+    "value": 1.42,
     "unit": "ratio"
   },
   {
     "ticker": "CAT",
     "metric_name": "Current Ratio",
-    "period_end_date": "2018-12-31",
-    "fiscal_year": 2018,
+    "period_end_date": "2024-12-31",
+    "fiscal_year": 2024,
     "fiscal_quarter": 4,
-    "value": 1.37,
+    "value": 1.42,
     "unit": "ratio"
   },
   {
     "ticker": "CAT",
-    "metric_name": "Current Ratio",
-    "period_end_date": "2019-03-31",
-    "fiscal_year": 2019,
-    "fiscal_quarter": 1,
-    "value": 1.43,
-    "unit": "ratio"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "FCF Margin",
-    "period_end_date": "2019-03-31",
-    "fiscal_year": 2019,
-    "fiscal_quarter": 1,
-    "value": 6.26,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Free Cash Flow",
-    "period_end_date": "2019-03-31",
-    "fiscal_year": 2019,
-    "fiscal_quarter": 1,
-    "value": 843000000.0,
-    "unit": "currency"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2019-03-31",
-    "fiscal_year": 2019,
-    "fiscal_quarter": 1,
-    "value": 33.14,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2019-03-31",
-    "fiscal_year": 2019,
-    "fiscal_quarter": 1,
-    "value": 16.39,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Current Ratio",
-    "period_end_date": "2019-06-30",
-    "fiscal_year": 2019,
-    "fiscal_quarter": 2,
-    "value": 1.43,
-    "unit": "ratio"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "FCF Margin",
-    "period_end_date": "2019-06-30",
-    "fiscal_year": 2019,
-    "fiscal_quarter": 2,
-    "value": 11.58,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Free Cash Flow",
-    "period_end_date": "2019-06-30",
-    "fiscal_year": 2019,
-    "fiscal_quarter": 2,
-    "value": 3230000000.0,
-    "unit": "currency"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2019-06-30",
-    "fiscal_year": 2019,
-    "fiscal_quarter": 2,
-    "value": 32.1,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2019-06-30",
-    "fiscal_year": 2019,
-    "fiscal_quarter": 2,
-    "value": 31.12,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2019-06-30",
-    "fiscal_year": 2019,
-    "fiscal_quarter": 2,
-    "value": 15.84,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2019-06-30",
-    "fiscal_year": 2019,
-    "fiscal_quarter": 2,
-    "value": 15.33,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Current Ratio",
-    "period_end_date": "2019-09-30",
-    "fiscal_year": 2019,
-    "fiscal_quarter": 3,
-    "value": 1.44,
-    "unit": "ratio"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "FCF Margin",
-    "period_end_date": "2019-09-30",
-    "fiscal_year": 2019,
-    "fiscal_quarter": 3,
-    "value": 9.24,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Free Cash Flow",
-    "period_end_date": "2019-09-30",
-    "fiscal_year": 2019,
-    "fiscal_quarter": 3,
-    "value": 3755000000.0,
-    "unit": "currency"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2019-09-30",
-    "fiscal_year": 2019,
-    "fiscal_quarter": 3,
-    "value": 32.33,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2019-09-30",
-    "fiscal_year": 2019,
-    "fiscal_quarter": 3,
-    "value": 32.83,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2019-09-30",
-    "fiscal_year": 2019,
-    "fiscal_quarter": 3,
-    "value": 15.84,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2019-09-30",
-    "fiscal_year": 2019,
-    "fiscal_quarter": 3,
-    "value": 15.83,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Current Ratio",
-    "period_end_date": "2019-12-31",
-    "fiscal_year": 2019,
+    "metric_name": "Debt to Equity",
+    "period_end_date": "2024-12-31",
+    "fiscal_year": 2024,
     "fiscal_quarter": 4,
-    "value": 1.47,
+    "value": 1.4,
+    "unit": "ratio"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Debt to Equity",
+    "period_end_date": "2024-12-31",
+    "fiscal_year": 2024,
+    "fiscal_quarter": 4,
+    "value": 1.4,
     "unit": "ratio"
   },
   {
     "ticker": "CAT",
     "metric_name": "FCF Margin",
-    "period_end_date": "2019-12-31",
-    "fiscal_year": 2019,
+    "period_end_date": "2024-12-31",
+    "fiscal_year": 2024,
     "fiscal_quarter": 4,
-    "value": 10.88,
+    "value": 15.5,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "FCF Margin",
+    "period_end_date": "2024-12-31",
+    "fiscal_year": 2024,
+    "fiscal_quarter": 4,
+    "value": 15.5,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Free Cash Flow",
-    "period_end_date": "2019-12-31",
-    "fiscal_year": 2019,
+    "period_end_date": "2024-12-31",
+    "fiscal_year": 2024,
     "fiscal_quarter": 4,
-    "value": 5856000000.0,
+    "value": 10047000000.0,
+    "unit": "currency"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Free Cash Flow",
+    "period_end_date": "2024-12-31",
+    "fiscal_year": 2024,
+    "fiscal_quarter": 4,
+    "value": 10047000000.0,
     "unit": "currency"
   },
   {
     "ticker": "CAT",
     "metric_name": "Gross Margin",
-    "period_end_date": "2019-12-31",
-    "fiscal_year": 2019,
+    "period_end_date": "2024-12-31",
+    "fiscal_year": 2024,
     "fiscal_quarter": 4,
-    "value": 31.91,
+    "value": 37.97,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Gross Margin",
-    "period_end_date": "2019-12-31",
-    "fiscal_year": 2019,
+    "period_end_date": "2024-12-31",
+    "fiscal_year": 2024,
     "fiscal_quarter": 4,
-    "value": 30.64,
+    "value": 37.97,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Operating Margin",
-    "period_end_date": "2019-12-31",
-    "fiscal_year": 2019,
+    "period_end_date": "2024-12-31",
+    "fiscal_year": 2024,
     "fiscal_quarter": 4,
-    "value": 15.41,
+    "value": 20.17,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2024-12-31",
+    "fiscal_year": 2024,
+    "fiscal_quarter": 4,
+    "value": 20.17,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2024-12-31",
+    "fiscal_year": 2024,
+    "fiscal_quarter": 4,
+    "value": -3.36,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Free Cash Flow",
+    "period_end_date": "2021-03-31",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 1,
+    "value": 1676000000.0,
+    "unit": "currency"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Free Cash Flow",
+    "period_end_date": "2021-03-31",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 1,
+    "value": 1676000000.0,
+    "unit": "currency"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2021-03-31",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 1,
+    "value": 32.6,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2021-03-31",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 1,
+    "value": 32.6,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2021-03-31",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 1,
+    "value": 15.26,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2021-03-31",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 1,
+    "value": 15.26,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2021-03-31",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 1,
+    "value": 11.77,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Current Ratio",
+    "period_end_date": "2021-06-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 2,
+    "value": 1.56,
+    "unit": "ratio"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Current Ratio",
+    "period_end_date": "2021-06-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 2,
+    "value": 1.56,
+    "unit": "ratio"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Current Ratio",
+    "period_end_date": "2021-06-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 2,
+    "value": 1.56,
+    "unit": "ratio"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "FCF Margin",
+    "period_end_date": "2021-06-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 2,
+    "value": 14.64,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "FCF Margin",
+    "period_end_date": "2021-06-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 2,
+    "value": 14.64,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "FCF Margin",
+    "period_end_date": "2021-06-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 2,
+    "value": 14.64,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Free Cash Flow",
+    "period_end_date": "2021-06-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 2,
+    "value": 3627000000.0,
+    "unit": "currency"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Free Cash Flow",
+    "period_end_date": "2021-06-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 2,
+    "value": 3627000000.0,
+    "unit": "currency"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Free Cash Flow",
+    "period_end_date": "2021-06-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 2,
+    "value": 3627000000.0,
+    "unit": "currency"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2021-06-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 2,
+    "value": 31.82,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2021-06-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 2,
+    "value": 31.1,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2021-06-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 2,
+    "value": 31.1,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2021-06-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 2,
+    "value": 31.82,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2021-06-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 2,
+    "value": 31.1,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2021-06-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 2,
+    "value": 31.82,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2021-06-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 2,
+    "value": 14.54,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2021-06-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 2,
+    "value": 13.88,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2021-06-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 2,
+    "value": 13.88,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2021-06-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 2,
+    "value": 14.54,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2021-06-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 2,
+    "value": 14.54,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2021-06-30",
+    "fiscal_year": 2021,
+    "fiscal_quarter": 2,
+    "value": 13.88,
     "unit": "percentage"
   },
   {
@@ -3385,291 +3826,273 @@
   },
   {
     "ticker": "CAT",
-    "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2020-09-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 3,
-    "value": 139.17,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2020-09-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 3,
-    "value": -75.7,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2020-09-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 3,
-    "value": -24.95,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2020-09-30",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 3,
-    "value": -22.55,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Current Ratio",
-    "period_end_date": "2020-12-31",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 4,
-    "value": 1.53,
-    "unit": "ratio"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Current Ratio",
-    "period_end_date": "2020-12-31",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 4,
-    "value": 1.53,
-    "unit": "ratio"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Current Ratio",
-    "period_end_date": "2020-12-31",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 4,
-    "value": 1.53,
-    "unit": "ratio"
-  },
-  {
-    "ticker": "CAT",
     "metric_name": "FCF Margin",
-    "period_end_date": "2020-12-31",
+    "period_end_date": "2020-03-31",
     "fiscal_year": 2020,
-    "fiscal_quarter": 4,
-    "value": 12.81,
+    "fiscal_quarter": 1,
+    "value": 7.76,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "FCF Margin",
-    "period_end_date": "2020-12-31",
+    "period_end_date": "2020-03-31",
     "fiscal_year": 2020,
-    "fiscal_quarter": 4,
-    "value": 12.81,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "FCF Margin",
-    "period_end_date": "2020-12-31",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 4,
-    "value": 12.81,
+    "fiscal_quarter": 1,
+    "value": 7.76,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Free Cash Flow",
-    "period_end_date": "2020-12-31",
+    "period_end_date": "2020-03-31",
     "fiscal_year": 2020,
-    "fiscal_quarter": 4,
-    "value": 5349000000.0,
+    "fiscal_quarter": 1,
+    "value": 825000000.0,
     "unit": "currency"
   },
   {
     "ticker": "CAT",
     "metric_name": "Free Cash Flow",
-    "period_end_date": "2020-12-31",
+    "period_end_date": "2020-03-31",
     "fiscal_year": 2020,
-    "fiscal_quarter": 4,
-    "value": 5349000000.0,
-    "unit": "currency"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Free Cash Flow",
-    "period_end_date": "2020-12-31",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 4,
-    "value": 5349000000.0,
+    "fiscal_quarter": 1,
+    "value": 825000000.0,
     "unit": "currency"
   },
   {
     "ticker": "CAT",
     "metric_name": "Gross Margin",
-    "period_end_date": "2020-12-31",
+    "period_end_date": "2020-03-31",
     "fiscal_year": 2020,
-    "fiscal_quarter": 4,
-    "value": 30.72,
+    "fiscal_quarter": 1,
+    "value": 31.68,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Gross Margin",
-    "period_end_date": "2020-12-31",
+    "period_end_date": "2020-03-31",
     "fiscal_year": 2020,
-    "fiscal_quarter": 4,
-    "value": 30.72,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2020-12-31",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 4,
-    "value": 30.34,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2020-12-31",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 4,
-    "value": 30.72,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2020-12-31",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 4,
-    "value": 30.34,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2020-12-31",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 4,
-    "value": 30.34,
+    "fiscal_quarter": 1,
+    "value": 31.68,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Operating Margin",
-    "period_end_date": "2020-12-31",
+    "period_end_date": "2020-03-31",
     "fiscal_year": 2020,
-    "fiscal_quarter": 4,
-    "value": 10.91,
+    "fiscal_quarter": 1,
+    "value": 13.2,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Operating Margin",
-    "period_end_date": "2020-12-31",
+    "period_end_date": "2020-03-31",
     "fiscal_year": 2020,
-    "fiscal_quarter": 4,
-    "value": 10.91,
+    "fiscal_quarter": 1,
+    "value": 13.2,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Revenue Growth YoY",
+    "period_end_date": "2020-03-31",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 1,
+    "value": -21.02,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Current Ratio",
+    "period_end_date": "2020-06-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 2,
+    "value": 1.5,
+    "unit": "ratio"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Current Ratio",
+    "period_end_date": "2020-06-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 2,
+    "value": 1.5,
+    "unit": "ratio"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Current Ratio",
+    "period_end_date": "2020-06-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 2,
+    "value": 1.5,
+    "unit": "ratio"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "FCF Margin",
+    "period_end_date": "2020-06-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 2,
+    "value": 9.93,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "FCF Margin",
+    "period_end_date": "2020-06-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 2,
+    "value": 9.93,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "FCF Margin",
+    "period_end_date": "2020-06-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 2,
+    "value": 9.93,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Free Cash Flow",
+    "period_end_date": "2020-06-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 2,
+    "value": 2049000000.0,
+    "unit": "currency"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Free Cash Flow",
+    "period_end_date": "2020-06-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 2,
+    "value": 2049000000.0,
+    "unit": "currency"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Free Cash Flow",
+    "period_end_date": "2020-06-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 2,
+    "value": 2049000000.0,
+    "unit": "currency"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2020-06-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 2,
+    "value": 30.31,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2020-06-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 2,
+    "value": 28.85,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2020-06-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 2,
+    "value": 28.85,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2020-06-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 2,
+    "value": 30.31,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2020-06-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 2,
+    "value": 30.31,
+    "unit": "percentage"
+  },
+  {
+    "ticker": "CAT",
+    "metric_name": "Gross Margin",
+    "period_end_date": "2020-06-30",
+    "fiscal_year": 2020,
+    "fiscal_quarter": 2,
+    "value": 28.85,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
     "metric_name": "Operating Margin",
-    "period_end_date": "2020-12-31",
+    "period_end_date": "2020-06-30",
     "fiscal_year": 2020,
-    "fiscal_quarter": 4,
-    "value": 10.91,
+    "fiscal_quarter": 2,
+    "value": 10.6,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
-    "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2020-12-31",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2020-06-30",
     "fiscal_year": 2020,
-    "fiscal_quarter": 4,
-    "value": -79.12,
+    "fiscal_quarter": 2,
+    "value": 7.84,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
-    "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2020-12-31",
+    "metric_name": "Operating Margin",
+    "period_end_date": "2020-06-30",
     "fiscal_year": 2020,
-    "fiscal_quarter": 4,
-    "value": -22.4,
+    "fiscal_quarter": 2,
+    "value": 7.84,
     "unit": "percentage"
   },
   {
     "ticker": "CAT",
-    "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2020-12-31",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 4,
-    "value": 217.62,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2020-12-31",
-    "fiscal_year": 2020,
-    "fiscal_quarter": 4,
-    "value": -14.52,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Current Ratio",
-    "period_end_date": "2021-03-31",
+    "metric_name": "Debt to Equity",
+    "period_end_date": "2021-12-31",
     "fiscal_year": 2021,
-    "fiscal_quarter": 1,
-    "value": 1.6,
+    "fiscal_quarter": 4,
+    "value": 1.58,
     "unit": "ratio"
   },
   {
     "ticker": "CAT",
-    "metric_name": "Current Ratio",
-    "period_end_date": "2021-03-31",
+    "metric_name": "Debt to Equity",
+    "period_end_date": "2021-12-31",
     "fiscal_year": 2021,
-    "fiscal_quarter": 1,
-    "value": 1.6,
+    "fiscal_quarter": 4,
+    "value": 1.58,
     "unit": "ratio"
   },
   {
     "ticker": "CAT",
-    "metric_name": "FCF Margin",
-    "period_end_date": "2021-03-31",
+    "metric_name": "Debt to Equity",
+    "period_end_date": "2021-12-31",
     "fiscal_year": 2021,
-    "fiscal_quarter": 1,
-    "value": 14.1,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "FCF Margin",
-    "period_end_date": "2021-03-31",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 1,
-    "value": 14.1,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Free Cash Flow",
-    "period_end_date": "2021-03-31",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 1,
-    "value": 1676000000.0,
-    "unit": "currency"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Free Cash Flow",
-    "period_end_date": "2021-03-31",
-    "fiscal_year": 2021,
-    "fiscal_quarter": 1,
-    "value": 1676000000.0,
-    "unit": "currency"
+    "fiscal_quarter": 4,
+    "value": 1.58,
+    "unit": "ratio"
   },
   {
     "ticker": "CAT",
@@ -3895,293 +4318,5 @@
     "fiscal_quarter": 1,
     "value": 14.32,
     "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Current Ratio",
-    "period_end_date": "2022-06-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 2,
-    "value": 1.45,
-    "unit": "ratio"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Current Ratio",
-    "period_end_date": "2022-06-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 2,
-    "value": 1.45,
-    "unit": "ratio"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Current Ratio",
-    "period_end_date": "2022-06-30",
-    "fiscal_year": 2022,
-    "fiscal_quarter": 2,
-    "value": 1.45,
-    "unit": "ratio"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2024-09-30",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 3,
-    "value": 37.5,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2024-09-30",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 3,
-    "value": 38.52,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2024-09-30",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 3,
-    "value": 37.5,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2024-09-30",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 3,
-    "value": 38.52,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2024-09-30",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 3,
-    "value": 37.5,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2024-09-30",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 3,
-    "value": 38.52,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2024-09-30",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 3,
-    "value": 20.88,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2024-09-30",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 3,
-    "value": 19.54,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2024-09-30",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 3,
-    "value": 20.88,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2024-09-30",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 3,
-    "value": 19.54,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2024-09-30",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 3,
-    "value": 20.88,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2024-09-30",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 3,
-    "value": 19.54,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2024-09-30",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 3,
-    "value": -4.19,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2024-09-30",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 3,
-    "value": -67.78,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2024-09-30",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 3,
-    "value": 189.08,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2024-09-30",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 3,
-    "value": -2.79,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Current Ratio",
-    "period_end_date": "2024-12-31",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 4,
-    "value": 1.42,
-    "unit": "ratio"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Current Ratio",
-    "period_end_date": "2024-12-31",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 4,
-    "value": 1.42,
-    "unit": "ratio"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "FCF Margin",
-    "period_end_date": "2024-12-31",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 4,
-    "value": 15.5,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "FCF Margin",
-    "period_end_date": "2024-12-31",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 4,
-    "value": 15.5,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Free Cash Flow",
-    "period_end_date": "2024-12-31",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 4,
-    "value": 10047000000.0,
-    "unit": "currency"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Free Cash Flow",
-    "period_end_date": "2024-12-31",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 4,
-    "value": 10047000000.0,
-    "unit": "currency"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2024-12-31",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 4,
-    "value": 37.97,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Gross Margin",
-    "period_end_date": "2024-12-31",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 4,
-    "value": 37.97,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2024-12-31",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 4,
-    "value": 20.17,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Operating Margin",
-    "period_end_date": "2024-12-31",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 4,
-    "value": 20.17,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Revenue Growth YoY",
-    "period_end_date": "2024-12-31",
-    "fiscal_year": 2024,
-    "fiscal_quarter": 4,
-    "value": -3.36,
-    "unit": "percentage"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Current Ratio",
-    "period_end_date": "2025-03-31",
-    "fiscal_year": 2025,
-    "fiscal_quarter": 1,
-    "value": 1.32,
-    "unit": "ratio"
-  },
-  {
-    "ticker": "CAT",
-    "metric_name": "Current Ratio",
-    "period_end_date": "2025-03-31",
-    "fiscal_year": 2025,
-    "fiscal_quarter": 1,
-    "value": 1.32,
-    "unit": "ratio"
   }
 ]

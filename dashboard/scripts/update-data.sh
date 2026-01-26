@@ -16,10 +16,13 @@ mkdir -p "$PUBLIC_DIR/data"
 cp "$SUBMODULE_OUTPUT"/*.json "$PUBLIC_DIR/data/"
 echo "  - Copied $(ls -1 "$PUBLIC_DIR/data"/*.json 2>/dev/null | wc -l | tr -d ' ') JSON files to public/data/"
 
-# Copy dbt docs
+# Copy dbt docs from target folder (where dbt generates them)
 echo "Copying dbt docs..."
 mkdir -p "$PUBLIC_DIR/dbtdocs"
-cp -r "$SUBMODULE_OUTPUT/dbtdocs/"* "$PUBLIC_DIR/dbtdocs/"
+SUBMODULE_TARGET="$DASHBOARD_DIR/../submodules/analytics-engineering/target"
+cp "$SUBMODULE_TARGET/index.html" "$PUBLIC_DIR/dbtdocs/"
+cp "$SUBMODULE_TARGET/catalog.json" "$PUBLIC_DIR/dbtdocs/" 2>/dev/null || true
+cp "$SUBMODULE_TARGET/manifest.json" "$PUBLIC_DIR/dbtdocs/" 2>/dev/null || true
 echo "  - Copied dbt docs to public/dbtdocs/"
 
 # Copy images (from dashboard/images to public/images)
