@@ -1,126 +1,39 @@
-import type { CSSProperties } from 'react';
+import { EngravedScoreCard } from '../engraving/EngravedScoreCard';
+import type { ToneName } from '../engraving/palette';
+import { money } from '../charts/adapters';
+
+export type ScoreFormat = 'currency' | 'percentage' | 'ratio';
 
 interface ScoreCardProps {
   title: string;
-  value: number;
-  format?: 'currency' | 'percentage' | 'ratio' | 'number';
-  trend?: number;
-  trendLabel?: string;
-  size?: 'small' | 'medium' | 'large';
+  /** For 'percentage', pass the percent number (45.2 for 45.2%). */
+  value: number | null;
+  format: ScoreFormat;
+  period?: string | null;
+  tone?: ToneName;
+  trend?: number[];
+  delta?: string;
+  seed?: number;
+  drawDelay?: number;
 }
 
-export default function ScoreCard({
-  title,
-  value,
-  format = 'number',
-  trend,
-  trendLabel = 'vs prior year',
-  size = 'medium',
-}: ScoreCardProps) {
-  const formatValue = (val: number, fmt: string): string => {
-    switch (fmt) {
-      case 'currency':
-        return new Intl.NumberFormat('en-US', {
-          style: 'currency',
-          currency: 'USD',
-          notation: Math.abs(val) >= 1e9 ? 'compact' : 'standard',
-          maximumFractionDigits: 2,
-        }).format(val);
-      case 'percentage':
-        return `${(val * 100).toFixed(2)}%`;
-      case 'ratio':
-        return val.toFixed(2);
-      case 'number':
-      default:
-        return new Intl.NumberFormat('en-US', {
-          maximumFractionDigits: 2,
-        }).format(val);
-    }
-  };
+function formatScore(value: number, format: ScoreFormat): string {
+  if (format === 'currency') return money(value, 1);
+  if (format === 'percentage') return `${value.toFixed(2)}%`;
+  return value.toFixed(2);
+}
 
-  const getSizeStyles = () => {
-    switch (size) {
-      case 'small':
-        return { value: '1.75rem', title: '0.7rem' };
-      case 'large':
-        return { value: '2.5rem', title: '0.8rem' };
-      case 'medium':
-      default:
-        return { value: '2rem', title: '0.75rem' };
-    }
-  };
-
-  const sizeStyles = getSizeStyles();
-
-  const cardStyle: CSSProperties = {
-    background: 'white',
-    borderRadius: '6px',
-    padding: '0.5rem 0.75rem',
-    boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-    border: '1px solid #e0e0e0',
-    transition: 'all 0.2s',
-  };
-
-  const titleStyle: CSSProperties = {
-    fontSize: sizeStyles.title,
-    fontWeight: 600,
-    color: '#666',
-    margin: 0,
-    textTransform: 'uppercase',
-    letterSpacing: '0.5px',
-  };
-
-  const valueStyle: CSSProperties = {
-    fontSize: sizeStyles.value,
-    fontWeight: 700,
-    color: '#333',
-    margin: '0 0 0.15rem 0',
-    lineHeight: 1.1,
-  };
-
-  const trendStyle: CSSProperties = {
-    fontSize: '0.7rem',
-    color: trend && trend > 0 ? '#22c55e' : trend && trend < 0 ? '#ef4444' : '#666',
-    margin: 0,
-    display: 'flex',
-    alignItems: 'center',
-    gap: '0.25rem',
-  };
-
-  const getTrendIcon = () => {
-    if (!trend) return null;
-    if (trend > 0) return '↑';
-    if (trend < 0) return '↓';
-    return '→';
-  };
-
+export default function ScoreCard({ title, value, format, period, tone = 'violet', trend, delta, seed, drawDelay }: ScoreCardProps) {
   return (
-    <div
-      style={cardStyle}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
-        e.currentTarget.style.transform = 'translateY(-2px)';
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
-        e.currentTarget.style.transform = 'translateY(0)';
-      }}
-    >
-      <p style={valueStyle}>{formatValue(value, format)}</p>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        {trend !== undefined ? (
-          <p style={trendStyle}>
-            <span style={{ fontSize: '0.85rem' }}>{getTrendIcon()}</span>
-            <span>
-              {formatValue(Math.abs(trend), format === 'currency' ? 'currency' : 'percentage')}{' '}
-              {trendLabel}
-            </span>
-          </p>
-        ) : (
-          <span />
-        )}
-        <h3 style={titleStyle}>{title.replace(/^latest\s*/i, '')}</h3>
-      </div>
-    </div>
+    <EngravedScoreCard
+      label={title}
+      value={value === null ? '—' : formatScore(value, format)}
+      period={period ?? undefined}
+      tone={tone}
+      trend={trend}
+      delta={delta}
+      seed={seed}
+      drawDelay={drawDelay}
+    />
   );
 }

@@ -1,515 +1,375 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import './App.css';
 import Header from './components/Header';
-import Navigation from './components/Navigation';
+import Navigation, { type Page } from './components/Navigation';
 import Footer from './components/Footer';
 import ScoreCard from './components/ScoreCard';
-import StackedBarChart from './components/StackedBarChart';
-import SankeyDiagram from './components/SankeyDiagram';
 import QuarterlyDetail from './components/QuarterlyDetail';
+import { ChartPanel } from './charts/ChartPanel';
+import { EngravedBarChart, type BarSeries } from './engraving/EngravedBarChart';
+import { EngravedSankey } from './engraving/EngravedSankey';
+import { palette } from './engraving/palette';
+import {
+  accountByPeriod,
+  deltaNote,
+  incomeFlow,
+  latestPeriod,
+  metricByPeriod,
+  money,
+  shortPeriod,
+  stackedBars,
+  trendUpTo,
+  valueAt,
+} from './charts/adapters';
 import { useFinancialData } from './hooks/useFinancialData';
 
+const SEED = 7;
+
+// Bottom-to-top stacking order for each page's bar chart.
+const incomeSeries: BarSeries[] = [
+  { key: 'opex', label: 'Operating Expenses', tone: 'greyDeep' },
+  { key: 'cost', label: 'Cost of Revenue', tone: 'greyLight' },
+  { key: 'opInc', label: 'Operating Income', tone: 'violet' },
+];
+const balanceSeries: BarSeries[] = [
+  { key: 'liabilities', label: 'Total Liabilities', tone: 'greyDeep' },
+  { key: 'equity', label: 'Total Equity', tone: 'violet' },
+];
+const cashSeries: BarSeries[] = [
+  { key: 'capex', label: 'CapEx', tone: 'greyDeep' },
+  { key: 'fcf', label: 'Free Cash Flow', tone: 'violet' },
+];
+
+const pages: Page[] = ['income', 'balance', 'cashflow'];
+const initialPage = (): Page => {
+  const p = new URLSearchParams(window.location.search).get('page');
+  return pages.includes(p as Page) ? (p as Page) : 'income';
+};
+
+const legendFor = (series: BarSeries[]) => [...series].reverse().map((s) => ({ label: s.label, tone: s.tone }));
+
 function App() {
-  const [currentPage, setCurrentPage] = useState<'income' | 'balance' | 'cashflow'>('income');
-  const [selectedPeriod, setSelectedPeriod] = useState<string | null>(null);
-  const {
-    companies,
-    selectedCompany,
-    setSelectedTicker,
-    incomeStatement,
-    balanceSheet,
-    cashFlow,
-    financialMetrics,
-    loading,
-    error
-  } = useFinancialData();
+  const [currentPage, setCurrentPage] = useState<Page>(initialPage);
+  const [hoveredPeriod, setHoveredPeriod] = useState<string | null>(null);
+  // A clicked bar locks the period until it's clicked again (or Escape / click on empty chart).
+  const [lockedPeriod, setLockedPeriod] = useState<string | null>(null);
+  const { companies, selectedCompany, setSelectedTicker, incomeStatement, balanceSheet, cashFlow, financialMetrics, loading, error } =
+    useFinancialData();
 
-  // Helper to get the latest metric value by name
-  const getLatestMetric = (metricName: string) => {
-    const metrics = financialMetrics
-      .filter((m) => m.metric_name === metricName)
-      .sort((a, b) => new Date(b.period_end_date).getTime() - new Date(a.period_end_date).getTime());
-    return metrics[0] || null;
-  };
+  const metric = useMemo(
+    () => ({
+      grossMargin: metricByPeriod(financialMetrics, 'Gross Margin'),
+      operatingMargin: metricByPeriod(financialMetrics, 'Operating Margin'),
+      revenueGrowth: metricByPeriod(financialMetrics, 'Revenue Growth YoY'),
+      debtToEquity: metricByPeriod(financialMetrics, 'Debt to Equity'),
+      currentRatio: metricByPeriod(financialMetrics, 'Current Ratio'),
+      fcfMargin: metricByPeriod(financialMetrics, 'FCF Margin'),
+    }),
+    [financialMetrics],
+  );
 
-  // Helper to get metric by period (e.g., "2024 Q4")
-  const getMetricByPeriod = (metricName: string, period: string | null) => {
-    if (!period) return getLatestMetric(metricName);
+  const income = useMemo(() => {
+    const opex = accountByPeriod(incomeStatement, 'Operating Expenses');
+    const cost = accountByPeriod(incomeStatement, 'Cost of Revenue');
+    const opInc = accountByPeriod(incomeStatement, 'Operating Income');
+    return {
+      bars: stackedBars(incomeStatement, { opex: (p) => opex.get(p), cost: (p) => cost.get(p), opInc: (p) => opInc.get(p) }),
+      latest: latestPeriod(incomeStatement),
+    };
+  }, [incomeStatement]);
 
-    const [yearStr, quarterStr] = period.split(' ');
-    const year = parseInt(yearStr);
-    const quarter = parseInt(quarterStr.substring(1));
+  const balance = useMemo(() => {
+    const assets = accountByPeriod(balanceSheet, 'Total Assets');
+    const liabilities = accountByPeriod(balanceSheet, 'Total Liabilities');
+    return {
+      assets,
+      bars: stackedBars(balanceSheet, {
+        liabilities: (p) => liabilities.get(p),
+        equity: (p) => {
+          const a = assets.get(p);
+          const l = liabilities.get(p);
+          return a !== undefined && l !== undefined ? a - l : undefined;
+        },
+      }),
+      latest: latestPeriod(balanceSheet),
+    };
+  }, [balanceSheet]);
 
-    const metrics = financialMetrics
-      .filter((m) => m.metric_name === metricName && m.fiscal_year === year && m.fiscal_quarter === quarter)
-      .sort((a, b) => new Date(b.period_end_date).getTime() - new Date(a.period_end_date).getTime());
-    return metrics[0] || null;
-  };
+  const cash = useMemo(() => {
+    const ocf = accountByPeriod(cashFlow, 'Operating Cash Flow');
+    const capex = accountByPeriod(cashFlow, 'CapEx');
+    const fcf = new Map<string, number>();
+    for (const [p, v] of ocf) fcf.set(p, v - Math.abs(capex.get(p) ?? 0));
+    const capexAbs = new Map(Array.from(capex, ([p, v]) => [p, Math.abs(v)]));
+    return {
+      ocf,
+      capex: capexAbs,
+      fcf,
+      bars: stackedBars(cashFlow, { capex: (p) => capexAbs.get(p), fcf: (p) => fcf.get(p) }),
+      latest: latestPeriod(cashFlow),
+    };
+  }, [cashFlow]);
 
-  // Get most recent period from income statement data
-  const getMostRecentIncomePeriod = () => {
-    if (incomeStatement.length === 0) return null;
-    const periods = Array.from(new Set(incomeStatement.map(d => `${d.fiscal_year} Q${d.fiscal_quarter}`))).sort();
-    return periods[periods.length - 1];
-  };
+  const dteLine = useMemo(
+    () => ({ label: 'Debt-to-Equity', values: Object.fromEntries(metric.debtToEquity), color: palette.accent }),
+    [metric.debtToEquity],
+  );
 
   if (loading) {
     return (
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh' }}>
-        <p style={{ fontSize: '1.2rem', color: '#666' }}>Loading financial data...</p>
+      <div className="site-status">
+        <p>Loading financial data…</p>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh', flexDirection: 'column' }}>
-        <p style={{ fontSize: '1.2rem', color: '#ef4444', marginBottom: '1rem' }}>Error loading data</p>
-        <p style={{ fontSize: '0.9rem', color: '#666' }}>{error.message}</p>
+      <div className="site-status">
+        <p className="site-status-error">Error loading data</p>
+        <p>{error.message}</p>
       </div>
     );
   }
 
+  // Replay the drawing when the page or company changes.
+  const drawKey = `${currentPage}-${selectedCompany?.ticker ?? ''}`;
+  const latestFor = { income: income.latest, balance: balance.latest, cashflow: cash.latest }[currentPage];
+  const period = lockedPeriod ?? hoveredPeriod ?? latestFor;
+
+  const kpiDelay = (i: number) => 400 + i * 180;
+  /** Value + its actual period (falls back to the latest earlier period if this one is missing). */
+  const card = (series: Map<string, number>) => valueAt(series, period);
+
   return (
-    <div style={{ minHeight: '100vh', background: '#e5e5e5', padding: '0' }}>
-      <div className="page-container">
-        <Header selectedCompany={selectedCompany} />
-        <Navigation
-          currentPage={currentPage}
-          onNavigate={(page) => setCurrentPage(page as 'income' | 'balance' | 'cashflow')}
-          companies={companies}
-          selectedCompany={selectedCompany}
-          onCompanyChange={setSelectedTicker}
-        />
+    <div className="site">
+      <Header />
+      <Navigation
+        currentPage={currentPage}
+        onNavigate={(p) => {
+          setCurrentPage(p);
+          setHoveredPeriod(null);
+          setLockedPeriod(null);
+          const url = new URL(window.location.href);
+          url.searchParams.set('page', p);
+          window.history.replaceState(null, '', url);
+        }}
+        companies={companies}
+        selectedCompany={selectedCompany}
+        onCompanyChange={(t) => {
+          setSelectedTicker(t);
+          setLockedPeriod(null);
+        }}
+      />
 
-        <main className="responsive-container" style={{ paddingTop: '1.5rem', paddingBottom: '2rem' }}>
-        {currentPage === 'income' && incomeStatement.length > 0 && (
-          <div>
-            {(() => {
-              // Get the active period (selected or most recent)
-              const activePeriod = selectedPeriod || getMostRecentIncomePeriod();
+      <main className="site-main" key={drawKey}>
+        {currentPage === 'income' && (
+          <>
+            <section className="kpi-row">
+              <ScoreCard
+                title="Gross Margin"
+                {...card(metric.grossMargin)}
+                format="percentage"
 
-              // Get metrics for the active period
-              const grossMargin = getMetricByPeriod('Gross Margin', activePeriod);
-              const operatingMargin = getMetricByPeriod('Operating Margin', activePeriod);
-              const revenueGrowth = getMetricByPeriod('Revenue Growth YoY', activePeriod);
+                trend={trendUpTo(metric.grossMargin, period)}
+                delta={deltaNote(metric.grossMargin, period, 'pts')}
+                seed={41}
+                drawDelay={kpiDelay(0)}
+              />
+              <ScoreCard
+                title="Operating Margin"
+                {...card(metric.operatingMargin)}
+                format="percentage"
 
-              // Group by period and calculate totals for bar chart
-              const periodMap = new Map();
+                trend={trendUpTo(metric.operatingMargin, period)}
+                delta={deltaNote(metric.operatingMargin, period, 'pts')}
+                seed={50}
+                drawDelay={kpiDelay(1)}
+              />
+              <ScoreCard
+                title="Revenue Growth YoY"
+                {...card(metric.revenueGrowth)}
+                format="percentage"
 
-              incomeStatement.forEach(d => {
-                const periodKey = `${d.fiscal_year} Q${d.fiscal_quarter}`;
+                trend={trendUpTo(metric.revenueGrowth, period)}
+                delta={deltaNote(metric.revenueGrowth, period, 'pts')}
+                seed={59}
+                drawDelay={kpiDelay(2)}
+              />
+            </section>
 
-                if (!periodMap.has(periodKey)) {
-                  periodMap.set(periodKey, {
-                    period_end_date: d.period_end_date,
-                    fiscal_year: d.fiscal_year,
-                    fiscal_quarter: d.fiscal_quarter,
-                    operatingIncome: 0,
-                    costOfRevenue: 0,
-                    operatingExpenses: 0
-                  });
-                }
-
-                const period = periodMap.get(periodKey);
-
-                // Take max absolute value (the total/summary row, not granular items)
-                if (d.gl_account === 'Operating Income') {
-                  if (Math.abs(d.amount) > Math.abs(period.operatingIncome)) {
-                    period.operatingIncome = d.amount;
-                  }
-                } else if (d.gl_account === 'Cost of Revenue') {
-                  if (Math.abs(d.amount) > Math.abs(period.costOfRevenue)) {
-                    period.costOfRevenue = d.amount;
-                  }
-                } else if (d.gl_account === 'Operating Expenses') {
-                  if (Math.abs(d.amount) > Math.abs(period.operatingExpenses)) {
-                    period.operatingExpenses = d.amount;
-                  }
-                }
-              });
-
-              // Convert to array format expected by StackedBarChart
-              // Order matters: items are stacked from bottom to top in the order they appear
-              const chartData: typeof incomeStatement = [];
-              periodMap.forEach((period) => {
-                if (period.operatingExpenses > 0) {
-                  chartData.push({
-                    gl_number: 6000,
-                    gl_account: 'Operating Expenses',
-                    period_end_date: period.period_end_date,
-                    fiscal_year: period.fiscal_year,
-                    fiscal_quarter: period.fiscal_quarter,
-                    amount: period.operatingExpenses
-                  });
-                }
-                if (period.costOfRevenue > 0) {
-                  chartData.push({
-                    gl_number: 4010,
-                    gl_account: 'Cost of Revenue',
-                    period_end_date: period.period_end_date,
-                    fiscal_year: period.fiscal_year,
-                    fiscal_quarter: period.fiscal_quarter,
-                    amount: period.costOfRevenue
-                  });
-                }
-                if (period.operatingIncome > 0) {
-                  chartData.push({
-                    gl_number: 9000,
-                    gl_account: 'Operating Income',
-                    period_end_date: period.period_end_date,
-                    fiscal_year: period.fiscal_year,
-                    fiscal_quarter: period.fiscal_quarter,
-                    amount: period.operatingIncome
-                  });
-                }
-              });
-
-              return (
-                <>
-                  {/* Scorecards - dynamic based on selected period */}
-                  <div className="scorecard-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem', marginBottom: '2rem' }}>
-                    <ScoreCard
-                      title={`Gross Margin${activePeriod ? ` (${activePeriod})` : ''}`}
-                      value={(grossMargin?.value ?? 0) / 100}
-                      format="percentage"
-                    />
-                    <ScoreCard
-                      title={`Operating Margin${activePeriod ? ` (${activePeriod})` : ''}`}
-                      value={(operatingMargin?.value ?? 0) / 100}
-                      format="percentage"
-                    />
-                    <ScoreCard
-                      title={`Revenue Growth YoY${activePeriod ? ` (${activePeriod})` : ''}`}
-                      value={(revenueGrowth?.value ?? 0) / 100}
-                      format="percentage"
-                    />
-                  </div>
-
-                  {/* Stacked Bar Chart with Quarterly Detail */}
-                  <div className="chart-detail-row" style={{ marginBottom: '2rem', display: 'flex', gap: '1.5rem', alignItems: 'stretch' }}>
-                    <div style={{ flex: '2', background: 'white', borderRadius: '8px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)', padding: '1.5rem', minHeight: '400px', boxSizing: 'border-box' }}>
-                      <StackedBarChart
-                        data={chartData}
-                        width={600}
-                        height={340}
-                        colors={['#d4a017', '#f4c430', '#5a4a8a']}
-                        onPeriodHover={setSelectedPeriod}
-                      />
-                    </div>
-                    <div style={{ flex: '1' }}>
-                      <QuarterlyDetail
-                        data={incomeStatement}
-                        selectedPeriod={selectedPeriod}
-                      />
-                    </div>
-                  </div>
-
-                  {/* Sankey Diagram */}
-                  <div style={{ marginBottom: '2rem', background: 'white', borderRadius: '8px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
-                    <SankeyDiagram
-                      data={incomeStatement}
-                      selectedPeriod={selectedPeriod}
-                      width={1000}
-                      height={167}
-                    />
-                  </div>
-                </>
-              );
-            })()}
-          </div>
-        )}
-
-        {currentPage === 'balance' && balanceSheet.length > 0 && (
-          <div>
-            {/* Two-column layout: Left (scorecards + chart) and Right (quarterly detail) */}
-            <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start', marginBottom: '2rem' }}>
-              {/* Left column: Scorecards + Bar Chart */}
-              {(() => {
-                // Get the most recent period from balance sheet data
-                const getMostRecentBalancePeriod = () => {
-                  const periods = Array.from(new Set(balanceSheet.map(d => `${d.fiscal_year} Q${d.fiscal_quarter}`))).sort();
-                  return periods[periods.length - 1];
-                };
-
-                // Get the active period (selected or most recent)
-                const activePeriod = selectedPeriod || getMostRecentBalancePeriod();
-
-                // Parse active period for filtering
-                const [activeYear, activeQuarterStr] = activePeriod ? activePeriod.split(' ') : ['', ''];
-                const activeYearNum = parseInt(activeYear);
-                const activeQuarterNum = parseInt(activeQuarterStr?.substring(1) || '0');
-
-                // Get Total Assets for the active period
-                const activePeriodData = balanceSheet.filter(
-                  d => d.fiscal_year === activeYearNum && d.fiscal_quarter === activeQuarterNum
-                );
-                const totalAssetsValue = activePeriodData.find(d => d.gl_account === 'Total Assets')?.amount ?? 0;
-
-                // Get metrics for active period, falling back to most recent if not available
-                const debtToEquityMetric = getMetricByPeriod('Debt to Equity', activePeriod) || getLatestMetric('Debt to Equity');
-
-                // Aggregate balance sheet data into Equity and Liabilities for bar chart
-                const periodMap = new Map();
-
-                balanceSheet.forEach(d => {
-                  const periodKey = `${d.fiscal_year} Q${d.fiscal_quarter}`;
-
-                  if (!periodMap.has(periodKey)) {
-                    periodMap.set(periodKey, {
-                      period_end_date: d.period_end_date,
-                      fiscal_year: d.fiscal_year,
-                      fiscal_quarter: d.fiscal_quarter,
-                      totalAssets: 0,
-                      totalLiabilities: 0,
-                      totalEquity: 0
-                    });
-                  }
-
-                  const period = periodMap.get(periodKey);
-
-                  // Use the total accounts from actual data
-                  if (d.gl_account === 'Total Assets') {
-                    period.totalAssets = d.amount;
-                  } else if (d.gl_account === 'Total Liabilities') {
-                    period.totalLiabilities = d.amount;
-                  }
-                });
-
-                // Calculate equity as Assets - Liabilities for each period
-                periodMap.forEach((period) => {
-                  period.totalEquity = period.totalAssets - period.totalLiabilities;
-                });
-
-                // Convert to array format for StackedBarChart
-                const chartData: typeof balanceSheet = [];
-                periodMap.forEach((period) => {
-                  if (period.totalLiabilities > 0) {
-                    chartData.push({
-                      gl_number: 2000,
-                      gl_account: 'Total Liabilities',
-                      period_end_date: period.period_end_date,
-                      fiscal_year: period.fiscal_year,
-                      fiscal_quarter: period.fiscal_quarter,
-                      amount: period.totalLiabilities
-                    });
-                  }
-                  if (period.totalEquity > 0) {
-                    chartData.push({
-                      gl_number: 3000,
-                      gl_account: 'Total Equity',
-                      period_end_date: period.period_end_date,
-                      fiscal_year: period.fiscal_year,
-                      fiscal_quarter: period.fiscal_quarter,
-                      amount: period.totalEquity
-                    });
-                  }
-                });
-
-                // Build debt-to-equity line data from financial metrics
-                const debtToEquityData = financialMetrics
-                  .filter(m => m.metric_name === 'Debt to Equity')
-                  .map(m => ({
-                    period: `${m.fiscal_year} Q${m.fiscal_quarter}`,
-                    value: m.value
-                  }))
-                  .sort((a, b) => a.period.localeCompare(b.period));
-
-                return (
-                  <div style={{ flex: '2' }}>
-                    {/* Scorecard Row */}
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem', marginBottom: '1.5rem' }}>
-                      <ScoreCard
-                        title={`Total Assets${activePeriod ? ` (${activePeriod})` : ''}`}
-                        value={totalAssetsValue}
-                        format="currency"
-                      />
-                      <ScoreCard
-                        title={`Debt-to-Equity${activePeriod ? ` (${activePeriod})` : ''}`}
-                        value={debtToEquityMetric?.value ?? 0}
-                        format="ratio"
-                      />
-                    </div>
-                    {/* Bar Chart */}
-                    <div style={{ background: 'white', borderRadius: '8px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)', padding: '1.5rem', height: '640px', boxSizing: 'border-box' }}>
-                      <StackedBarChart
-                        data={chartData}
-                        width={600}
-                        height={580}
-                        colors={['#f4c430', '#5a4a8a']}
-                        onPeriodHover={setSelectedPeriod}
-                        lineOverlay={debtToEquityData.length > 0 ? {
-                          data: debtToEquityData,
-                          color: '#ef4444',
-                          label: 'Debt-to-Equity'
-                        } : undefined}
-                      />
-                    </div>
-                  </div>
-                );
-              })()}
-              {/* Right column: Quarterly Detail - height matches scorecards + margin + bar chart */}
-              <div style={{ flex: '1', height: '740px' }}>
-                <QuarterlyDetail
-                  data={balanceSheet}
-                  selectedPeriod={selectedPeriod}
+            <section className="chart-row">
+              <ChartPanel title="Revenue Composition" legend={legendFor(incomeSeries)}>
+                <EngravedBarChart
+                  data={income.bars}
+                  series={incomeSeries}
+                  seed={SEED}
+                  height={440}
+                  formatValue={(v) => money(v)}
+                  formatLabel={shortPeriod}
+                  onHoverLabel={setHoveredPeriod}
+                  selectedLabel={lockedPeriod}
+                  onSelectLabel={setLockedPeriod}
                 />
-              </div>
-            </div>
+              </ChartPanel>
+              <QuarterlyDetail title="Quarterly Breakdown" data={incomeStatement} period={period} emphasize={['Revenue', 'Operating Income']} />
+            </section>
 
-            {/* Data Table */}
-          </div>
+            {period && (
+              <section className="flow-row">
+                {(() => {
+                  const flow = incomeFlow(incomeStatement, period);
+                  return (
+                    <ChartPanel title={`Income Flow — ${period}`} seed={23}>
+                      {flow ? (
+                        <EngravedSankey nodes={flow.nodes} links={flow.links} seed={SEED} formatValue={(v) => money(v)} />
+                      ) : (
+                        <p className="panel-empty">No revenue reported for {period}.</p>
+                      )}
+                    </ChartPanel>
+                  );
+                })()}
+              </section>
+            )}
+          </>
         )}
 
-        {currentPage === 'cashflow' && cashFlow.length > 0 && (
-          <div>
-            {/* Two-column layout: Left (scorecards + chart) and Right (quarterly detail) */}
-            <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start', marginBottom: '2rem' }}>
-              {/* Left column: Scorecards + Bar Chart */}
-              {(() => {
-                // Get the most recent period from cash flow data
-                const getMostRecentCashFlowPeriod = () => {
-                  const periods = Array.from(new Set(cashFlow.map(d => `${d.fiscal_year} Q${d.fiscal_quarter}`))).sort();
-                  return periods[periods.length - 1];
-                };
+        {currentPage === 'balance' && (
+          <>
+            <section className="kpi-row">
+              <ScoreCard
+                title="Total Assets"
+                {...card(balance.assets)}
+                format="currency"
 
-                // Get the active period (selected or most recent)
-                const activePeriod = selectedPeriod || getMostRecentCashFlowPeriod();
+                trend={trendUpTo(balance.assets, period)}
+                delta={deltaNote(balance.assets, period, 'pct')}
+                seed={41}
+                drawDelay={kpiDelay(0)}
+              />
+              <ScoreCard
+                title="Debt-to-Equity"
+                {...card(metric.debtToEquity)}
+                format="ratio"
+                tone="greyDeep"
 
-                // Parse active period for filtering
-                const [activeYear, activeQuarterStr] = activePeriod ? activePeriod.split(' ') : ['', ''];
-                const activeYearNum = parseInt(activeYear);
-                const activeQuarterNum = parseInt(activeQuarterStr?.substring(1) || '0');
+                trend={trendUpTo(metric.debtToEquity, period)}
+                delta={deltaNote(metric.debtToEquity, period, 'abs')}
+                seed={50}
+                drawDelay={kpiDelay(1)}
+              />
+              <ScoreCard
+                title="Current Ratio"
+                {...card(metric.currentRatio)}
+                format="ratio"
 
-                // Get values for the active period
-                const activePeriodData = cashFlow.filter(
-                  d => d.fiscal_year === activeYearNum && d.fiscal_quarter === activeQuarterNum
-                );
-                const operatingCashFlowValue = activePeriodData.find(d => d.gl_account === 'Operating Cash Flow')?.amount ?? 0;
-                const capExValue = activePeriodData.find(d => d.gl_account === 'CapEx')?.amount ?? 0;
-                const freeCashFlow = operatingCashFlowValue - capExValue;
+                trend={trendUpTo(metric.currentRatio, period)}
+                delta={deltaNote(metric.currentRatio, period, 'abs')}
+                seed={59}
+                drawDelay={kpiDelay(2)}
+              />
+            </section>
 
-                // Get FCF Margin for active period
-                const fcfMarginMetric = getMetricByPeriod('FCF Margin', activePeriod);
-
-                // Build chart data with Operating Cash Flow, CapEx, and Proceeds from Sale of P&E
-                const periodMap = new Map();
-
-                cashFlow.forEach(d => {
-                  const periodKey = `${d.fiscal_year} Q${d.fiscal_quarter}`;
-
-                  if (!periodMap.has(periodKey)) {
-                    periodMap.set(periodKey, {
-                      period_end_date: d.period_end_date,
-                      fiscal_year: d.fiscal_year,
-                      fiscal_quarter: d.fiscal_quarter,
-                      operating: 0,
-                      capex: 0,
-                      proceeds: 0
-                    });
-                  }
-
-                  const period = periodMap.get(periodKey);
-
-                  if (d.gl_account === 'Operating Cash Flow') {
-                    period.operating = d.amount;
-                  } else if (d.gl_account === 'CapEx') {
-                    period.capex = d.amount;
-                  } else if (d.gl_account === 'Proceeds from Sale of Plant and Equipment') {
-                    period.proceeds = d.amount;
-                  }
-                });
-
-                // Convert to array format for StackedBarChart
-                const chartData: typeof cashFlow = [];
-                periodMap.forEach((period) => {
-                  // Stack: Proceeds (bottom), CapEx (middle), Operating (top)
-                  if (period.proceeds !== 0) {
-                    chartData.push({
-                      gl_number: 7220,
-                      gl_account: 'Proceeds from Sale of P&E',
-                      period_end_date: period.period_end_date,
-                      fiscal_year: period.fiscal_year,
-                      fiscal_quarter: period.fiscal_quarter,
-                      amount: Math.abs(period.proceeds)
-                    });
-                  }
-                  if (period.capex !== 0) {
-                    chartData.push({
-                      gl_number: 7210,
-                      gl_account: 'CapEx',
-                      period_end_date: period.period_end_date,
-                      fiscal_year: period.fiscal_year,
-                      fiscal_quarter: period.fiscal_quarter,
-                      amount: Math.abs(period.capex)
-                    });
-                  }
-                  if (period.operating !== 0) {
-                    chartData.push({
-                      gl_number: 7100,
-                      gl_account: 'Operating Cash Flow',
-                      period_end_date: period.period_end_date,
-                      fiscal_year: period.fiscal_year,
-                      fiscal_quarter: period.fiscal_quarter,
-                      amount: period.operating
-                    });
-                  }
-                });
-
-                return (
-                  <div style={{ flex: '2' }}>
-                    {/* 2x2 Scorecard Grid */}
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem', marginBottom: '1.5rem' }}>
-                      <ScoreCard
-                        title={`Operating Cash Flow${activePeriod ? ` (${activePeriod})` : ''}`}
-                        value={operatingCashFlowValue}
-                        format="currency"
-                      />
-                      <ScoreCard
-                        title={`Free Cash Flow${activePeriod ? ` (${activePeriod})` : ''}`}
-                        value={freeCashFlow}
-                        format="currency"
-                      />
-                      <ScoreCard
-                        title={`FCF Margin${activePeriod ? ` (${activePeriod})` : ''}`}
-                        value={(fcfMarginMetric?.value ?? 0) / 100}
-                        format="percentage"
-                      />
-                      <ScoreCard
-                        title={`CapEx${activePeriod ? ` (${activePeriod})` : ''}`}
-                        value={capExValue}
-                        format="currency"
-                      />
-                    </div>
-                    {/* Bar Chart */}
-                    <div style={{ background: 'white', borderRadius: '8px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)', padding: '1.5rem', height: '550px', boxSizing: 'border-box' }}>
-                      <StackedBarChart
-                        data={chartData}
-                        width={600}
-                        height={490}
-                        colors={['#d4a017', '#f4c430', '#5a4a8a']}
-                        onPeriodHover={setSelectedPeriod}
-                      />
-                    </div>
-                  </div>
-                );
-              })()}
-              {/* Right column: Quarterly Detail - height matches scorecards + margin + bar chart */}
-              <div style={{ flex: '1', height: '740px' }}>
-                <QuarterlyDetail
-                  data={cashFlow}
-                  selectedPeriod={selectedPeriod}
+            <section className="chart-row">
+              <ChartPanel
+                title="Capital Structure"
+                legend={[...legendFor(balanceSeries), { label: 'Debt-to-Equity', lineColor: palette.accent }]}
+              >
+                <EngravedBarChart
+                  data={balance.bars}
+                  series={balanceSeries}
+                  seed={SEED}
+                  height={500}
+                  formatValue={(v) => money(v)}
+                  formatLabel={shortPeriod}
+                  onHoverLabel={setHoveredPeriod}
+                  selectedLabel={lockedPeriod}
+                  onSelectLabel={setLockedPeriod}
+                  lineOverlay={dteLine}
                 />
-              </div>
-            </div>
-
-            {/* Data Table */}
-          </div>
+              </ChartPanel>
+              <QuarterlyDetail
+                title="Balance Sheet Detail"
+                data={balanceSheet}
+                period={period}
+                emphasize={['Total Assets', 'Total Liabilities']}
+              />
+            </section>
+          </>
         )}
-        </main>
 
-        <Footer dataSource={selectedCompany?.data_source} />
-      </div>
+        {currentPage === 'cashflow' && (
+          <>
+            <section className="kpi-row">
+              <ScoreCard
+                title="Operating Cash Flow"
+                {...card(cash.ocf)}
+                format="currency"
+
+                trend={trendUpTo(cash.ocf, period)}
+                delta={deltaNote(cash.ocf, period, 'pct')}
+                seed={41}
+                drawDelay={kpiDelay(0)}
+              />
+              <ScoreCard
+                title="Free Cash Flow"
+                {...card(cash.fcf)}
+                format="currency"
+
+                trend={trendUpTo(cash.fcf, period)}
+                delta={deltaNote(cash.fcf, period, 'pct')}
+                seed={50}
+                drawDelay={kpiDelay(1)}
+              />
+              <ScoreCard
+                title="FCF Margin"
+                {...card(metric.fcfMargin)}
+                format="percentage"
+
+                trend={trendUpTo(metric.fcfMargin, period)}
+                delta={deltaNote(metric.fcfMargin, period, 'pts')}
+                seed={59}
+                drawDelay={kpiDelay(2)}
+              />
+              <ScoreCard
+                title="CapEx"
+                {...card(cash.capex)}
+                format="currency"
+                tone="greyDeep"
+
+                trend={trendUpTo(cash.capex, period)}
+                delta={deltaNote(cash.capex, period, 'pct')}
+                seed={68}
+                drawDelay={kpiDelay(3)}
+              />
+            </section>
+
+            <section className="chart-row">
+              <ChartPanel title="Operating Cash Flow: CapEx + Free Cash Flow" legend={legendFor(cashSeries)}>
+                <EngravedBarChart
+                  data={cash.bars}
+                  series={cashSeries}
+                  seed={SEED}
+                  height={440}
+                  formatValue={(v) => money(v)}
+                  formatLabel={shortPeriod}
+                  onHoverLabel={setHoveredPeriod}
+                  selectedLabel={lockedPeriod}
+                  onSelectLabel={setLockedPeriod}
+                />
+              </ChartPanel>
+              <QuarterlyDetail
+                title="Cash Flow Detail"
+                data={cashFlow}
+                period={period}
+                emphasize={['Operating Cash Flow', 'Net Change in Cash']}
+              />
+            </section>
+          </>
+        )}
+      </main>
+
+      <Footer dataSource={selectedCompany?.data_source} lastUpdated={selectedCompany?.last_updated} />
     </div>
   );
 }
