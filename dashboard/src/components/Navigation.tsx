@@ -1,134 +1,49 @@
-import type { CSSProperties } from 'react';
+import { HandRule } from '../engraving/HandRule';
+import { HandSelect, HandTabs } from '../engraving/HandNav';
 import type { Company } from '../types/financial';
 
+export type Page = 'income' | 'balance' | 'cashflow';
+
+const tabs: { key: Page; label: string }[] = [
+  { key: 'income', label: 'Income Statement' },
+  { key: 'balance', label: 'Balance Sheet' },
+  { key: 'cashflow', label: 'Cash Flow' },
+];
+
 interface NavigationProps {
-  currentPage?: 'income' | 'balance' | 'cashflow';
-  onNavigate?: (page: string) => void;
+  currentPage: Page;
+  onNavigate: (page: Page) => void;
   companies: Company[];
   selectedCompany: Company | null;
   onCompanyChange: (ticker: string) => void;
 }
 
-export default function Navigation({ currentPage = 'income', onNavigate, companies, selectedCompany, onCompanyChange }: NavigationProps) {
-  const navStyle: CSSProperties = {
-    background: '#f8f9fa',
-    borderBottom: '1px solid #e0e0e0',
-    padding: '0',
-  };
-
-  const containerStyle: CSSProperties = {
-    display: 'flex',
-    gap: '0',
-  };
-
-  const getNavItemStyle = (isActive: boolean): CSSProperties => ({
-    padding: '1rem 2rem',
-    background: isActive ? 'white' : 'transparent',
-    border: 'none',
-    borderBottom: isActive ? '3px solid #667eea' : '3px solid transparent',
-    cursor: 'pointer',
-    fontSize: '0.95rem',
-    fontWeight: isActive ? 600 : 400,
-    color: isActive ? '#667eea' : '#666',
-    transition: 'all 0.2s',
-    textDecoration: 'none',
-    display: 'inline-block',
-  });
-
-  const handleClick = (page: string) => {
-    if (onNavigate) {
-      onNavigate(page);
-    }
-  };
-
+export default function Navigation({ currentPage, onNavigate, companies, selectedCompany, onCompanyChange }: NavigationProps) {
   return (
-    <nav style={navStyle}>
-      <div className="responsive-container" style={containerStyle}>
-        <button
-          style={getNavItemStyle(currentPage === 'income')}
-          onClick={() => handleClick('income')}
-          onMouseEnter={(e) => {
-            if (currentPage !== 'income') {
-              e.currentTarget.style.background = 'rgba(102, 126, 234, 0.05)';
-            }
-          }}
-          onMouseLeave={(e) => {
-            if (currentPage !== 'income') {
-              e.currentTarget.style.background = 'transparent';
-            }
-          }}
-        >
-          Income Statement
-        </button>
-        <button
-          style={getNavItemStyle(currentPage === 'balance')}
-          onClick={() => handleClick('balance')}
-          onMouseEnter={(e) => {
-            if (currentPage !== 'balance') {
-              e.currentTarget.style.background = 'rgba(102, 126, 234, 0.05)';
-            }
-          }}
-          onMouseLeave={(e) => {
-            if (currentPage !== 'balance') {
-              e.currentTarget.style.background = 'transparent';
-            }
-          }}
-        >
-          Balance Sheet
-        </button>
-        <button
-          style={getNavItemStyle(currentPage === 'cashflow')}
-          onClick={() => handleClick('cashflow')}
-          onMouseEnter={(e) => {
-            if (currentPage !== 'cashflow') {
-              e.currentTarget.style.background = 'rgba(102, 126, 234, 0.05)';
-            }
-          }}
-          onMouseLeave={(e) => {
-            if (currentPage !== 'cashflow') {
-              e.currentTarget.style.background = 'transparent';
-            }
-          }}
-        >
-          Cash Flow
-        </button>
-        <select
-          value={selectedCompany?.ticker || ''}
-          onChange={(e) => onCompanyChange(e.target.value)}
-          style={{
-            marginLeft: 'auto',
-            padding: '1rem 2rem',
-            fontSize: '0.95rem',
-            border: 'none',
-            background: 'transparent',
-            color: '#666',
-            cursor: 'pointer',
-            fontWeight: 400,
-          }}
-        >
-          {companies.map((company) => (
-            <option key={company.ticker} value={company.ticker}>
-              {company.ticker} - {company.company_name}
-            </option>
-          ))}
-        </select>
-        <a
-          href={`${import.meta.env.BASE_URL}dbtdocs/index.html`}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            ...getNavItemStyle(false),
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.background = 'rgba(102, 126, 234, 0.05)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.background = 'transparent';
-          }}
-        >
-          Docs
-        </a>
-      </div>
-    </nav>
+    <>
+      <nav className="site-nav">
+        <HandTabs tabs={tabs} active={currentPage} onChange={onNavigate} drawDelay={150} />
+        <div className="site-nav-right">
+          <a className="site-docs-link" href={`${import.meta.env.BASE_URL}dbtdocs/index.html`} target="_blank" rel="noopener noreferrer">
+            Docs ↗
+          </a>
+          {companies.length > 0 && (
+            <HandSelect
+              label="Company"
+              value={selectedCompany?.ticker ?? ''}
+              onChange={onCompanyChange}
+              options={companies.map((c) => ({ value: c.ticker, label: `${titleCase(c.company_name)} (${c.ticker})` }))}
+              drawDelay={500}
+            />
+          )}
+        </div>
+      </nav>
+      <HandRule seed={5} opacity={0.32} drawDelay={300} />
+    </>
   );
+}
+
+/** "CATERPILLAR INC" -> "Caterpillar Inc" */
+function titleCase(s: string) {
+  return s.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase());
 }

@@ -1,151 +1,54 @@
-import type { CSSProperties } from 'react';
+import { WobblyPanel } from '../engraving/WobblyPanel';
+import { HandRule } from '../engraving/HandRule';
+import { money, periodKey } from '../charts/adapters';
 import type { FinancialDataPoint } from '../types/financial';
 
 interface QuarterlyDetailProps {
+  title: string;
   data: FinancialDataPoint[];
-  selectedPeriod: string | null;
+  period: string | null;
+  /** Accounts rendered bold with a rule above (subtotals). */
+  emphasize?: string[];
 }
 
-export default function QuarterlyDetail({ data, selectedPeriod }: QuarterlyDetailProps) {
-  const formatCurrency = (val: number): string => {
-    const absVal = Math.abs(val);
-    if (absVal >= 1e9) return `$${(val / 1e9).toFixed(2)}B`;
-    if (absVal >= 1e6) return `$${(val / 1e6).toFixed(2)}M`;
-    if (absVal >= 1e3) return `$${(val / 1e3).toFixed(2)}K`;
-    return `$${val.toFixed(2)}`;
-  };
-
-  // Get the most recent quarter if no period is selected
-  const getMostRecentPeriod = (): string | null => {
-    if (data.length === 0) return null;
-
-    // Extract all unique periods
-    const periods = Array.from(new Set(data.map(d => `${d.fiscal_year} Q${d.fiscal_quarter}`))).sort();
-
-    // Return the last period (most recent)
-    return periods[periods.length - 1];
-  };
-
-  const displayPeriod = selectedPeriod || getMostRecentPeriod();
-
-  const containerStyle: CSSProperties = {
-    background: 'white',
-    borderRadius: '8px',
-    padding: '1.5rem',
-    boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
-    minHeight: '400px',
-    height: '100%',
-    boxSizing: 'border-box',
-    overflowY: 'auto',
-  };
-
-  const titleStyle: CSSProperties = {
-    marginTop: 0,
-    marginBottom: '1rem',
-    fontSize: '0.9rem',
-    fontWeight: 600,
-    color: '#666',
-    textTransform: 'uppercase',
-    letterSpacing: '0.5px',
-  };
-
-  const tableStyle: CSSProperties = {
-    width: '100%',
-    borderCollapse: 'collapse',
-    fontSize: '0.85rem',
-  };
-
-  const thStyle: CSSProperties = {
-    textAlign: 'left',
-    padding: '0.5rem 0.25rem',
-    borderBottom: '2px solid #e0e0e0',
-    fontWeight: 600,
-    color: '#333',
-    fontSize: '0.75rem',
-    textTransform: 'uppercase',
-    letterSpacing: '0.5px',
-  };
-
-  const tdStyle: CSSProperties = {
-    padding: '0.5rem 0.25rem',
-    borderBottom: '1px solid #f0f0f0',
-    color: '#333',
-  };
-
-  const amountStyle: CSSProperties = {
-    textAlign: 'right',
-    fontWeight: 500,
-  };
-
-  const emptyStyle: CSSProperties = {
-    textAlign: 'center',
-    color: '#999',
-    padding: '2rem',
-    fontSize: '0.9rem',
-  };
-
-  if (!displayPeriod) {
-    return (
-      <div style={containerStyle}>
-        <h4 style={titleStyle}>Quarter Details</h4>
-        <div style={emptyStyle}>No data available</div>
-      </div>
-    );
-  }
-
-  // Parse the period string (e.g., "2024 Q1")
-  const [year, quarterStr] = displayPeriod.split(' ');
-  const quarter = parseInt(quarterStr.substring(1));
-
-  // Filter data for the selected period and aggregate by gl_account
-  const periodData = data.filter(
-    d => d.fiscal_year === parseInt(year) && d.fiscal_quarter === quarter
-  );
-
-  // Get the max amount per gl_account (the total/summary row, not granular line items)
-  const aggregatedMap = new Map<string, { gl_number: number; gl_account: string; amount: number }>();
-  periodData.forEach(item => {
-    const existing = aggregatedMap.get(item.gl_account);
-    if (existing) {
-      // Take the larger absolute value (handles both positive and negative amounts)
-      if (Math.abs(item.amount) > Math.abs(existing.amount)) {
-        existing.amount = item.amount;
+export default function QuarterlyDetail({ title, data, period, emphasize = [] }: QuarterlyDetailProps) {
+  // One row per account: the largest absolute amount (summary row, not line items).
+  const rows = new Map<string, { gl_number: number; gl_account: string; amount: number }>();
+  if (period) {
+    for (const d of data) {
+      if (periodKey(d) !== period) continue;
+      const prev = rows.get(d.gl_account);
+      if (!prev || Math.abs(d.amount) > Math.abs(prev.amount)) {
+        rows.set(d.gl_account, { gl_number: d.gl_number, gl_account: d.gl_account, amount: d.amount });
       }
-    } else {
-      aggregatedMap.set(item.gl_account, {
-        gl_number: item.gl_number,
-        gl_account: item.gl_account,
-        amount: item.amount
-      });
     }
-  });
-
-  // Convert to array and sort by gl_number
-  const aggregatedData = Array.from(aggregatedMap.values()).sort((a, b) => a.gl_number - b.gl_number);
+  }
+  const sorted = Array.from(rows.values()).sort((a, b) => a.gl_number - b.gl_number);
 
   return (
-    <div style={containerStyle}>
-      <h4 style={titleStyle}>{displayPeriod}</h4>
-      {aggregatedData.length === 0 ? (
-        <div style={emptyStyle}>No data available for this period</div>
-      ) : (
-        <table style={tableStyle}>
-          <thead>
-            <tr>
-              <th style={thStyle}>Account</th>
-              <th style={{ ...thStyle, ...amountStyle }}>Amount</th>
-            </tr>
-          </thead>
-          <tbody>
-            {aggregatedData.map((item, idx) => (
-              <tr key={idx}>
-                <td style={tdStyle}>{item.gl_account}</td>
-                <td style={{ ...tdStyle, ...amountStyle }}>{formatCurrency(item.amount)}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
-    </div>
+    <WobblyPanel seed={61} padding="20px 22px" castShadow={6} drawDelay={600} style={{ height: '100%' }}>
+      <div className="detail">
+        <h3 className="detail-title">{title}</h3>
+        <div className="detail-period">{period ?? '—'}</div>
+        {sorted.length === 0 ? (
+          <p className="detail-empty">No data for this period</p>
+        ) : (
+          <ul className="detail-rows">
+            {sorted.map((r, i) => {
+              const strong = emphasize.includes(r.gl_account);
+              return (
+                <li key={r.gl_account} className={strong ? 'detail-row detail-row-strong' : 'detail-row'}>
+                  {strong && i > 0 && <HandRule seed={70 + i} opacity={0.35} />}
+                  <div className="detail-row-inner">
+                    <span>{r.gl_account}</span>
+                    <span className="detail-amount">{money(r.amount, 2)}</span>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        )}
+      </div>
+    </WobblyPanel>
   );
 }
