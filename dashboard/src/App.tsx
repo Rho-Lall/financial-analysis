@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/Header';
 import Navigation, { type Page } from './components/Navigation';
 import Footer from './components/Footer';
+import LineageButton from './components/LineageButton';
 import ScoreCard from './components/ScoreCard';
 import QuarterlyDetail from './components/QuarterlyDetail';
 import { ChartPanel } from './charts/ChartPanel';
@@ -27,16 +28,16 @@ const SEED = 7;
 
 // Bottom-to-top stacking order for each page's bar chart.
 const incomeSeries: BarSeries[] = [
-  { key: 'opex', label: 'Operating Expenses', tone: 'greyDeep' },
-  { key: 'cost', label: 'Cost of Revenue', tone: 'greyLight' },
+  { key: 'opex', label: 'Operating Expenses', tone: 'ash' },
+  { key: 'cost', label: 'Cost of Revenue', tone: 'offWhite' },
   { key: 'opInc', label: 'Operating Income', tone: 'violet' },
 ];
 const balanceSeries: BarSeries[] = [
-  { key: 'liabilities', label: 'Total Liabilities', tone: 'greyDeep' },
+  { key: 'liabilities', label: 'Total Liabilities', tone: 'offWhite' },
   { key: 'equity', label: 'Total Equity', tone: 'violet' },
 ];
 const cashSeries: BarSeries[] = [
-  { key: 'capex', label: 'CapEx', tone: 'greyDeep' },
+  { key: 'capex', label: 'CapEx', tone: 'offWhite' },
   { key: 'fcf', label: 'Free Cash Flow', tone: 'violet' },
 ];
 
@@ -251,7 +252,7 @@ function App() {
                 title="Debt-to-Equity"
                 {...card(metric.debtToEquity)}
                 format="ratio"
-                tone="greyDeep"
+                tone="ash"
 
                 trend={trendUpTo(metric.debtToEquity, period)}
                 delta={deltaNote(metric.debtToEquity, period, 'abs')}
@@ -335,7 +336,7 @@ function App() {
                 title="CapEx"
                 {...card(cash.capex)}
                 format="currency"
-                tone="greyDeep"
+                tone="ash"
 
                 trend={trendUpTo(cash.capex, period)}
                 delta={deltaNote(cash.capex, period, 'pct')}
@@ -370,6 +371,7 @@ function App() {
       </main>
 
       <Footer dataSource={selectedCompany?.data_source} lastUpdated={selectedCompany?.last_updated} />
+      <LineageButton />
     </div>
   );
 }

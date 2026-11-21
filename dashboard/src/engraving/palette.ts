@@ -120,6 +120,29 @@ const toneDefs = {
     accent: '#5A5A6A',
     glow: { color: palette.gold, opacity: 0.07, rim: 0.7 },
   },
+  /**
+   * Ash grey with a gold glow: column base. Mid-light so it never competes with
+   * the violet top; told apart from the off-white shaft mainly by its denser
+   * cross-hatching.
+   */
+  ash: {
+    wash: { color: '#B8B4AD', opacity: 0.42 },
+    layers: [
+      { angle: 48, gap: 3.8, weight: 0.85, color: '#6F6A63', opacity: 0.62 },
+      { angle: -42, gap: 5.4, weight: 0.75, color: '#8A857D', opacity: 0.5 },
+    ],
+    shadowColor: shadow.ink,
+    accent: '#8A857D',
+    glow: { color: palette.gold, opacity: 0.05, rim: 0.65 },
+  },
+  /** Off-white with a gold glow: tall column shaft. Sparse single hatch, so it reads as paper. */
+  offWhite: {
+    wash: { color: '#F6F3EC', opacity: 0.85 },
+    layers: [{ angle: 40, gap: 7.5, weight: 0.7, color: '#A8A196', opacity: 0.55 }],
+    shadowColor: shadow.ink,
+    accent: '#C9C2B6',
+    glow: { color: palette.gold, opacity: 0.05, rim: 0.65 },
+  },
   /** Light grey with a gold glow: column shaft. */
   greyLight: {
     wash: { color: '#C9CBD6', opacity: 0.26 },
